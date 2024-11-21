@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Selectors</title>
+	<link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+<p>1. Universal selector - applied for p.This selector is applicable for all p in .html. Weight 1</p>
+
+<div>
+	<p>2.Apllied for all children p of parent element div. Weight 2</p>
+	<p>2.Apllied for all children p of parent element div. Weight 2</p>
+</div>
+
+<p>3. Applied for specific order of elements, when the second element is just behind the first element. Weight 2</p>
+
+<div>
+	<a href="http://dummylink.com/page1">4. Attribute selector ^, applied to all a href which start with http://. Weight 11</a>
+</div>
+
+<div>
+	<a href="http://dummylink.com/page2">4. Attribute selector ^, applied to all a href which start with http://. Weight 11</a>
+</div>
+
+<div>
+	<a style="background-color: black;" href="http://dummylink.com/page3">5. Inline style, applied for this element. Weight 1000</a>
+</div>
+
+<div>
+	<p class="testimportant" style="background-color: black;">6. !important applied in this case for specific class. Selector !important is the strongest and override any other. Considered to be a bad practice. No weight explicit, but can be (?) considered 10010 </p>
+</div>
+
+<p id="highprio">7. Id selector. Weight 100</p>
+
+<div class="withchild">
+	<p>8. Applied for all p in div with specific class. Weight 11</p>
+	<p>8. Applied for all p in div with specific class. Weight 11</p>
+</div>
+
+<ul>
+	<li>9. Applied for chosen pseudo-class. Weight 12</li>
+	<li>9. Applied "standard" browser style, any specific style is not defined. The smallest weight</li>
+	<li>9. Applied "standard" browser style, any specific style is not defined.The smallest weight</li>
+</ul>
+
+<section>
+	<h1>10. Pseudo-element first letter (1) applied for h1 in section. Weight 3. The rest of the text with "standard" browser style, any specific style is not defined.</h1>
+</section>
+
+</body>
+</html>
