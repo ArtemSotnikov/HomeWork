@@ -1,0 +1,41 @@
+* p {
+    background-color: aqua;
+}
+
+div > p {
+    background-color: red;
+}
+
+div + p {
+    background-color: #f6f0ff;
+}
+
+a[href^="http://"] {
+    background-color: #fff200;
+}
+
+.testimportant {
+    background-color: blueviolet !important;
+}
+
+#highprio {
+    background-color: forestgreen;
+}
+
+div.withchild p {
+    background-color: dodgerblue;
+}
+
+ul li:first-child {
+    background-color: darkorange;
+}
+
+section h1::first-letter {
+    background-color: sandybrown;
+}
+
+
+
+
+
+
