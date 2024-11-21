@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DHC Digital Twins</title>
+</head>
+<body>
+
+<a href="../index.html">Home</a>
+<a href="about.html">About</a>
+<a href="dt1.html">Digital Twin 1</a>
+<a href="dt2.html">Digital Twin 2</a>
+<a href="gallery.html">Gallery</a>
+
+<h1>Digital Twin of PV system</h1>
+
+<form action="/submit-inputs" method="post">
+	<fieldset>
+		<legend><b>Inputs</b></legend>
+
+		<div>
+			<label for="desc">Description</label>
+			<input type="text" id="desc" name="CaseDescription">
+		</div>
+
+		<div>
+			<label>Location</label>
+			<input type="radio" name="Location" value="Kiew"> Kiew
+			<input type="radio" name="Location" value="Dnipro"> Dnipro
+			<input type="radio" name="Location" value="Lviv"> Lviv
+			<input type="radio" name="Location" value="Odessa"> Odessa
+		</div>
+
+		<div>
+			<input type="checkbox" name="radiation" value="no"> Include radiation in calculation
+		</div>
+
+		<div>
+			<label for="pv">PV Size</label>
+			<input type="text" id="pv" name="PVSize"> m2
+		</div>
+
+		<div>
+			<label for="dem">Total Demand</label>
+			<input type="text" id="dem" name="Demand"> kWh
+		</div>
+	</fieldset>
+
+	<fieldset>
+		<legend><b>Sent Results to</b></legend>
+
+		<div>
+			<label for="email">e-mail:</label>
+			<input type="email" id="email" name="email">
+		</div>
+	</fieldset>
+
+	<input type="submit" value="Upload">
+</form>
+
+<form action="/results" method="get">
+	<fieldset>
+		<legend><b>Outputs</b></legend>
+
+		<div>
+			<label for="prod">Total PV Production</label>
+			<input type="text" id="prod" name="Production"> kWh
+		</div>
+
+		<div>
+			<label for="ecol">Total CO2 reduction</label>
+			<input type="text" id="ecol" name="CO2Reduction"> kg of CO2
+		</div>
+	</fieldset>
+</form>
+
+</body>
+</html>
