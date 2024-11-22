@@ -10,8 +10,16 @@ body {
 }
 
 a[href$=".html"] {
-    color: blue;
+    color: darkblue;
     text-decoration: none;
+    margin: 5px;
+}
+
+/*Local anchors have different ending, therefore, specified additionally.*/
+a.localanchors {
+    color: darkblue;
+    text-decoration: none;
+    margin: 5px;
 }
 
 h1 {
@@ -26,3 +34,31 @@ h2 {
 h3 {
     font-style: italic;
 }
+
+.importantinfo {
+    text-transform: uppercase;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+p {
+    line-height: 1.7;
+    text-indent: 25px;
+}
+
+li {
+    line-height: 1.7;
+}
+
+div.introduction {
+    width: 350px;
+    text-align: justify;
+}
+
+div.contacts {
+    width: 200px;
+   background-color: cadetblue;
+}
+
