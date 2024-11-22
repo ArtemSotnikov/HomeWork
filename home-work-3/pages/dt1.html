@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>DHC Digital Twins</title>
 	<link href="../style.css" rel="stylesheet">
+	<link href="inputsstyle.css" rel="stylesheet">
 </head>
 <body>
 
@@ -15,7 +16,7 @@
 
 <h1>Digital Twin of PV system</h1>
 
-<form action="/submit-inputs" method="post">
+<form class="inputsclient" action="/submit-inputs" method="post">
 	<fieldset>
 		<legend><b>Inputs</b></legend>
 
@@ -57,10 +58,10 @@
 		</div>
 	</fieldset>
 
-	<input type="submit" value="Upload">
+	<input class="submitbuttons" type="submit" value="Upload">
 </form>
 
-<form action="/results" method="get">
+<form class="outputsforclients" action="/results" method="get">
 	<fieldset>
 		<legend><b>Outputs</b></legend>
 

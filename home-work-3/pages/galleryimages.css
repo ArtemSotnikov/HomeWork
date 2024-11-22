@@ -1,0 +1,26 @@
+.imagecont1 {
+    margin: 10px;
+    width: 640px;
+    height: 115px;
+    background-color: azure;
+}
+
+.imagegallery1 {
+    width: 200px;
+    height: 100px;
+    margin: 5px;
+}
+
+.imagecont2 {
+    margin: 10px;
+    width: 640px;
+    height: 215px;
+    background-color: azure;
+}
+
+.imagegallery2 {
+    width: 200px;
+    height: 200px;
+    margin: 5px;
+
+}

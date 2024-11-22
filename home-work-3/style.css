@@ -1,37 +1,28 @@
 * {
     font-family: Arial, Tahoma, sans-serif;
     font-size: 16px;
-
 }
 
 body {
+    width: 660px;
     margin: 20px;
-    background-color: gray;
+    background-color: lightgray;
 }
 
-.imagecont1 {
-    margin: 10px;
-    width: 640px;
-    height: 115px;
-    background-color: sandybrown;
+a[href$=".html"] {
+    color: blue;
+    text-decoration: none;
 }
 
-.imagegallery1 {
-    width: 200px;
-    height: 100px;
-    margin: 5px;
+h1 {
+    color: darkblue;
 }
 
-.imagecont2 {
-    margin: 10px;
-    width: 640px;
-    height: 215px;
-    background-color: darkorange;
+h2 {
+    font-style: italic;
+
 }
 
-.imagegallery2 {
-    width: 200px;
-    height: 200px;
-    margin: 5px;
-
+h3 {
+    font-style: italic;
 }

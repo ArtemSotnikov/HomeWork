@@ -1,0 +1,19 @@
+fieldset {
+    width: 400px;
+    margin: 10px;
+}
+
+form.inputsclient {
+    background-color: azure;
+    width: 450px;
+}
+
+form.outputsforclients {
+    background-color: aqua;
+    width: 450px;
+}
+
+input.submitbuttons {
+    color: darkgray;
+    font-weight: bold;
+}
