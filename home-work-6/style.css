@@ -9,22 +9,94 @@
 }
 
 .tablemondrian1 {
-    border: 4px solid black;
+    border: 16px solid black;
     border-collapse: collapse;
 }
 
 .tablemondrian1 td {
-    border: 4px solid black;
+    border: 16px solid black;
     border-collapse: collapse;
 }
 
 .tablemondrian2 {
-    border: 4px solid black;
+    border: 16px solid black;
     border-top: 0;
     border-collapse: collapse;
 }
 
-/*.tablemondrian2 td {*/
-/*    border: 2px solid black;*/
-/*    border-collapse: collapse;*/
-/*}*/
+.tablemondrian2 td {
+    border: 16px solid black;
+    border-top: 0;
+    border-collapse: collapse;
+}
+
+.cell1O {
+    background-color: red;
+    height: 250px;
+}
+
+.cell1D {
+    background-color: yellow;
+    width: 246px;
+    height: 84px;
+}
+
+.cell1G {
+    background-color: yellow;
+}
+
+.cell1M {
+    background-color: black;
+    width: 180px;
+}
+
+.cell2A {
+    background-color: yellow;
+    width: 80px;
+}
+
+.cell2H {
+    background-color: black;
+}
+
+.cell2F {
+    background-color: blue;
+    width: 246px;
+}
+
+.cell2B {
+    background-color: red;
+}
+
+td {
+    width: 39px;
+    height: 39px;
+}
+
+.cell1B {
+    height: 84px;
+}
+
+.cell1C {
+    width: 200px;
+    height: 84px;
+}
+
+.cell1E {
+    height: 170px;
+}
+
+.cell1F {
+    height: 230px;
+    width: 80px;
+}
+
+.cell2C {
+    background-color: black;
+    height: 85px;
+    width: 190px;
+}
+
+.cell2E {
+    width: 200px;
+}
