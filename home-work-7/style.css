@@ -1,0 +1,44 @@
+body {
+    text-align: justify;
+}
+
+.sitemenu {
+    background-color: silver;
+    width: 700px;
+}
+
+.introduction {
+    width: 400px;
+}
+
+span.figurref {
+    text-transform: uppercase;
+    color: darkgreen;
+}
+
+span.autorref {
+    font-style: italic;
+    height: 10px;
+}
+
+/*TODO: Needs to be removed as soon as reference link is checked.*/
+span.temporarycheck {
+    background-color: lightgray;
+    padding: 0 50px;
+}
+
+div.image {
+    background-color: cadetblue;
+    width: 700px;
+    height: 500px;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.mainbody {
+    width: 700px;
+}
+
+.wikiref {
+    text-decoration: underline;
+}
