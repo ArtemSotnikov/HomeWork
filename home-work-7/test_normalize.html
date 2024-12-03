@@ -3,16 +3,97 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Test normalize</title>
+
+	<link href="style.css" rel="stylesheet">
+	<link href="normalize.css" rel="stylesheet">
 </head>
 <body>
 
-<a href="index.html">Div and span</a>
-<a href="test_reset.html">Test reset</a>
-<a href="test_normalize.html">Test normalize</a>
-<a href="display_box_sizing.html">Display and box-sizing</a>
-<a href="float_clean.html">Float and clean</a>
-<a href="overflow.html">Overflow</a>
-<a href="positioning.html">Positioning</a>
+<div class="sitemenu">
+	<a href="index.html">Div and span</a>
+	<a href="test_reset.html">Test reset</a>
+	<a href="test_normalize.html">Test normalize</a>
+	<a href="display_box_sizing.html">Display and box-sizing</a>
+	<a href="float_clean.html">Float and clean</a>
+	<a href="overflow.html">Overflow</a>
+	<a href="positioning.html">Positioning</a>
+</div>
+
+<p><strong>"Normalize.css" shall unify styles for different browsers, and it is much simpler than "reset.css" (see
+		description of "reset.css"). It means that instead of all styles "normalize.css" resets only specific for
+		given browsers styles. For example in this case this "p" remains bold, and only body margin was reset.</strong>
+</p>
+
+<div class="introduction">
+	<h1>District Heating and Cooling</h1>
+	<p>
+		Thermal networks are essential for the energy transition and decarbonization of the building stock.
+		The integration of renewable energies into thermal networks requires a rethinking of conventional concepts.
+	</p>
+</div>
+
+<div class="mainbody">
+	<h2 class="warning" title="one of possible approaches">
+		District Heating and Cooling Temperature Classification</h2>
+	<p>
+		In <span class="figurref"><strong>Figure</strong></span> below the classification proposed by
+		<span class="autorref temporarycheck">Lund et al.</span> has been described, to provide clear,
+		unambiguous, and user-friendly descriptions for the application of 'generations' terminology.
+		This classification is widely used and recognized internationally, both by academics and professionals in the field.
+	</p>
+</div>
+
+<div class="image">
+	<img src="assets/images/lund-classifiaction.png" alt="District heating classification">
+	<p>
+		<span class="figurref">Figure</span>: Classification of DHC networks according to operation temperature
+		in the distribution system. <span class="autorref temporarycheck">Lund et al.</span>
+	</p>
+</div>
+
+<div class="mainbody">
+	<ul>
+		<li>Second generation (supply temperature from 30°C to 60°C): Heat can be supplied directly for space heating.
+			For DHW, the temperature must usually be increased, for example, using a HP.
+			In order to cool the building a cooling system is required and excess heat is not reused.
+			Heat losses along the network are in the range 3–7 % of heat supplied.
+			Energy requested for pumping is around 1–2 % of heat supplied.
+		</li>
+		<li>Third generation (supply temperature from 20°C to 30°C): Heat cannot be supplied directly for space heating
+			and DHW; a HP is required. In order to cool the building, a cooling system is required,
+			but the heat produced is directly injected into the network and can be reused.
+			Heat losses along the network are lower than 3 % of heat supplied.
+			Energy requested for pumping is around 1–2 % of heat supplied.
+		</li>
+		<li>Fourth generation (Supply temperature lower than 20°C): Heat cannot be supplied directly for space heating
+			and DHW; a HP is required. The network temperatures could be also appropriate for direct cooling
+			of the building by means of a heat exchanger (i.e. without a cooling machine). Excess heat is injected and reused.
+			Heat losses along the network are negligible. Energy requested for pumping is around 2–3 % of heat supplied.
+		</li>
+	</ul>
+</div>
+
+<div class="wikiref">
+	<h2 id="dtDesc">Digital Twin &copy;Wikipedia</h2>
+	<p>
+		A digital twin is a digital model of an intended or actual real-world physical product, system, or process
+		(a physical twin) that serves as the effectively indistinguishable digital counterpart of it for practical purposes,
+		such as simulation, integration, testing, monitoring, and maintenance. A digital twin is set of adaptive models
+		that emulate the behaviour of a physical system in a virtual system getting real time data to update itself
+		along its life cycle. The digital twin replicates the physical system to predict failures and
+		opportunities for changing, to prescribe real time actions for optimizing and/or mitigating unexpected events
+		observing and evaluating the operating profile system. Though the concept originated earlier
+		(as a natural aspect of computer simulation generally), the first practical definition of a digital twin originated
+		from NASA in an attempt to improve the physical-model simulation of spacecraft in 2010.
+		Digital twins are the result of continual improvement in modeling and engineering.
+		In the 2010s and 2020s, manufacturing industries began moving beyond digital product definition to extending
+		the digital twin concept to the entire manufacturing process. Doing so allows the benefits of virtualization
+		to be extended to domains such as inventory management including lean manufacturing, machinery crash avoidance,
+		tooling design, troubleshooting, and preventive maintenance. Digital twinning therefore allows extended reality
+		and spatial computing to be applied not just to the product itself but also to all of the business processes
+		that contribute toward its production.
+	</p>
+</div>
 
 </body>
 </html>
