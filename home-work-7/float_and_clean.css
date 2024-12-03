@@ -1,0 +1,26 @@
+.leftpos {
+    width: 100px;
+    height: 50px;
+    border: 5px solid black;
+    background-color: red;
+    float: left;
+}
+
+.centrpos {
+    border: 5px solid black;
+    width: 100px;
+    height: 50px;
+    float: left;
+}
+
+.rightpos {
+    border: 5px solid black;
+    width: 100px;
+    height: 50px;
+    background-color: darkgreen;
+    float: left;
+}
+
+.underfloats {
+    clear: left;
+}
