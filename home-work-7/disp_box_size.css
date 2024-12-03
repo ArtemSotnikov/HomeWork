@@ -1,0 +1,29 @@
+.toblock {
+    display: block;
+}
+
+.toinline {
+    display: inline;
+}
+
+.tonone {
+    display: none;
+}
+
+/*Calculates size of the content based on the given size of the box.*/
+.boxborder {
+    box-sizing: border-box;
+    width: 300px;
+    margin: 5px;
+    padding: 5px;
+    border: 10px solid black;
+}
+
+/*Calculates size of the box based on the given size of the content.*/
+.boxcontent {
+    box-sizing: content-box;
+    width: 300px;
+    margin: 5px;
+    padding: 5px;
+    border: 10px solid black;
+}
