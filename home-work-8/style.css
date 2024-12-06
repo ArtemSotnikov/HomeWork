@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: lightgray;
+    height: 70px;
+    margin: 10px;
+}
+
+.block {
+    width: 100px;
+    height: 50px;
+    background-color: gray;
+    margin: 10px;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
