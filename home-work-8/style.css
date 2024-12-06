@@ -22,3 +22,35 @@
 .right {
     float: right;
 }
+
+.containertop {
+    background-color: lightgray;
+    height: 70px;
+    margin-top: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.blocktop {
+    width: 100px;
+    height: 60px;
+    background-color: gray;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.containerbottom {
+    background-color: lightgray;
+    height: 70px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.blockbottom {
+    width: 100px;
+    height: 60px;
+    background-color: gray;
+    margin-top: 0px;
+    margin-right: 10px;
+}
