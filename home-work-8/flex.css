@@ -37,12 +37,13 @@
     gap: 400px;
 }
 
-.three-left {
-    justify-content: flex-end;
-}
+/*.left {*/
+/*    justify-content: flex-end;*/
+/*}*/
 
-.right {
-    margin-right: 190px;
+.left {
+    margin-right: 170px;
     /*align-self: self-end;*/
 }
+
 
