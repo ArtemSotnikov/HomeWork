@@ -7,7 +7,6 @@
     --secondary-color: #34547A;
     --text-descriptions-color: #727272;
     --text-white-color: #FFFFFF;
-;
 }
 
 body {
@@ -26,7 +25,6 @@ header {
     background-color: var(--main-color);
 }
 
-
 .menu {
     display: flex;
     padding-top: 79px;
@@ -38,7 +36,8 @@ header {
 }
 
 li {
-    list-style: none;
+    list-style-type: none;
+
 }
 
 .menu_item a {
@@ -166,7 +165,6 @@ h2 {
     max-width: 1150px;
     padding-inline: 20px;
     margin-inline: auto;
-    /*padding-block: 100px;*/
     display: flex;
     justify-content: center;
     padding-top: 0;
