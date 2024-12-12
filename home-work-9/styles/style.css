@@ -1,14 +1,16 @@
-:root {
-    --main-color: #EEEFF1;
-    --secondary-color: #34547A;
-}
-
 * {
     box-sizing: border-box;
 }
 
+:root {
+    --main-color: #EEEFF1;
+    --secondary-color: #34547A;
+    --text-descriptions-color: #727272;
+    --text-white-color: #FFFFFF;
+;
+}
+
 body {
-    /*min-width: 1150px;*/
     font-family: Roboto, sans-serif;
     letter-spacing: 0.1em;
 }
@@ -17,14 +19,13 @@ body {
     max-width: 1150px;
     padding-inline: 20px;
     margin-inline: auto;
-    padding-block: 100px;
+    padding-bottom: 141px;
 }
 
 header {
     background-color: var(--main-color);
 }
 .container_description {
-    /*background-color: var(--main-color);*/
     max-width: 1150px;
     padding-inline: 20px;
     margin-inline: auto;
@@ -32,7 +33,6 @@ header {
 }
 
 .container_projects {
-    /*background-color: var(--main-color);*/
     max-width: 1150px;
     padding-inline: 20px;
     margin-inline: auto;
@@ -40,7 +40,6 @@ header {
 }
 
 .container_video {
-    /*background-color: var(--main-color);*/
     max-width: 1150px;
     padding-inline: 20px;
     margin-inline: auto;
@@ -54,13 +53,9 @@ header {
     padding-block: 100px;
 }
 
-/*.header .container_container {*/
-/*    padding-block: 0 141px;*/
-/*}*/
-
 .menu {
     display: flex;
-    /*padding-top: 79px;*/
+    padding-top: 79px;
     gap: 42px;
     font-size: 16px;
     font-weight: 500;
@@ -74,6 +69,7 @@ li {
 
 .menu_item a {
     text-decoration: none;
+    color: black;
     font-weight: 400;
 }
 
@@ -86,7 +82,34 @@ h1 {
     font-weight: 500;
     line-height: 78.75px;
     letter-spacing: 0.01em;
+    padding-top: 162px;
+    margin-block: 0;
 }
+
+.text_header {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26.25px;
+    letter-spacing: 0.05em;
+    color: var(--text-descriptions-color);
+    max-width: 540px;
+    padding-top: 60px;
+    padding-bottom: 65px;
+}
+
+button {
+    background-color: var(--secondary-color);
+    color: var(--text-white-color);
+    font-size: 16px;
+    line-height: 26.25px;
+    font-weight: 400;
+    padding-top: 19px;
+    padding-bottom: 20px;
+    padding-inline: 41px;
+    border: 0;
+}
+
+
 
 /*.container_projects {*/
 /*    background-color: var(--secondary-color);*/
