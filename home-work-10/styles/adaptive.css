@@ -1,0 +1,14 @@
+/* Desktop first >1150px -> 900px -> 375px*/
+@media (max-width: 900px) {
+    :root {
+        --secondary-color: black;
+    }
+}
+
+@media (max-width: 600px) {
+
+}
+
+@media (max-width: 375px) {
+
+}
