@@ -1,12 +1,5 @@
-@use "_normalize.css";
-
-
-$main-color: #EEEFF1;
-$secondary-color: #34547A;
-$text-descriptions-color: #727272;
-$text-white-color: #FFFFFF;
-$main-text-size: 16px;
-$container-max-width: 1150px;
+@use "normalize";
+@use "variables" as *;
 
 //@mixin text($sd) {
 //
