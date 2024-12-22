@@ -1,0 +1,51 @@
+@use "variables" as *;
+@use "placeholders" as *;
+
+.container_header  {
+  @extend %padding-margin-inline;
+  max-width: $container-max-width;
+  padding-bottom: 141px;
+
+  .menu {
+    display: flex;
+    padding-top: 79px;
+    gap: 42px;
+    font-size: $main-text-size;
+    font-weight: 500;
+    line-height: 26.25px;
+    padding-inline: 0;
+
+    a {
+      text-decoration: none;
+      color: black;
+      font-weight: 400;
+
+      &:hover {
+        color: #34547A;
+      }
+    }
+  }
+
+  .text_header {
+    font-size: $main-text-size;
+    font-weight: 400;
+    line-height: 26.25px;
+    letter-spacing: 0.05em;
+    color: $text-descriptions-color;
+    max-width: 540px;
+    padding-top: 60px;
+    padding-bottom: 65px;
+  }
+
+  .contact_header {
+    background-color: $secondary-color;
+    color: $text-white-color;
+    font-size: $main-text-size;
+    line-height: 26.25px;
+    font-weight: 400;
+    padding-top: 19px;
+    padding-bottom: 20px;
+    padding-inline: 41px;
+    border: 0;
+  }
+}

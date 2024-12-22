@@ -1,0 +1,32 @@
+@use "variables" as *;
+@use "placeholders" as *;
+
+.container_projects {
+  @extend %padding-margin-inline;
+  max-width: $container-max-width;
+
+  .project_list {
+    display: flex;
+    color: $text-white-color;
+    gap: 49px;
+    padding-block: 100px;
+    margin-block: 0;
+
+    .project_item {
+      background: left no-repeat url("../images/project.png");
+      width: 141px;
+      height: 50px;
+      font-size: 21px;
+      line-height: 24.61px;
+      font-weight: 500;
+      padding-left: 70px;
+
+      .project_name {
+        font-size: $main-text-size;
+        letter-spacing: 0.05em;
+        line-height: 26.25px;
+        font-weight: 400;
+      }
+    }
+  }
+}

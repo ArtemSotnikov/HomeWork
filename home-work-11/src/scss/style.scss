@@ -1,14 +1,13 @@
 @use "normalize";
 @use "variables" as *;
+@use "placeholders" as *;
+@use "header";
+@use "projects";
+
 
 //@mixin text($sd) {
 //
 //}
-
-%padding-margin-inline {
-  padding-inline: 20px;
-  margin-inline: auto;
-}
 
 body {
   font-family: Roboto, sans-serif;
@@ -16,38 +15,12 @@ body {
   min-width: 1150px;
 }
 
-.container_header {
-  @extend %padding-margin-inline;
-  max-width: $container-max-width;
-  padding-bottom: 141px;
-}
-
 header {
   background-color: $main-color;
 }
 
-.menu {
-  display: flex;
-  padding-top: 79px;
-  gap: 42px;
-  font-size: $main-text-size;
-  font-weight: 500;
-  line-height: 26.25px;
-  padding-inline: 0;
-}
-
 li {
   list-style-type: none;
-}
-
-.menu_item a {
-  text-decoration: none;
-  color: black;
-  font-weight: 400;
-}
-
-.menu_item a:hover {
-  color: #34547A;
 }
 
 h1 {
@@ -59,34 +32,13 @@ h1 {
   margin-block: 0;
 }
 
-.text_header {
-  font-size: $main-text-size;
-  font-weight: 400;
-  line-height: 26.25px;
-  letter-spacing: 0.05em;
-  color: $text-descriptions-color;
-  max-width: 540px;
-  padding-top: 60px;
-  padding-bottom: 65px;
-}
-
-button {
-  background-color: $secondary-color;
-  color: $text-white-color;
-  font-size: $main-text-size;
-  line-height: 26.25px;
-  font-weight: 400;
-  padding-top: 19px;
-  padding-bottom: 20px;
-  padding-inline: 41px;
-  border: 0;
-}
-
 .container_description {
   @extend %padding-margin-inline;
   max-width: $container-max-width;
   padding-top: 112px;
   padding-bottom: 100px;
+
+
 }
 
 .description {
@@ -95,6 +47,14 @@ button {
   flex-direction: column;
   text-align: center;
   margin-inline: auto;
+
+  .text_description {
+    color: $text-descriptions-color;
+    font-size: $main-text-size;
+    font-weight: 400;
+    line-height: 26.25px;
+    letter-spacing: 0.05em;
+  }
 }
 
 h2 {
@@ -104,47 +64,10 @@ h2 {
   letter-spacing: 0.05em;
 }
 
-.text_description {
-  color: $text-descriptions-color;
-  font-size: $main-text-size;
-  font-weight: 400;
-  line-height: 26.25px;
-  letter-spacing: 0.05em;
-}
-
-.container_projects {
-  @extend %padding-margin-inline;
-  max-width: $container-max-width;
-}
-
 .container_pr_color {
   background-color: $secondary-color;
 }
 
-.project_list {
-  display: flex;
-  color: $text-white-color;
-  gap: 49px;
-  padding-block: 100px;
-  margin-block: 0;
-}
-
-.project_item {
-  background: left no-repeat url("../images/project.png");
-  width: 141px;
-  height: 50px;
-  font-size: 21px;
-  line-height: 24.61px;
-  font-weight: 500;
-  padding-left: 70px;
-}
-
-.project_name {
-  font-size: $main-text-size;
-  letter-spacing: 0.05em;
-  line-height: 26.25px;
-  font-weight: 400;
-}
 
 .container_info_video {
   @extend %padding-margin-inline;
@@ -176,6 +99,13 @@ iframe {
   @extend %padding-margin-inline;
   max-width: $container-max-width;
   padding-block: 50px;
+
+  .legal_note {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 21.33px;
+    letter-spacing: 0.05em;
+  }
 }
 
 footer {
@@ -190,11 +120,4 @@ h3 {
   letter-spacing: 0.05em;
   margin-block: 0;
   padding-bottom: 20px;
-}
-
-.legal_note {
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 21.33px;
-  letter-spacing: 0.05em;
 }
