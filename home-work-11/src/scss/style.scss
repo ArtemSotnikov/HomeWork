@@ -1,13 +1,10 @@
 @use "normalize";
 @use "variables" as *;
 @use "placeholders" as *;
+@use "mixin-media" as *;
 @use "header";
 @use "projects";
-
-
-//@mixin text($sd) {
-//
-//}
+@use  "adaptive";
 
 body {
   font-family: Roboto, sans-serif;
@@ -38,7 +35,13 @@ h1 {
   padding-top: 112px;
   padding-bottom: 100px;
 
+  @include for-width(laptop) {
+    max-width: $container-max-width-laptop;
+  }
 
+  @include for-width(mobile) {
+    max-width: $container-max-width-mobile;
+  }
 }
 
 .description {
@@ -54,6 +57,14 @@ h1 {
     font-weight: 400;
     line-height: 26.25px;
     letter-spacing: 0.05em;
+
+    @include for-width(laptop) {
+      font-size: $main-text-size-laptop;
+    }
+
+    @include for-width(mobile) {
+      font-size: $main-text-size-mobile;
+    }
   }
 }
 
@@ -75,6 +86,14 @@ h2 {
   padding-top: 100px;
   padding-bottom: 57px;
   text-align: center;
+
+  @include for-width(laptop) {
+    max-width: $container-max-width-laptop;
+  }
+
+  @include for-width(mobile) {
+    max-width: $container-max-width-mobile;
+  }
 }
 
 .container_info_video_color {
@@ -88,6 +107,14 @@ h2 {
   justify-content: center;
   padding-top: 0;
   padding-bottom: 100px;
+
+  @include for-width(laptop) {
+    max-width: $container-max-width-laptop;
+  }
+
+  @include for-width(mobile) {
+    max-width: $container-max-width-mobile;
+  }
 }
 
 iframe {
@@ -99,6 +126,14 @@ iframe {
   @extend %padding-margin-inline;
   max-width: $container-max-width;
   padding-block: 50px;
+
+  @include for-width(laptop) {
+    max-width: $container-max-width-laptop;
+  }
+
+  @include for-width(mobile) {
+    max-width: $container-max-width-mobile;
+  }
 
   .legal_note {
     font-size: 13px;

@@ -1,0 +1,40 @@
+/* Desktop first >1150px -> 800px -> 375px*/
+
+@media (max-width: 800px) {
+    body {
+        min-width: 800px;
+    }
+
+    .project_list {
+        flex-wrap: wrap;
+    }
+
+    .description {
+        text-align: justify;
+        margin-inline: 0;
+    }
+
+    iframe {
+        width: 790px;
+        height: 400px;
+    }
+}
+
+@media (max-width: 375px) {
+    body {
+        min-width: 375px;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+    }
+
+    .project_list {
+        display: none;
+    }
+
+    iframe {
+        width: 360px;
+        height: 180px;
+    }
+}

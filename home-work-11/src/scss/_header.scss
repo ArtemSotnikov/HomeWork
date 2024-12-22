@@ -1,10 +1,19 @@
 @use "variables" as *;
 @use "placeholders" as *;
+@use "mixin-media" as *;
 
 .container_header  {
   @extend %padding-margin-inline;
   max-width: $container-max-width;
   padding-bottom: 141px;
+
+  @include for-width(laptop) {
+    max-width: $container-max-width-laptop;
+  }
+
+  @include for-width(mobile) {
+    max-width: $container-max-width-mobile;
+  }
 
   .menu {
     display: flex;
@@ -14,6 +23,14 @@
     font-weight: 500;
     line-height: 26.25px;
     padding-inline: 0;
+
+    @include for-width(laptop) {
+      font-size: $main-text-size-laptop;
+    }
+
+    @include for-width(mobile) {
+      font-size: $main-text-size-mobile;
+    }
 
     a {
       text-decoration: none;
@@ -35,6 +52,14 @@
     max-width: 540px;
     padding-top: 60px;
     padding-bottom: 65px;
+
+    @include for-width(laptop) {
+      font-size: $main-text-size-laptop;
+    }
+
+    @include for-width(mobile) {
+      font-size: $main-text-size-mobile;
+    }
   }
 
   .contact_header {
@@ -47,5 +72,13 @@
     padding-bottom: 20px;
     padding-inline: 41px;
     border: 0;
+
+    @include for-width(laptop) {
+      font-size: $main-text-size-laptop;
+    }
+
+    @include for-width(mobile) {
+      font-size: $main-text-size-mobile;
+    }
   }
 }

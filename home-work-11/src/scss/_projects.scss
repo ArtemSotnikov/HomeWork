@@ -1,9 +1,18 @@
 @use "variables" as *;
 @use "placeholders" as *;
+@use "mixin-media" as *;
 
 .container_projects {
   @extend %padding-margin-inline;
   max-width: $container-max-width;
+
+  @include for-width(laptop) {
+    max-width: $container-max-width-laptop;
+  }
+
+  @include for-width(mobile) {
+    max-width: $container-max-width-mobile;
+  }
 
   .project_list {
     display: flex;
@@ -26,6 +35,14 @@
         letter-spacing: 0.05em;
         line-height: 26.25px;
         font-weight: 400;
+
+        @include for-width(laptop) {
+          font-size: $main-text-size-laptop;
+        }
+
+        @include for-width(mobile) {
+          font-size: $main-text-size-mobile;
+        }
       }
     }
   }

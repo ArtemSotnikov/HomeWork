@@ -1,0 +1,12 @@
+@mixin for-width($scr-width) {
+  @if  $scr-width == laptop {
+    @media (max-width: 800px) {
+      @content;
+    }
+  }
+  @else if $scr-width == mobile {
+    @media (max-width: 375px) {
+      @content;
+    }
+  }
+}

@@ -1,6 +1,14 @@
+@use "mixin-media" as *;
+
 $main-color: #EEEFF1;
 $secondary-color: #34547A;
 $text-descriptions-color: #727272;
 $text-white-color: #FFFFFF;
 $main-text-size: 16px;
 $container-max-width: 1150px;
+
+$main-text-size-laptop: 14px;
+$main-text-size-mobile: 12px;
+
+$container-max-width-laptop: 800px;
+$container-max-width-mobile: 375px;
