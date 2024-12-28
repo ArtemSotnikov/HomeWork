@@ -102,7 +102,7 @@
 				</div>
 			</div>
 			<div class="col-lg-6 col-md-8 col-sm-12 px-1 py-1">
-				<div class="border bg-primary">
+				<div class="bg-light">
 					<div class="accordion" id="accordionProjects">
 						<div class="accordion-item">
 							<h2 class="accordion-header" id="panelsStayOpen-headingOne">
@@ -171,8 +171,33 @@
 				</div>
 			</div>
 			<div class="col-lg-3 col-md-12 col-sm-12 px-1 py-1">
-				<div class="border bg-info">
-					Right
+				<div class="bg-light">
+					<form>
+						<div class="mb-3">
+							<label for="inputEmail" class="form-label"> <strong> Email address: </strong> </label>
+							<input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp">
+							<div id="emailHelp" class="form-text">Contact adress</div>
+						</div>
+						<div class="mb-3">
+							<label for="inputPassword" class="form-label"> <strong> Password </strong> </label>
+							<input type="password" class="form-control" id="inputPassword">
+						</div>
+						<div class="mb-3 form-check">
+							<input type="checkbox" class="form-check-input" id="check1">
+							<label class="form-check-label" for="check1">Stay log in</label>
+						</div>
+						<div class="mb-3">
+							<label for="textarea" class="form-label">Request information</label>
+							<textarea class="form-control" id="textarea" rows="3"></textarea>
+						</div>
+						<select class="form-select form-select-lg mb-3 text-center" aria-label=".form-select-lg example">
+							<option selected>Project #1</option>
+							<option value="1">Project #2</option>
+							<option value="2">Project #3</option>
+							<option value="3">Project #4</option>
+						</select>
+						<button type="submit" class="btn btn-primary">Submit data</button>
+					</form>
 				</div>
 			</div>
 		</div>
