@@ -4,12 +4,14 @@
 
 .container {
     background-color: #727272;
+    min-height: 100vh;
 }
 
 .grid {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 40px 20px 1fr 3fr;
+    /*grid-template-rows: 40px 20px 1fr 3fr;*/
+    grid-template-rows: 2fr 1fr 5fr 12fr;
 }
 
 .nav_bar {
@@ -24,6 +26,16 @@
     background-color: lightblue;
     }
 
+.main {
+    background-color: green;
+}
+
+.flex_main {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
 .flex_content {
     display: flex;
     justify-content: center;
@@ -31,38 +43,94 @@
     align-content: center;
 }
 
-.main {
-    background-color: green;
-}
-
-.grid_main {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 2fr 0.3fr 2fr;
-}
-
-.grid_features {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr;
-}
-
-.feature_1st {
+.feature_orange {
     background-color: #ffc400;
+    width: 33.33%;
+    height: 40%;
 }
 
-.feature_2nd {
+.feature_violet {
     background-color: mediumslateblue;
+    width: 33.33%;
+    height: 40%;
 }
 
-.feature_3rd {
+.feature_red {
     background-color: #ff7b69;
+    width: 33.33%;
+    height: 40%;
 }
 
 .registration {
     background-color: lightsteelblue;
+    width: 100%;
+    height: 20%;
 }
 
 .content {
     background-color: darkgray;
+    width: 100%;
+    height: 40%;
+}
+
+@media screen and (max-width: 768px) {
+    .grid {
+        grid-template-rows: 2fr 1fr 3.5fr 13.5fr;
+    }
+
+    .content {
+        order: -4;
+        width: 100%;
+        height: 50%;
+   }
+
+    .registration {
+        order:-3;
+        width: 50%;
+        height: 25%;
+    }
+
+    .feature_orange {
+        order: -2;
+        width: 50%;
+        height: 25%;
+    }
+
+    .feature_red {
+        order: -1;
+        width: 50%;
+        height: 25%;
+    }
+
+    .feature_violet {
+        width: 50%;
+        height: 25%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .content {
+        width: 100%;
+        height: 50%;
+    }
+
+    .registration {
+        width: 100%;
+        height: 12.5%;
+    }
+
+    .feature_orange {
+        width: 100%;
+        height: 12.5%;
+    }
+
+    .feature_red {
+        width: 100%;
+        height: 12.5%;
+    }
+
+    .feature_violet {
+        width: 100%;
+        height: 12.5%;
+    }
 }
