@@ -1,0 +1,68 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: #727272;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 40px 20px 1fr 3fr;
+}
+
+.nav_bar {
+    background-color: lightgray;
+}
+
+.above_header {
+    background-color: steelblue;
+}
+
+.header {
+    background-color: lightblue;
+    }
+
+.flex_content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.main {
+    background-color: green;
+}
+
+.grid_main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 0.3fr 2fr;
+}
+
+.grid_features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+}
+
+.feature_1st {
+    background-color: #ffc400;
+}
+
+.feature_2nd {
+    background-color: mediumslateblue;
+}
+
+.feature_3rd {
+    background-color: #ff7b69;
+}
+
+.registration {
+    background-color: lightsteelblue;
+}
+
+.content {
+    background-color: darkgray;
+}
