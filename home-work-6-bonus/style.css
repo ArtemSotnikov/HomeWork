@@ -3,12 +3,12 @@
 }
 
 :root {
-    --white-color: #aeabab; /*TODO: Change later to white*/
+    --white-color: #ffffff; /*TODO: Change later to white*/
     --yellow-color: #ffc400;
     --red-color: #ff0000;
     --black-color: #000000;
     --blue-color: #031c81;
-    --main-border: 6px solid var(--black-color);
+    --main-border: 7px solid var(--black-color);
 }
 
 .a {
@@ -138,8 +138,8 @@
 }
 
 .container {
-    width: 870px;
-    height: 870px;
+    width: 100vw;
+    height: 100vw;
     display: grid;
     grid-template-columns: repeat(24, 1fr);
     grid-template-rows: repeat(24, 1fr);
