@@ -79,7 +79,7 @@
 
 .n {
     grid-area: ncell;
-    background-color: var(--black-color);
+    background-color: var(--white-color);
     border: var(--main-border);
 }
 
@@ -141,34 +141,16 @@
     width: 100vw;
     height: 100vw;
     display: grid;
-    grid-template-columns: repeat(24, 1fr);
-    grid-template-rows: repeat(24, 1fr);
-    /*   1     2     3    4      5    6    7       8     9    10     11    12   13    14    15    16   17     18    19    20    21   22    23    24  */
+    grid-template-columns: 3fr 3fr 3fr 6fr 4fr 4fr 1fr;
+    grid-template-rows: 3fr 6fr 6fr 3fr 3fr 2fr 1fr;
+    /*   1     2     3    4      5    6    7  */
     grid-template-areas:
-    " bcell bcell bcell bcell bcell bcell ccell ccell ccell ccell ccell ccell ccell ccell ccell dcell dcell dcell dcell dcell dcell dcell dcell acell "
-    " bcell bcell bcell bcell bcell bcell ccell ccell ccell ccell ccell ccell ccell ccell ccell dcell dcell dcell dcell dcell dcell dcell dcell acell "
-    " bcell bcell bcell bcell bcell bcell ccell ccell ccell ccell ccell ccell ccell ccell ccell dcell dcell dcell dcell dcell dcell dcell dcell acell "
-    " ecell ecell ecell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell gcell gcell gcell gcell gcell gcell gcell gcell acell "
-    " ecell ecell ecell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell gcell gcell gcell gcell gcell gcell gcell gcell acell "
-    " ecell ecell ecell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell gcell gcell gcell gcell gcell gcell gcell gcell acell "
-    " ecell ecell ecell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell gcell gcell gcell gcell gcell gcell gcell gcell acell "
-    " ecell ecell ecell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell gcell gcell gcell gcell gcell gcell gcell gcell acell "
-    " ecell ecell ecell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell gcell gcell gcell gcell gcell gcell gcell gcell acell "
-    " fcell fcell fcell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell kcell kcell kcell kcell ncell ncell ncell ncell acell "
-    " fcell fcell fcell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell kcell kcell kcell kcell ncell ncell ncell ncell acell "
-    " fcell fcell fcell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell kcell kcell kcell kcell ncell ncell ncell ncell acell "
-    " fcell fcell fcell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell kcell kcell kcell kcell ncell ncell ncell ncell acell "
-    " fcell fcell fcell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell kcell kcell kcell kcell ncell ncell ncell ncell acell "
-    " fcell fcell fcell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell kcell kcell kcell kcell ncell ncell ncell ncell acell "
-    " fcell fcell fcell mcell mcell mcell mcell mcell mcell lcell lcell lcell lcell lcell lcell hcell hcell hcell hcell hcell hcell hcell hcell acell "
-    " fcell fcell fcell mcell mcell mcell mcell mcell mcell lcell lcell lcell lcell lcell lcell hcell hcell hcell hcell hcell hcell hcell hcell acell "
-    " fcell fcell fcell mcell mcell mcell mcell mcell mcell lcell lcell lcell lcell lcell lcell hcell hcell hcell hcell hcell hcell hcell hcell acell "
-    " a1cell a1cell a1cell c1cell c1cell c1cell c1cell c1cell c1cell e1cell e1cell e1cell e1cell e1cell e1cell f1cell f1cell f1cell f1cell f1cell f1cell f1cell f1cell b1cell "
-    " a1cell a1cell a1cell c1cell c1cell c1cell c1cell c1cell c1cell e1cell e1cell e1cell e1cell e1cell e1cell f1cell f1cell f1cell f1cell f1cell f1cell f1cell f1cell b1cell "
-    " a1cell a1cell a1cell c1cell c1cell c1cell c1cell c1cell c1cell e1cell e1cell e1cell e1cell e1cell e1cell f1cell f1cell f1cell f1cell f1cell f1cell f1cell f1cell b1cell "
-    " a1cell a1cell a1cell d1cell d1cell d1cell d1cell d1cell d1cell h1cell h1cell h1cell h1cell h1cell h1cell f1cell f1cell f1cell f1cell f1cell f1cell f1cell f1cell b1cell "
-    " a1cell a1cell a1cell d1cell d1cell d1cell d1cell d1cell d1cell h1cell h1cell h1cell h1cell h1cell h1cell f1cell f1cell f1cell f1cell f1cell f1cell f1cell f1cell b1cell "
-    " a1cell a1cell a1cell d1cell d1cell d1cell d1cell d1cell d1cell g1cell g1cell g1cell g1cell g1cell g1cell g1cell g1cell g1cell g1cell g1cell g1cell g1cell g1cell b1cell"
+    " bcell bcell ccell ccell dcell dcell acell "
+    " ecell ocell ocell ocell gcell gcell acell "
+    " fcell ocell ocell ocell kcell ncell acell "
+    " fcell mcell mcell lcell hcell hcell acell "
+    " a1cell c1cell c1cell e1cell f1cell f1cell b1cell "
+    " a1cell d1cell d1cell h1cell f1cell f1cell b1cell "
+    " a1cell d1cell d1cell g1cell g1cell g1cell b1cell "
     ;
-    /*   1     2     3       4      5       6     7       8     9      10     11     12     13     14     15     16     17     18     19     20     21    22      23    24  */
 }

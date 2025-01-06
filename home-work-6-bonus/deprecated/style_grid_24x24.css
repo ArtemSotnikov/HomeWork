@@ -1,0 +1,174 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --white-color: #ffffff; /*TODO: Change later to white*/
+    --yellow-color: #ffc400;
+    --red-color: #ff0000;
+    --black-color: #000000;
+    --blue-color: #031c81;
+    --main-border: 7px solid var(--black-color);
+}
+
+.a {
+    grid-area: acell;
+    background-color: var(--white-color);
+    border: var(--main-border);
+}
+
+.b {
+    grid-area: bcell;
+    background-color: var(--white-color);
+    border: var(--main-border);
+}
+
+.c {
+    grid-area: ccell;
+    background-color: var(--white-color);
+    border: var(--main-border);
+}
+
+.d {
+    grid-area: dcell;
+    background-color: var(--yellow-color);
+    border: var(--main-border);
+}
+
+.e {
+    grid-area: ecell;
+    background-color: var(--white-color);
+    border: var(--main-border);
+}
+
+.f {
+    grid-area: fcell;
+    background-color: var(--white-color);
+    border: var(--main-border);
+}
+
+.g {
+    grid-area: gcell;
+    background-color: var(--yellow-color);
+    border: var(--main-border);
+}
+
+.h {
+    grid-area: hcell;
+    background-color: var(--white-color);
+    border: var(--main-border);
+}
+
+.k {
+    grid-area: kcell;
+    background-color: var(--white-color);
+    border: var(--main-border);
+}
+
+.l {
+    grid-area: lcell;
+    background-color: var(--white-color);
+    border: var(--main-border);
+}
+
+.m {
+    grid-area: mcell;
+    background-color: var(--black-color);
+    border: var(--main-border);
+}
+
+.n {
+    grid-area: ncell;
+    background-color: var(--black-color);
+    border: var(--main-border);
+}
+
+.o {
+    grid-area: ocell;
+    background-color: var(--red-color);
+    border: var(--main-border);
+}
+
+.a1 {
+    grid-area: a1cell;
+    background-color: var(--yellow-color);
+    border: var(--main-border);
+}
+
+.b1 {
+    grid-area: b1cell;
+    background-color: var(--red-color);
+    border: var(--main-border);
+}
+
+.c1 {
+    grid-area: c1cell;
+    background-color: var(--black-color);
+    border: var(--main-border);
+}
+
+.d1 {
+    grid-area: d1cell;
+    background-color: var(--white-color);
+    border: var(--main-border);
+}
+
+.e1 {
+    grid-area: e1cell;
+    background-color: var(--white-color);
+    border: var(--main-border);
+}
+
+.f1 {
+    grid-area: f1cell;
+    background-color: var(--blue-color);
+    border: var(--main-border);
+}
+
+.g1 {
+    grid-area: g1cell;
+    background-color: var(--white-color);
+    border: var(--main-border);
+}
+
+.h1 {
+    grid-area: h1cell;
+    background-color: var(--black-color);
+    border: var(--main-border);
+}
+
+.container {
+    width: 100vw;
+    height: 100vw;
+    display: grid;
+    grid-template-columns: repeat(24, 1fr);
+    grid-template-rows: repeat(24, 1fr);
+    /*   1     2     3    4      5    6    7       8     9    10     11    12   13    14    15    16   17     18    19    20    21   22    23    24  */
+    grid-template-areas:
+    " bcell bcell bcell bcell bcell bcell ccell ccell ccell ccell ccell ccell ccell ccell ccell dcell dcell dcell dcell dcell dcell dcell dcell acell "
+    " bcell bcell bcell bcell bcell bcell ccell ccell ccell ccell ccell ccell ccell ccell ccell dcell dcell dcell dcell dcell dcell dcell dcell acell "
+    " bcell bcell bcell bcell bcell bcell ccell ccell ccell ccell ccell ccell ccell ccell ccell dcell dcell dcell dcell dcell dcell dcell dcell acell "
+    " ecell ecell ecell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell gcell gcell gcell gcell gcell gcell gcell gcell acell "
+    " ecell ecell ecell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell gcell gcell gcell gcell gcell gcell gcell gcell acell "
+    " ecell ecell ecell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell gcell gcell gcell gcell gcell gcell gcell gcell acell "
+    " ecell ecell ecell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell gcell gcell gcell gcell gcell gcell gcell gcell acell "
+    " ecell ecell ecell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell gcell gcell gcell gcell gcell gcell gcell gcell acell "
+    " ecell ecell ecell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell gcell gcell gcell gcell gcell gcell gcell gcell acell "
+    " fcell fcell fcell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell kcell kcell kcell kcell ncell ncell ncell ncell acell "
+    " fcell fcell fcell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell kcell kcell kcell kcell ncell ncell ncell ncell acell "
+    " fcell fcell fcell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell kcell kcell kcell kcell ncell ncell ncell ncell acell "
+    " fcell fcell fcell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell kcell kcell kcell kcell ncell ncell ncell ncell acell "
+    " fcell fcell fcell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell kcell kcell kcell kcell ncell ncell ncell ncell acell "
+    " fcell fcell fcell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell ocell kcell kcell kcell kcell ncell ncell ncell ncell acell "
+    " fcell fcell fcell mcell mcell mcell mcell mcell mcell lcell lcell lcell lcell lcell lcell hcell hcell hcell hcell hcell hcell hcell hcell acell "
+    " fcell fcell fcell mcell mcell mcell mcell mcell mcell lcell lcell lcell lcell lcell lcell hcell hcell hcell hcell hcell hcell hcell hcell acell "
+    " fcell fcell fcell mcell mcell mcell mcell mcell mcell lcell lcell lcell lcell lcell lcell hcell hcell hcell hcell hcell hcell hcell hcell acell "
+    " a1cell a1cell a1cell c1cell c1cell c1cell c1cell c1cell c1cell e1cell e1cell e1cell e1cell e1cell e1cell f1cell f1cell f1cell f1cell f1cell f1cell f1cell f1cell b1cell "
+    " a1cell a1cell a1cell c1cell c1cell c1cell c1cell c1cell c1cell e1cell e1cell e1cell e1cell e1cell e1cell f1cell f1cell f1cell f1cell f1cell f1cell f1cell f1cell b1cell "
+    " a1cell a1cell a1cell c1cell c1cell c1cell c1cell c1cell c1cell e1cell e1cell e1cell e1cell e1cell e1cell f1cell f1cell f1cell f1cell f1cell f1cell f1cell f1cell b1cell "
+    " a1cell a1cell a1cell d1cell d1cell d1cell d1cell d1cell d1cell h1cell h1cell h1cell h1cell h1cell h1cell f1cell f1cell f1cell f1cell f1cell f1cell f1cell f1cell b1cell "
+    " a1cell a1cell a1cell d1cell d1cell d1cell d1cell d1cell d1cell h1cell h1cell h1cell h1cell h1cell h1cell f1cell f1cell f1cell f1cell f1cell f1cell f1cell f1cell b1cell "
+    " a1cell a1cell a1cell d1cell d1cell d1cell d1cell d1cell d1cell g1cell g1cell g1cell g1cell g1cell g1cell g1cell g1cell g1cell g1cell g1cell g1cell g1cell g1cell b1cell"
+    ;
+    /*   1     2     3       4      5       6     7       8     9      10     11     12     13     14     15     16     17     18     19     20     21    22      23    24  */
+}
