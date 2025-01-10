@@ -1,3 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: 'spacegrotesk';
+        src: url(../assets/fonts/SpaceGrotesk-Regular.ttf) format('truetype');
+    }
+}
+
+* {
+    font-family: 'spacegrotesk', sans-serif;
+}
+
+.test {
+    @apply text-white;
+}
+
+.nav-menu {
+    @apply text-white;
+}
+
+.title_gradient {
+    @apply text-white;
+}
+
+.title_white {
+    @apply text-white;
+}
+
+.text_info {
+    @apply text-white;
+}
+
+.choose_button {
+    @apply bg-white text-black hover:bg-but_chosen hover:text-white;
+}
+

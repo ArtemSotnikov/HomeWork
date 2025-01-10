@@ -554,9 +554,57 @@ video {
   display: none;
 }
 
+@font-face {
+  font-family: 'spacegrotesk';
+
+  src: url(../assets/fonts/SpaceGrotesk-Regular.ttf) format('truetype');
+}
+
+.flex {
+  display: flex;
+}
+
+.h-dvh {
+  height: 100dvh;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.gap-10 {
+  gap: 2.5rem;
+}
+
+.gap-3 {
+  gap: 0.75rem;
+}
+
+.gap-5 {
+  gap: 1.25rem;
+}
+
 .bg-amber-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(146 64 14 / var(--tw-bg-opacity, 1));
+}
+
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
+}
+
+.bg-fixed {
+  background-attachment: fixed;
+}
+
+.py-\[54px\] {
+  padding-top: 54px;
+  padding-bottom: 54px;
 }
 
 .text-center {
@@ -566,3 +614,47 @@ video {
 .font-bold {
   font-weight: 700;
 }
+
+* {
+  font-family: 'spacegrotesk', sans-serif;
+}
+
+.test {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.nav-menu {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.title_gradient {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.title_white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.text_info {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.choose_button {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
+  --tw-text-opacity: 1;
+  color: rgb(0 0 0 / var(--tw-text-opacity, 1));
+}
+
+.choose_button:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(73 124 255 / var(--tw-bg-opacity, 1));
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
