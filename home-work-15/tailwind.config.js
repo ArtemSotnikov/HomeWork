@@ -5,6 +5,8 @@ module.exports = {
     extend: {
       colors: {
         'but_chosen': "#497CFF",
+        'start_grad': "#FF1CF7",
+        'end_grad': "#00F0FF",
       },
     },
   },

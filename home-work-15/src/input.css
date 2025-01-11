@@ -22,7 +22,7 @@
 }
 
 .title_gradient {
-    @apply text-white;
+    @apply bg-gradient-to-r from-start_grad to-end_grad bg-clip-text text-transparent;
 }
 
 .title_white {
@@ -34,6 +34,6 @@
 }
 
 .choose_button {
-    @apply bg-white text-black hover:bg-but_chosen hover:text-white;
+    @apply px-[32px] py-[22px] rounded-lg bg-white text-black hover:bg-but_chosen hover:text-white;
 }
 
