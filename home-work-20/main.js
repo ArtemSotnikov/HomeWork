@@ -261,7 +261,12 @@ console.log(oddFn(20)) // [1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
  * Реалізуйте перевірку: якщо третім параметром передається не функція, потрібно повернути false.
  */
 
-function mainFunc(a, b, cb) { }
+function mainFunc(a, b, cb) {
+    if (typeof cb !== 'function') {
+        return false;
+    }
+    return cb(a, b);
+}
 
 /*
  * Реалізуйте callback функції (cbRandom, cbPow, cbAdd) до основної функції (mainFunc), що повертатимуть відповідні результати обчислень.
@@ -269,13 +274,19 @@ function mainFunc(a, b, cb) { }
  */
 
 // cbRandom(a, b) - обчислює і повертає довільне ціле число в діапазоні між a і b включно.
-function cbRandom(min, max) { }
+function cbRandom(min, max) {
+    return Math.floor(Math.random()  * (max - min + 1) + min);
+}
 
 // cbPow(a, b) - обчислює і повертає результат піднесення числа a у ступінь b.
-function cbPow(num, pow) { }
+function cbPow(num, pow) {
+    return Math.pow(num, pow);
+}
 
 // cbAdd(a, b) - обчислює і повертає суму двох чисел a і b.
-function cbAdd(a, b) { }
+function cbAdd(a, b) {
+    return a + b;
+}
 
 /*
  * mainFunc() повинна повертати результат роботи переданої їй поворотної функції, наприклад:
