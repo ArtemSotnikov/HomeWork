@@ -49,10 +49,19 @@ console.log(average([34, 'call me', 23, 'no, call me!', '11', 48, null, 51, {}, 
 // кожна цифра у своєму рядку
 // Заборонено використовувати for та [].flat()
 
-function showDeepArray(deep) {
+function showDeepArray(deepArray) {
+    if(!Array.isArray(deepArray)) {
+        return;
+    }
 
+    deepArray.forEach(item => {
+        if (typeof item === 'number') {
+            console.log(item);
+        } else {
+            showDeepArray(item);
+        }
+    })
 }
-
 
 const myArray = [1, 2, 3, [31, 32, 33], 4, 5, 6, 7, [71, 72, [721, 722, 723, [7231, 7232, 7233], 724]], 8, 9];
 showDeepArray(myArray);
