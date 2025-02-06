@@ -2,7 +2,7 @@
 
 //import {checkWorking, secondInDay, myGreeting} from './functions.js';
 
-import {generateKey} from "./functions.js";
+import {generateKey} from './functions.js';
 
 // #1 Реалізуйте функцію generateKey(length, characters), яка повертає рядок випадкових символів із набору characters довжиною length
 // Функцію треба покласти в файл functions.js та імпортувати за допомогою import
