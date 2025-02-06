@@ -24,12 +24,24 @@ console.log(numberKey); // 3847501826482930485728394 - випадкові сим
 // Заборонено використовувати for. Користуватися тільки методами масиву.
 
 function average(mixed) {
+    const convertedInNumbers = mixed.map(function (x) {
+        return parseFloat(x);
+    });
 
+    let notNaN = function (elem) {
+        return !isNaN(elem);
+    }
+
+    const numbers = convertedInNumbers.filter(notNaN);
+
+    return numbers.reduce(
+        (accumulator, currentValue) => accumulator + currentValue) / numbers.length;
 }
 
 // Check:
-// console.log(average(['hello', 12, 'hi', 3, 4, 'another hell', 1, '5', 7, 'end', 0, 'you again?', 8])); // 5
-// console.log(average([34, 'call me', 23, 'no, call me!', '11', 48, null, 51, {}, 37, undefined, 20, [], 26])); // 25
+console.log(average(['hello', 12, 'hi', 3, 4, 'another hell', 1, '5', 7, 'end', 0, 'you again?', 8])); // 5
+// In my case 31.25. Maybe I did not get all "possible" numbers.
+console.log(average([34, 'call me', 23, 'no, call me!', '11', 48, null, 51, {}, 37, undefined, 20, [], 26])); // 25
 
 // ============================================
 
