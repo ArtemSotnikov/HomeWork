@@ -28,6 +28,7 @@ const createCounter = function (start = 0) {
 
 let counter = createCounter();
 
+console.log("Exercise 1");
 console.log(counter()) // 0
 console.log(counter()) // 1
 console.log(counter(100)) // 100
@@ -152,7 +153,7 @@ const myMul = (a, b) => {
 
 const myDouble = myMul.bind(null,2);
 
-console.log("exercise 5");
+console.log("Exercise 5");
 console.log(myDouble(3)) // = myMul(2, 3) = 6
 console.log(myDouble(4)) // = myMul(2, 4) = 8
 console.log(myDouble(5)) // = myMul(2, 5) = 10
