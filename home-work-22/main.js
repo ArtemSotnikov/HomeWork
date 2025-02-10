@@ -128,13 +128,13 @@ console.log(counterFactory.value()) // 201
  */
 
 const list = [12, 23, 100, 34, 56, 9, 233]
-const myMax = () => {
-    return Math.max.apply(null, list);
+const myMax = (numbers) => {
+    return Math.max.apply(null, numbers);
 }
 
 console.log("Exercise 4");
 console.log(myMax(list)); // 233
-
+console.log(myMax([1,2,3,4,5]));
 /*
  * #5
  *
