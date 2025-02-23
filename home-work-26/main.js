@@ -16,7 +16,6 @@ console.log('#9. JavaScript homework example file')
  *
  */
 
-
 function handleButtonClick(buttonId, message) {
     const button = document.getElementById(buttonId);
     button.onclick = function() {
@@ -62,22 +61,29 @@ console.log(trackMousePosition());
  *
  */
 
-// function createTestList() {
-//   document.body.innerHTML = `
-//     <ul id="testList">
-//       <li>Item 1</li>
-//       <li>Item 2</li>
-//       <li>Item 3</li>
-//     </ul>
-//     `
-// }
-// createTestList()
+//Move this script to the html. Otherwise, buttons from the 1st exercise are cleared.
+//function createTestList() {
+//    document.body.innerHTML = `
+//      <ul id="testList">
+//        <li>Item 1</li>
+//        <li>Item 2</li>
+//        <li>Item 3</li>
+//      </ul>
+ //    `
+//}
+//createTestList()
 
+//Implement for ID, since it is tested in this way.
 function setupEventDelegation(selector) {
-  // code here
+    const list = document.getElementById(selector);
+    list.addEventListener('click', function(event) {
+        if (event.target.tagName === 'LI') {
+            console.log(`Item clicked: ${event.target.textContent.trim()}`);
+        }
+    });
 }
 
-// setupEventDelegation('#testList')
+setupEventDelegation('#testList');
 
 // Експорт функції для використання та тестування
 export { handleButtonClick, trackMousePosition, setupEventDelegation }

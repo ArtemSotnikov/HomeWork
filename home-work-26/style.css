@@ -2,3 +2,11 @@
     display: flex;
     flex-direction: column;
 }
+
+ul{
+    border: 1px solid red;
+}
+
+li {
+    border: 1px solid black;
+}
