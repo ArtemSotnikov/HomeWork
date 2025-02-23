@@ -42,10 +42,12 @@ handleButtonClick('secondButton', 'Now this button clicked!');
  */
 
 function trackMousePosition() {
-  // code here
+    document.addEventListener('mousemove', function (event) {
+        console.log(`Mouse X: ${event.clientX}, Mouse Y: ${event.clientY}`);
+    });
 }
 
-// console.log(trackMousePosition())
+console.log(trackMousePosition());
 
 /*
  * #3
