@@ -16,12 +16,17 @@ console.log('#9. JavaScript homework example file')
  *
  */
 
+
 function handleButtonClick(buttonId, message) {
-  // code here
+    const button = document.getElementById(buttonId);
+    button.onclick = function() {
+        console.log(message);
+    };
 }
 
 // Демонстрація використання функції (припустимо, що HTML містить кнопку з ID 'myButton')
-// handleButtonClick('myButton', 'Button clicked!');
+handleButtonClick('myButton', 'Button clicked!');
+handleButtonClick('secondButton', 'Now this button clicked!');
 
 /*
  * #2
