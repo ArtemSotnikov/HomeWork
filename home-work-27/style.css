@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 10% 1fr 10%;
+    grid-template-rows: 1fr;
+}
+
+.slider {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    /*   align-items: center; */
+    overflow: hidden;
+}
+
+img {
+    width: 100px;
+    aspect-ratio: 3 / 4;
+}
+
+.left-arrow {
+    justify-self: center;
+}
+
+.right-arrow {
+    justify-self: center;
+}
