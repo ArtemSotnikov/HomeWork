@@ -4,16 +4,19 @@
 
 .container {
     display: grid;
-    grid-template-columns: 10% 1fr 10%; /* Three columns: Arrows + Slider */
-    grid-template-rows: 1fr; /* Single row */
+    grid-template-columns: 10% 1fr 10%;
+    grid-template-rows: 1fr;
     justify-content: center;
     align-items: center;
     position: absolute; /* Keeps it centered in the viewport */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 400px;
-    height: 500px;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    max-height: 100%;
+    aspect-ratio: 3/4;
     overflow: hidden;
 }
 
@@ -21,16 +24,20 @@
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(5, 100%); /* Each image takes full width */
-    animation: slideAnimation 10s infinite; /* Auto-sliding animation */
+    grid-template-columns: repeat(5, 100%);
+    animation: slideAnimation 10s infinite;
 }
 
 .image_container {
     width: 100%;
     height: 100%;
+    position: relative;
 }
 
 img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -44,7 +51,7 @@ img {
     align-items: center;
     background-color: rgb(69, 76, 76);
     color: white;
-    font-size: 24px;
+    font-size: 36px;
     cursor: pointer;
     position: relative;
     z-index: 2;
