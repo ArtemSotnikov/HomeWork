@@ -3,29 +3,66 @@
 }
 
 .container {
-    width: 100%;
     display: grid;
-    grid-template-columns: 10% 1fr 10%;
-    grid-template-rows: 1fr;
-}
-
-.slider {
-    display: flex;
+    grid-template-columns: 10% 1fr 10%; /* Three columns: Arrows + Slider */
+    grid-template-rows: 1fr; /* Single row */
     justify-content: center;
-    flex-wrap: nowrap;
-    /*   align-items: center; */
+    align-items: center;
+    position: absolute; /* Keeps it centered in the viewport */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 500px;
     overflow: hidden;
 }
 
+.slider {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 100%); /* Each image takes full width */
+    animation: slideAnimation 10s infinite; /* Auto-sliding animation */
+}
+
+.image_container {
+    width: 100%;
+    height: 100%;
+}
+
 img {
-    width: 100px;
-    aspect-ratio: 3 / 4;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.left-arrow {
-    justify-self: center;
+.prev, .next {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(69, 76, 76);
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    opacity: 1;
 }
 
-.right-arrow {
-    justify-self: center;
+@keyframes slideAnimation {
+    0% { transform: translateX(0%); }
+    20% { transform: translateX(0%); } /* Stay on first image */
+
+    25% { transform: translateX(-100%); }
+    45% { transform: translateX(-100%); } /* Stay on second image */
+
+    50% { transform: translateX(-200%); }
+    70% { transform: translateX(-200%); } /* Stay on third image */
+
+    75% { transform: translateX(-300%); }
+    95% { transform: translateX(-300%); } /* Stay on fourth image */
+
+    100% { transform: translateX(-400%); } /* Last image */
 }
