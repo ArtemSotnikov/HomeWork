@@ -25,7 +25,7 @@
     height: 100%;
     display: grid;
     grid-template-columns: repeat(5, 100%);
-    animation: slideAnimation 10s infinite;
+    /* animation: slideAnimation 10s infinite; */
 }
 
 .image_container {
