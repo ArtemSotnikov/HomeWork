@@ -27,6 +27,8 @@ document.addEventListener("keydown", onKeyPress);
 //Support mobile swipe
 imgContainerElem.addEventListener("touchstart", onTouchStart);
 imgContainerElem.addEventListener("touchend", onTouchEnd);
+//Support touchpad
+imgContainerElem.addEventListener("wheel", onWheelMove);
 
 // Listeners
 //Move to left with prev bar
@@ -82,5 +84,19 @@ function onTouchEnd(event) {
     }
 }
 
+//Move on touchpad
+function onWheelMove(event) {
+    console.log(event);
+
+    //Introduce some threshold, otherwise uncontrollable behaviour (too "sensitive"/fast)
+    const thresholdMoveWheel = 20; //px
+
+    if (event.deltaX > thresholdMoveWheel) {
+        console.log(event.deltaX);
+        onRightClick();
+    } else if (event.deltaX < -thresholdMoveWheel) {
+        onLeftClick();
+    }
+}
 
 
