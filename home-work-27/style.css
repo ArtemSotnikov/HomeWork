@@ -25,7 +25,6 @@
     height: 100%;
     display: grid;
     grid-template-columns: repeat(5, 100%);
-    /* animation: slideAnimation 10s infinite; */
 }
 
 .image_container {
@@ -58,18 +57,6 @@ img {
     opacity: 1;
 }
 
-@keyframes slideAnimation {
-    0% { transform: translateX(0%); }
-    20% { transform: translateX(0%); } /* Stay on first image */
-
-    25% { transform: translateX(-100%); }
-    45% { transform: translateX(-100%); } /* Stay on second image */
-
-    50% { transform: translateX(-200%); }
-    70% { transform: translateX(-200%); } /* Stay on third image */
-
-    75% { transform: translateX(-300%); }
-    95% { transform: translateX(-300%); } /* Stay on fourth image */
-
-    100% { transform: translateX(-400%); } /* Last image */
+.prev:hover, .next:hover {
+    background-color: rgb(157, 163, 163);
 }
