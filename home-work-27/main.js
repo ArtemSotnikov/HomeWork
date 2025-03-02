@@ -1,6 +1,3 @@
-
-// Other functions
-
 // Variables
 let currentSlide = 0;
 
@@ -21,6 +18,7 @@ console.log(slidesCount);
 // Events
 leftElement.addEventListener("click", onLeftClick);
 rightElement.addEventListener("click", onRightClick);
+document.addEventListener("keydown", onKeyPress);
 
 // Listeners
 function onLeftClick() {
@@ -41,4 +39,14 @@ function onRightClick() {
     }
 
     imgContainerElem.style.transform = `translate(-${currentSlide * firstImageElem.offsetWidth}px)`;
+}
+
+function onKeyPress(event) {
+   // console.log(event);
+
+    if (event.key === "ArrowLeft") {
+        onLeftClick();
+    } else if (event.key === "ArrowRight") {
+        onRightClick();
+    }
 }
