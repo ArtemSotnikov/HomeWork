@@ -1,6 +1,9 @@
 // Variables
 let currentSlide = 0;
 let startX;
+let isOngoing = false;
+const slideTime = 2; //in seconds
+let animation;
 
 // Query DOM elements
 const imgContainerElem = document.querySelector(".slider");
@@ -16,6 +19,8 @@ const allImages = document.querySelectorAll(".image_container");
 console.log(allImages);
 const allBullets = document.querySelectorAll(".bullet");
 console.log(allBullets);
+const startStopElem = document.querySelector(".start_stop");
+console.log(startStopElem);
 
 const slidesCount = allImages.length;
 console.log(slidesCount);
@@ -33,6 +38,7 @@ imgContainerElem.addEventListener("touchend", onTouchEnd);
 imgContainerElem.addEventListener("wheel", onWheelMove);
 //Navigation button
 allBullets.forEach(bullet => bullet.addEventListener("click", onBulletClick));
+startStopElem.addEventListener("click", onStartStop);
 
 
 // Listeners
@@ -108,6 +114,7 @@ function onWheelMove(event) {
     }
 }
 
+//Scroll slides with navigation bullets
 function  onBulletClick(event) {
     //   console.log(event);
 
@@ -120,9 +127,26 @@ function  onBulletClick(event) {
     updateActiveBullet();
 }
 
+//Change active (by color) bullet when slide is scrolled by any method
 function updateActiveBullet() {
     //console.log("I am here")
 
     allBullets.forEach(bullet => { bullet.style.color = "darkblue";});
     allBullets.item(currentSlide).style.color = "red";
+}
+
+//Start stop automatic scrolling of slides
+function onStartStop(event) {
+    if (!isOngoing) {
+        //console.log("Start animation");
+        isOngoing = true;
+
+        animation = setInterval(onRightClick, slideTime * 1000);
+        //console.log(animation);
+    } else {
+        //console.log("Stop animation");
+        isOngoing = false;
+
+        clearInterval(animation);
+    }
 }
