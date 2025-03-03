@@ -123,6 +123,6 @@ function  onBulletClick(event) {
 function updateActiveBullet() {
     //console.log("I am here")
 
+    allBullets.forEach(bullet => { bullet.style.color = "darkblue";});
     allBullets.item(currentSlide).style.color = "red";
 }
-
