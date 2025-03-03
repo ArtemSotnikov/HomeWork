@@ -88,3 +88,7 @@ img {
 .bullet {
     cursor: pointer;
 }
+
+.bullet:hover {
+    color: #0d6efd;
+}
