@@ -14,6 +14,8 @@ console.log(leftElement);
 console.log(rightElement);
 const allImages = document.querySelectorAll(".image_container");
 console.log(allImages);
+const allBullets = document.querySelectorAll(".bullet");
+console.log(allBullets);
 
 const slidesCount = allImages.length;
 console.log(slidesCount);
@@ -29,6 +31,9 @@ imgContainerElem.addEventListener("touchstart", onTouchStart);
 imgContainerElem.addEventListener("touchend", onTouchEnd);
 //Support touchpad
 imgContainerElem.addEventListener("wheel", onWheelMove);
+//Navigation button
+allBullets.forEach(bullet => bullet.addEventListener("click", onBulletClick));
+
 
 // Listeners
 //Move to left with prev bar
@@ -96,6 +101,17 @@ function onWheelMove(event) {
         onRightClick();
     } else if (event.deltaX < -thresholdMoveWheel) {
         onLeftClick();
+    }
+}
+
+function  onBulletClick(event) {
+    //   console.log(event);
+
+    const index = Array.from(allBullets).indexOf(event.target);
+    if (index !== -1) {
+        //Update index of current slide
+        currentSlide = index;
+        imgContainerElem.style.transform = `translate(-${currentSlide * firstImageElem.offsetWidth}px)`;
     }
 }
 
