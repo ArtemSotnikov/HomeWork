@@ -45,6 +45,8 @@ function onLeftClick() {
     }
 
     imgContainerElem.style.transform = `translate(-${currentSlide * firstImageElem.offsetWidth}px)`;
+
+    updateActiveBullet();
 }
 
 //Move to right with next bar
@@ -56,6 +58,8 @@ function onRightClick() {
     }
 
     imgContainerElem.style.transform = `translate(-${currentSlide * firstImageElem.offsetWidth}px)`;
+
+    updateActiveBullet();
 }
 
 //Check left or right key press then activate functionality of respective bars
@@ -71,16 +75,16 @@ function onKeyPress(event) {
 
 //"Log" start position on mobile touch.
 function onTouchStart(event) {
-    console.log(event);
+    //console.log(event);
     startX = event.touches[0].clientX;
-    console.log(startX);
+    //console.log(startX);
 }
 
 //Swipe on mobile
 function onTouchEnd(event) {
-    console.log(event);
+    //console.log(event);
     let endX = event.changedTouches[0].clientX;
-    console.log(endX);
+    //console.log(endX);
 
     if (startX > endX) {
         onRightClick();
@@ -91,13 +95,13 @@ function onTouchEnd(event) {
 
 //Move on touchpad
 function onWheelMove(event) {
-    console.log(event);
+    //console.log(event);
 
     //Introduce some threshold, otherwise uncontrollable behaviour (too "sensitive"/fast)
     const thresholdMoveWheel = 20; //px
 
     if (event.deltaX > thresholdMoveWheel) {
-        console.log(event.deltaX);
+        //console.log(event.deltaX);
         onRightClick();
     } else if (event.deltaX < -thresholdMoveWheel) {
         onLeftClick();
@@ -113,6 +117,12 @@ function  onBulletClick(event) {
         currentSlide = index;
         imgContainerElem.style.transform = `translate(-${currentSlide * firstImageElem.offsetWidth}px)`;
     }
+    updateActiveBullet();
 }
 
+function updateActiveBullet() {
+    //console.log("I am here")
+
+    allBullets.item(currentSlide).style.color = "red";
+}
 
