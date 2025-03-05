@@ -1,34 +1,35 @@
+import {Slider} from "./Slider.js";
+
+const slider = new Slider({ });
+
 // Variables
-let currentSlide = 0;
+//let currentSlide = 0;
 let startX;
 let isOngoing = false;
 const slideTime = 2; //in seconds
 let animation;
 
 // Query DOM elements
-const imgContainerElem = document.querySelector(".slider");
-console.log(imgContainerElem);
-const firstImageElem = document.querySelector("img");
-console.log(firstImageElem);
+//const imgContainerElem = document.querySelector(".slider");
+//console.log(imgContainerElem);
+//const firstImageElem = document.querySelector("img");
+//console.log(firstImageElem);
 //Prev and next bars
-const leftElement = document.querySelector(".prev");
-const rightElement = document.querySelector(".next");
-console.log(leftElement);
-console.log(rightElement);
-const allImages = document.querySelectorAll(".image_container");
-console.log(allImages);
+//const leftElement = document.querySelector(".prev");
+//const rightElement = document.querySelector(".next");
+//console.log(leftElement);
+//console.log(rightElement);
+//const allImages = document.querySelectorAll(".image_container");
+//console.log(allImages);
 const allBullets = document.querySelectorAll(".bullet");
 console.log(allBullets);
 const startStopElem = document.querySelector(".start_stop");
 console.log(startStopElem);
 
-const slidesCount = allImages.length;
-console.log(slidesCount);
+//const slidesCount = allImages.length;
+//console.log(slidesCount);
 
 // Events
-//On prev and next bars
-leftElement.addEventListener("click", onLeftClick);
-rightElement.addEventListener("click", onRightClick);
 //On left and right arrows
 document.addEventListener("keydown", onKeyPress);
 //Support mobile swipe
@@ -42,31 +43,6 @@ startStopElem.addEventListener("click", onStartStop);
 
 
 // Listeners
-//Move to left with prev bar
-function onLeftClick() {
-    currentSlide--;
-
-    if(currentSlide < 0) {
-        currentSlide = slidesCount - 1;
-    }
-
-    imgContainerElem.style.transform = `translate(-${currentSlide * firstImageElem.offsetWidth}px)`;
-
-    updateActiveBullet();
-}
-
-//Move to right with next bar
-function onRightClick() {
-    currentSlide++;
-
-    if(currentSlide === slidesCount) {
-        currentSlide = 0;
-    }
-
-    imgContainerElem.style.transform = `translate(-${currentSlide * firstImageElem.offsetWidth}px)`;
-
-    updateActiveBullet();
-}
 
 //Check left or right key press then activate functionality of respective bars
 function onKeyPress(event) {
