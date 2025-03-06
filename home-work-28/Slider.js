@@ -12,6 +12,9 @@ export class Slider {
         // Query DOM elements (when several queries are required)
         this.imgContainerElem = document.querySelector(".slider");
         this.allImages = document.querySelectorAll(".image_container");
+        this.firstImageElem = document.querySelector("img");
+
+        // Check if there are images
         if (this.allImages.length === 0) {
             throw new Error('No images specified');
         } else {
@@ -19,8 +22,9 @@ export class Slider {
         }
         this.slidesCount = this.allImages.length;
 
-        this.firstImageElem = document.querySelector("img");
+
         this.barsSubscription();
+        this.keyArrowsSubscription();
 
     }
 
@@ -31,6 +35,11 @@ export class Slider {
         document.querySelector(".prev").addEventListener("click", this.onLeftClick.bind(this));
         //Move to right with next bar
         document.querySelector(".next").addEventListener("click", this.onRightClick.bind(this));
+    }
+
+    //On left and right arrows
+    keyArrowsSubscription() {
+        document.addEventListener("keydown", this.onKeyPress.bind(this));
     }
 
     //Move to left with prev bar
@@ -58,5 +67,15 @@ export class Slider {
 
         //updateActiveBullet();
     }
+
+    //Check left or right key press then activate functionality of respective bars
+    onKeyPress(event) {
+        if (event.key === "ArrowLeft") {
+            this.onLeftClick();
+        } else if (event.key === "ArrowRight") {
+            this.onRightClick();
+        }
+    }
+
 
 }

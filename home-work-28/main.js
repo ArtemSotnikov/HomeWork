@@ -3,35 +3,20 @@ import {Slider} from "./Slider.js";
 const slider = new Slider({ });
 
 // Variables
-//let currentSlide = 0;
 let startX;
 let isOngoing = false;
 const slideTime = 2; //in seconds
 let animation;
 
 // Query DOM elements
-//const imgContainerElem = document.querySelector(".slider");
-//console.log(imgContainerElem);
-//const firstImageElem = document.querySelector("img");
-//console.log(firstImageElem);
-//Prev and next bars
-//const leftElement = document.querySelector(".prev");
-//const rightElement = document.querySelector(".next");
-//console.log(leftElement);
-//console.log(rightElement);
-//const allImages = document.querySelectorAll(".image_container");
-//console.log(allImages);
 const allBullets = document.querySelectorAll(".bullet");
 console.log(allBullets);
 const startStopElem = document.querySelector(".start_stop");
 console.log(startStopElem);
 
-//const slidesCount = allImages.length;
-//console.log(slidesCount);
+
 
 // Events
-//On left and right arrows
-document.addEventListener("keydown", onKeyPress);
 //Support mobile swipe
 imgContainerElem.addEventListener("touchstart", onTouchStart);
 imgContainerElem.addEventListener("touchend", onTouchEnd);
@@ -43,17 +28,6 @@ startStopElem.addEventListener("click", onStartStop);
 
 
 // Listeners
-
-//Check left or right key press then activate functionality of respective bars
-function onKeyPress(event) {
-   // console.log(event);
-
-    if (event.key === "ArrowLeft") {
-        onLeftClick();
-    } else if (event.key === "ArrowRight") {
-        onRightClick();
-    }
-}
 
 //"Log" start position on mobile touch.
 function onTouchStart(event) {
