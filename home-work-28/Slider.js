@@ -9,7 +9,18 @@ export class Slider {
     //parameters
     slideTime = 1; //in seconds
 
+    imageLinks = [
+        "assets/images/1.jpg",
+        "assets/images/2.jpg",
+        "assets/images/3.jpg",
+        "assets/images/4.jpg",
+        "assets/images/5.jpg"
+    ];
+
     constructor() {
+
+        this.generateImages();
+
         // Query DOM elements (when several queries are required)
         this.imgContainerElem = document.querySelector(".slider");
         this.allImages = document.querySelectorAll(".image_container");
@@ -32,7 +43,6 @@ export class Slider {
         this.bulletsSubscription();
         this.startStopElSubscription();
         this.stopAnimationSubscription();
-
     }
 
     // Events/subscriptions
@@ -91,13 +101,10 @@ export class Slider {
     //Move to right with next bar
     onRightClick() {
         this.currentSlide++;
-
         if(this.currentSlide === this.slidesCount) {
             this.currentSlide = 0;
         }
-
         this.imgContainerElem.style.transform = `translate(-${this.currentSlide * this.firstImageElem.offsetWidth}px)`;
-
         this.updateActiveBullet();
     }
 
@@ -186,4 +193,16 @@ export class Slider {
         }
     }
 
+    //In .slider generate .image_containers with images from the given links
+    generateImages() {
+        let resultHtml = '';
+        this.imageLinks.forEach(imageLink => {
+            resultHtml += `
+                <div class="image_container">
+                    <img src="${imageLink}" alt="image">
+                </div>
+            `;
+        });
+        document.querySelector(".slider").innerHTML = resultHtml;
+    }
 }
