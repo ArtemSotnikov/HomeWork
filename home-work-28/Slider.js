@@ -20,12 +20,12 @@ export class Slider {
     constructor() {
 
         this.generateImages();
+        this.generateBullets();
 
         // Query DOM elements (when several queries are required)
         this.imgContainerElem = document.querySelector(".slider");
         this.allImages = document.querySelectorAll(".image_container");
         this.firstImageElem = document.querySelector("img");
-        this.allBullets = document.querySelectorAll(".bullet");
 
         // Check if there are images
         if (this.allImages.length === 0) {
@@ -40,7 +40,6 @@ export class Slider {
         this.keyArrowsSubscription();
         this.wheelSubscription();
         this.touchSubscriptions();
-        this.bulletsSubscription();
         this.startStopElSubscription();
         this.stopAnimationSubscription();
     }
@@ -72,6 +71,7 @@ export class Slider {
 
     //Navigation button
     bulletsSubscription() {
+        this.allBullets = document.querySelectorAll(".bullet");
         this.allBullets.forEach(bullet => bullet.addEventListener("click", this.onBulletClick.bind(this)));
     }
 
@@ -204,5 +204,16 @@ export class Slider {
             `;
         });
         document.querySelector(".slider").innerHTML = resultHtml;
+    }
+
+    //In .img_nav generate .bullets and update them directly to give start colors. .
+    generateBullets() {
+        let resultHtml = '';
+        this.imageLinks.forEach((_, index) => {
+            resultHtml += `<div class="bullet">&#x25CB;</div>`;
+        })
+        document.querySelector(".img_nav").innerHTML = resultHtml;
+        this.bulletsSubscription();
+        this.updateActiveBullet();
     }
 }
