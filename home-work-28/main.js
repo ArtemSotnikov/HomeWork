@@ -20,8 +20,6 @@ console.log(startStopElem);
 //Support mobile swipe
 imgContainerElem.addEventListener("touchstart", onTouchStart);
 imgContainerElem.addEventListener("touchend", onTouchEnd);
-//Support touchpad
-imgContainerElem.addEventListener("wheel", onWheelMove);
 //Navigation button
 allBullets.forEach(bullet => bullet.addEventListener("click", onBulletClick));
 startStopElem.addEventListener("click", onStartStop);

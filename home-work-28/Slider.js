@@ -25,6 +25,7 @@ export class Slider {
 
         this.barsSubscription();
         this.keyArrowsSubscription();
+        this.wheelSubscription();
 
     }
 
@@ -42,6 +43,11 @@ export class Slider {
         document.addEventListener("keydown", this.onKeyPress.bind(this));
     }
 
+    //Support touchpad
+    wheelSubscription() {
+        this.imgContainerElem.addEventListener("wheel", this.onWheelMove.bind(this));
+    }
+
     //Move to left with prev bar
     onLeftClick() {
         this.currentSlide--;
@@ -55,6 +61,7 @@ export class Slider {
     //    updateActiveBullet();
     }
 
+    //Move to right with next bar
     onRightClick() {
         this.currentSlide++;
 
@@ -74,6 +81,19 @@ export class Slider {
             this.onLeftClick();
         } else if (event.key === "ArrowRight") {
             this.onRightClick();
+        }
+    }
+
+    //Move on touchpad
+    onWheelMove(event) {
+        //Introduce some threshold, otherwise uncontrollable behaviour (too "sensitive"/fast)
+        const thresholdMoveWheel = 20; //px
+
+        if (event.deltaX > thresholdMoveWheel) {
+            //console.log(event.deltaX);
+            this.onRightClick();
+        } else if (event.deltaX < -thresholdMoveWheel) {
+            this.onLeftClick();
         }
     }
 
