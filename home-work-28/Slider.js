@@ -4,6 +4,7 @@ export class Slider {
     startX;
     isOngoing = false;
     animation;
+    isStartedByButton = false;
 
     //parameters
     slideTime = 1; //in seconds
@@ -30,6 +31,7 @@ export class Slider {
         this.touchSubscriptions();
         this.bulletsSubscription();
         this.startStopElSubscription();
+        this.stopAnimationSubscription();
 
     }
 
@@ -65,6 +67,11 @@ export class Slider {
 
     startStopElSubscription() {
         document.querySelector(".start_stop").addEventListener("click", this.onStartStop.bind(this));
+    }
+
+    stopAnimationSubscription() {
+        this.imgContainerElem.addEventListener("mousemove", this.onImageStop.bind(this));
+        this.imgContainerElem.addEventListener("mouseout", this.onImageStart.bind(this));
     }
 
     //Listeners
@@ -155,12 +162,27 @@ export class Slider {
     onStartStop(event) {
         if (!this.isOngoing) {
             this.isOngoing = true;
+            this.isStartedByButton = true;
 
             this.animation = setInterval(this.onRightClick.bind(this), this.slideTime * 1000);
         } else {
             this.isOngoing = false;
+            this.isStartedByButton = false;
 
             clearInterval(this.animation);
+        }
+    }
+
+    onImageStop(event) {
+        if (this.isOngoing && this.isStartedByButton) {
+            this.isOngoing = false;
+            clearInterval(this.animation);
+        }
+    }
+
+    onImageStart() {
+        if (!this.isOngoing && this.isStartedByButton) {
+            this.onStartStop();
         }
     }
 
