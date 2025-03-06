@@ -2,11 +2,11 @@ export class Slider {
     //variables
     currentSlide = 0;
     startX;
-   // isOngoing = false;
-   // slideTime = 1; //in seconds
-   // animation;
+    isOngoing = false;
+    animation;
 
     //parameters
+    slideTime = 1; //in seconds
 
     constructor() {
         // Query DOM elements (when several queries are required)
@@ -29,6 +29,7 @@ export class Slider {
         this.wheelSubscription();
         this.touchSubscriptions();
         this.bulletsSubscription();
+        this.startStopElSubscription();
 
     }
 
@@ -62,6 +63,10 @@ export class Slider {
         this.allBullets.forEach(bullet => bullet.addEventListener("click", this.onBulletClick.bind(this)));
     }
 
+    startStopElSubscription() {
+        document.querySelector(".start_stop").addEventListener("click", this.onStartStop.bind(this));
+    }
+
     //Listeners
     //Move to left with prev bar
     onLeftClick() {
@@ -84,7 +89,6 @@ export class Slider {
             this.currentSlide = 0;
         }
 
-        this.imgContainerElem.style.transform = `translate(-${this.currentSlide * this.firstImageElem.offsetWidth}px)`;
         this.imgContainerElem.style.transform = `translate(-${this.currentSlide * this.firstImageElem.offsetWidth}px)`;
 
         this.updateActiveBullet();
@@ -145,6 +149,19 @@ export class Slider {
     updateActiveBullet() {
         this.allBullets.forEach(bullet => { bullet.style.color = "darkblue";});
         this.allBullets.item(this.currentSlide).style.color = "red";
+    }
+
+    //Start stop automatic scrolling of slides
+    onStartStop(event) {
+        if (!this.isOngoing) {
+            this.isOngoing = true;
+
+            this.animation = setInterval(this.onRightClick.bind(this), this.slideTime * 1000);
+        } else {
+            this.isOngoing = false;
+
+            clearInterval(this.animation);
+        }
     }
 
 }
