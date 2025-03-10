@@ -9,34 +9,33 @@ export class Slider {
     //parameters
     slideTime = 1; //in seconds
 
-    imageLinks = [
-        "assets/images/1.jpg",
-        "assets/images/2.jpg",
-        "assets/images/3.jpg",
-        "assets/images/4.jpg",
-        "assets/images/5.jpg"
-    ];
-
-    constructor(sliderID, barsColor="dimgrey", barsHoverColor = "lightgrey") {
+    constructor(sliderID,
+                imageLinks = ["assets/images/1.jpg", "assets/images/2.jpg", "assets/images/3.jpg", "assets/images/4.jpg", "assets/images/5.jpg"],
+                barsColor="dimgrey",
+                barsHoverColor = "lightgrey")
+    {
         this.containerElem = document.querySelector(`#${sliderID}`);
         this.barsColor = barsColor;
         this.barsHoverColor = barsHoverColor;
 
+        // Ensure imageLinks is not empty
+        if (!imageLinks || imageLinks.length === 0) {
+            throw new Error("No images provided for the slider.");
+        }
+
+        this.imageLinks = imageLinks;
+
         this.generateImages();
+    }
+
+    setupSlider() {
         this.generateBullets();
 
         // Query DOM elements (when several queries are required)
         this.imgContainerElem = this.containerElem.querySelector(".slider");
         this.allImages = this.containerElem.querySelectorAll(".image_container");
         this.firstImageElem = this.containerElem.querySelector("img");
-
-        // Check if there are images
-        if (this.allImages.length === 0) {
-            throw new Error('No images specified');
-        } else {
-            console.log(this.allImages);
-            this.slidesCount = this.allImages.length;
-        }
+        this.slidesCount = this.allImages.length;
 
         this.decorateInactiveBars();
 
@@ -218,6 +217,11 @@ export class Slider {
             `;
         });
         this.containerElem.querySelector(".slider").innerHTML = resultHtml;
+
+    // Wait for the first image to load before initializing other elements
+    this.containerElem.querySelector("img").onload = () => {
+        this.setupSlider();
+    };
     }
 
     //In .img_nav generate .bullets and update them directly to give start colors. .
