@@ -51,7 +51,7 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(69, 76, 76);
+    background-color: dimgrey;
     color: white;
     font-size: 36px;
     cursor: pointer;
@@ -61,7 +61,7 @@ img {
 }
 
 .prev:hover, .next:hover {
-    background-color: rgb(157, 163, 163);
+    background-color: lightgrey;
 }
 
 .start_stop {

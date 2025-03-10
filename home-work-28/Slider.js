@@ -17,8 +17,10 @@ export class Slider {
         "assets/images/5.jpg"
     ];
 
-    constructor(sliderID) {
+    constructor(sliderID, barsColor="dimgrey", barsHoverColor = "lightgrey") {
         this.containerElem = document.querySelector(`#${sliderID}`);
+        this.barsColor = barsColor;
+        this.barsHoverColor = barsHoverColor;
 
         this.generateImages();
         this.generateBullets();
@@ -36,6 +38,8 @@ export class Slider {
             this.slidesCount = this.allImages.length;
         }
 
+        this.decorateInactiveBars();
+
         //Call subscription during initialization of an instance
         this.barsSubscription();
         this.keyArrowsSubscription();
@@ -52,6 +56,14 @@ export class Slider {
         this.containerElem.querySelector(".prev").addEventListener("click", this.onLeftClick.bind(this));
         //Move to right with next bar
         this.containerElem.querySelector(".next").addEventListener("click", this.onRightClick.bind(this));
+
+        //Change color when active
+        this.containerElem.querySelector(".prev").addEventListener("mouseover", this.onMouseoverPrev.bind(this));
+        this.containerElem.querySelector(".next").addEventListener("mouseover", this.onMouseoverNext.bind(this));
+
+        //Change back color when mouse is out
+        this.containerElem.querySelector(".prev").addEventListener("mouseout", this.onMouseoutPrev.bind(this));
+        this.containerElem.querySelector(".next").addEventListener("mouseout", this.onMouseoutNext.bind(this));
     }
 
     //On left and right arrows
@@ -109,6 +121,7 @@ export class Slider {
         this.updateActiveBullet();
     }
 
+    //TODO: extend to both slider. Dose not work.
     //Check left or right key press then activate functionality of respective bars
     onKeyPress(event) {
         if (event.key === "ArrowLeft") {
@@ -167,7 +180,7 @@ export class Slider {
     }
 
     //Start stop automatic scrolling of slides
-    onStartStop(event) {
+    onStartStop() {
         if (!this.isOngoing) {
             this.isOngoing = true;
             this.isStartedByButton = true;
@@ -181,7 +194,7 @@ export class Slider {
         }
     }
 
-    onImageStop(event) {
+    onImageStop() {
         if (this.isOngoing && this.isStartedByButton) {
             this.isOngoing = false;
             clearInterval(this.animation);
@@ -217,4 +230,27 @@ export class Slider {
         this.bulletsSubscription();
         this.updateActiveBullet();
     }
+
+    //Decorate side bars in static and with hover.
+    decorateInactiveBars() {
+        this.containerElem.querySelector(".prev").style.backgroundColor = this.barsColor;
+        this.containerElem.querySelector(".next").style.backgroundColor = this.barsColor;
+    }
+
+    onMouseoverPrev() {
+        this.containerElem.querySelector(".prev").style.backgroundColor = this.barsHoverColor;
+    }
+
+    onMouseoverNext() {
+        this.containerElem.querySelector(".next").style.backgroundColor = this.barsHoverColor;
+    }
+
+    onMouseoutPrev() {
+        this.containerElem.querySelector(".prev").style.backgroundColor = this.barsColor;
+    }
+
+    onMouseoutNext() {
+        this.containerElem.querySelector(".next").style.backgroundColor = this.barsColor;
+    }
+
 }
