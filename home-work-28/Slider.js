@@ -17,15 +17,16 @@ export class Slider {
         "assets/images/5.jpg"
     ];
 
-    constructor() {
+    constructor(sliderID) {
+        this.containerElem = document.querySelector(`#${sliderID}`);
 
         this.generateImages();
         this.generateBullets();
 
         // Query DOM elements (when several queries are required)
-        this.imgContainerElem = document.querySelector(".slider");
-        this.allImages = document.querySelectorAll(".image_container");
-        this.firstImageElem = document.querySelector("img");
+        this.imgContainerElem = this.containerElem.querySelector(".slider");
+        this.allImages = this.containerElem.querySelectorAll(".image_container");
+        this.firstImageElem = this.containerElem.querySelector("img");
 
         // Check if there are images
         if (this.allImages.length === 0) {
@@ -48,14 +49,14 @@ export class Slider {
     //On prev and next bars
     barsSubscription() {
         //Move to left with prev bar
-        document.querySelector(".prev").addEventListener("click", this.onLeftClick.bind(this));
+        this.containerElem.querySelector(".prev").addEventListener("click", this.onLeftClick.bind(this));
         //Move to right with next bar
-        document.querySelector(".next").addEventListener("click", this.onRightClick.bind(this));
+        this.containerElem.querySelector(".next").addEventListener("click", this.onRightClick.bind(this));
     }
 
     //On left and right arrows
     keyArrowsSubscription() {
-        document.addEventListener("keydown", this.onKeyPress.bind(this));
+        this.containerElem.addEventListener("keydown", this.onKeyPress.bind(this));
     }
 
     //Support touchpad
@@ -71,12 +72,12 @@ export class Slider {
 
     //Navigation button
     bulletsSubscription() {
-        this.allBullets = document.querySelectorAll(".bullet");
+        this.allBullets = this.containerElem.querySelectorAll(".bullet");
         this.allBullets.forEach(bullet => bullet.addEventListener("click", this.onBulletClick.bind(this)));
     }
 
     startStopElSubscription() {
-        document.querySelector(".start_stop").addEventListener("click", this.onStartStop.bind(this));
+        this.containerElem.querySelector(".start_stop").addEventListener("click", this.onStartStop.bind(this));
     }
 
     stopAnimationSubscription() {
@@ -203,7 +204,7 @@ export class Slider {
                 </div>
             `;
         });
-        document.querySelector(".slider").innerHTML = resultHtml;
+        this.containerElem.querySelector(".slider").innerHTML = resultHtml;
     }
 
     //In .img_nav generate .bullets and update them directly to give start colors. .
@@ -212,7 +213,7 @@ export class Slider {
         this.imageLinks.forEach((_, index) => {
             resultHtml += `<div class="bullet">&#x25CB;</div>`;
         })
-        document.querySelector(".img_nav").innerHTML = resultHtml;
+        this.containerElem.querySelector(".img_nav").innerHTML = resultHtml;
         this.bulletsSubscription();
         this.updateActiveBullet();
     }
