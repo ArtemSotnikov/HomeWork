@@ -5,6 +5,7 @@ export class Slider {
     isOngoing = false;
     animation;
     isStartedByButton = false;
+    startStopText = 	"\u2BC8" //Start
 
     constructor(sliderID,
                 slideTime = 1,
@@ -184,12 +185,15 @@ export class Slider {
             this.isStartedByButton = true;
 
             this.animation = setInterval(this.onRightClick.bind(this), this.slideTime * 1000);
+            this.switchStartStop();
         } else {
             this.isOngoing = false;
             this.isStartedByButton = false;
 
             clearInterval(this.animation);
+            this.switchStartStop();
         }
+        //this.switchStartStop();
     }
 
     onImageStop() {
@@ -254,6 +258,11 @@ export class Slider {
 
     onMouseoutNext() {
         this.containerElem.querySelector(".next").style.backgroundColor = this.barsColor;
+    }
+
+    switchStartStop() {
+        this.startStopText = (this.startStopText === "\u2BC8") ? "\u23F9" : "\u2BC8";
+        this.containerElem.querySelector(".start_stop").innerText = this.startStopText;
     }
 
 }
