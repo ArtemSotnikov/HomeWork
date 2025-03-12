@@ -7,16 +7,23 @@ export class Slider {
     isStartedByButton = false;
     startStopText = 	"\u2BC8" //Start
 
-    constructor(sliderID,
-                slideTime = 1,
-                imageLinks = ["assets/images/1.jpg", "assets/images/2.jpg", "assets/images/3.jpg", "assets/images/4.jpg", "assets/images/5.jpg"],
-                barsColor="dimgrey",
-                barsHoverColor = "lightgrey")
+    constructor(parameters = {})
     {
+        //Parameters destructuring to make parameters assignment more flexible at instaciation of slider. Only values which differ from default need to be specified.
+        const {
+            sliderID= "orig_slider",
+            slideTime = 1,
+            imageLinks = ["assets/images/1.jpg", "assets/images/2.jpg", "assets/images/3.jpg", "assets/images/4.jpg", "assets/images/5.jpg"],
+            barsColor = "dimgrey",
+            barsHoverColor = "lightgrey"
+        } = parameters;
+
         this.slideTime = slideTime;
         this.containerElem = document.querySelector(`#${sliderID}`);
         this.barsColor = barsColor;
         this.barsHoverColor = barsHoverColor;
+
+
 
         //Ensure imageLinks is not empty
         if (!imageLinks || imageLinks.length === 0) {
