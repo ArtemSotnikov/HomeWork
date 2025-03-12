@@ -219,6 +219,7 @@ export class Slider {
         if (this.isOngoing && this.isStartedByButton) {
             this.isOngoing = false;
             clearInterval(this.animation);
+            this.switchStartStop();
         }
     }
 
