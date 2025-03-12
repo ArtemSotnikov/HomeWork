@@ -30,7 +30,7 @@ In **.css** number of slides need to be specified, if number of images > 6: _gri
 
 ## Slider reposidtory structure
 
-├── README.md/<br/>
+├── README.md<br/>
 ├── assets/<br/>
 │&nbsp;&nbsp;&nbsp;&nbsp;├── images/&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Default images<br/>
 │&nbsp;&nbsp;&nbsp;&nbsp;├── images_add/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Additional images for slider<br/>
