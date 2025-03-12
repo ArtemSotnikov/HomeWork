@@ -18,7 +18,7 @@ export class Slider {
         this.barsColor = barsColor;
         this.barsHoverColor = barsHoverColor;
 
-        // Ensure imageLinks is not empty
+        //Ensure imageLinks is not empty
         if (!imageLinks || imageLinks.length === 0) {
             throw new Error("No images provided for the slider.");
         }
@@ -31,11 +31,14 @@ export class Slider {
     setupSlider() {
         this.generateBullets();
 
-        // Query DOM elements (when several queries are required)
+        //Query DOM elements (when several queries are required)
         this.imgContainerElem = this.containerElem.querySelector(".slider");
         this.allImages = this.containerElem.querySelectorAll(".image_container");
         this.firstImageElem = this.containerElem.querySelector("img");
         this.slidesCount = this.allImages.length;
+
+        //Remove box border from slider when it is in focus.
+        this.containerElem.style.outline = "none";
 
         this.decorateInactiveBars();
 
@@ -48,7 +51,7 @@ export class Slider {
         this.stopAnimationSubscription();
     }
 
-    // Events/subscriptions
+    //Events/subscriptions
     //On prev and next bars
     barsSubscription() {
         //Move to left with prev bar
@@ -120,7 +123,17 @@ export class Slider {
         this.updateActiveBullet();
     }
 
-    //TODO: extend to both sliders. Dose not work.
+    //Check if the slider in focus and then activate arrows for it.
+    focusSubscription() {
+        this.containerElem.addEventListener("focus", () => {
+            document.addEventListener("keydown", this.onKeyPress.bind(this));
+        });
+
+        this.containerElem.addEventListener("blur", () => {
+            document.removeEventListener("keydown", this.onKeyPress.bind(this));
+        });
+    }
+
     //Check left or right key press then activate functionality of respective bars
     onKeyPress(event) {
         if (event.key === "ArrowLeft") {
@@ -193,7 +206,6 @@ export class Slider {
             clearInterval(this.animation);
             this.switchStartStop();
         }
-        //this.switchStartStop();
     }
 
     onImageStop() {
@@ -221,7 +233,7 @@ export class Slider {
         });
         this.containerElem.querySelector(".slider").innerHTML = resultHtml;
 
-    // Wait for the first image to load before initializing other elements
+    //Wait for the first image to load before initializing other elements
     this.containerElem.querySelector("img").onload = () => {
         this.setupSlider();
     };
