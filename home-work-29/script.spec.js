@@ -37,3 +37,41 @@ describe("Test ageClassification", () => {
         expect(ageClassification("Dog")).toBeNull();
     })
 })
+
+describe("Test day of the week", () => {
+    it("Day index out of week", () => {
+        expect(weekFn(10)).toBeNull();
+    })
+
+    it("Not a number parameter", () => {
+        expect(weekFn("1 + 1")).toBeNull();
+    })
+
+    it("TGI Friday", () => {
+        expect(weekFn(5)).toEqual("П\'ятниця");
+    })
+
+    it("It is Monday", () => {
+        expect(weekFn(1) === "Понеділок").toBeTruthy();
+    })
+
+    it("Tuesday exists", () => {
+        expect(weekFn(2)).not.toBeNull();
+    })
+
+    it('It is already Wednesday', () => {
+        expect(weekFn(3)).toMatch("Середа");
+    });
+
+    it("It is Thursday", () => {
+        expect(weekFn(4)).toContain("Четв")
+    })
+
+    it("It is Saturday", () => {
+        expect(weekFn(6)).toEqual("Субота");
+    })
+
+    it("It is Sunday", () => {
+        expect(weekFn(7)).toMatch("Неділя");
+    })
+})
