@@ -1,4 +1,4 @@
-console.log('#11. JavaScript homework example file')
+console.log('#13. JavaScript homework example file')
 
 /*
  * #1
@@ -7,13 +7,18 @@ console.log('#11. JavaScript homework example file')
  * Функція повертає true, якщо електронна адреса валідна, і false в іншому випадку.
  *
  */
-
 function isValidEmail(email) {
-  // code here
+    const emailCheck = /^(?!.*\.\.)[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,5}$/; //Check for simple email.
+
+    return emailCheck.test(email);
 }
 
-// console.log(isValidEmail('example@example.com')) // Повинно вивести: true
-// console.log(isValidEmail('invalid-email'))       // Повинно вивести: false
+console.log("Assignment 1 ----------------")
+console.log(isValidEmail('example@example.com'))            // Повинно вивести: true
+console.log(isValidEmail('exa..mple@example.com'))          // Повинно вивести: false
+console.log(isValidEmail('exa..mple@ex..ample.com'))        // Повинно вивести: false
+console.log(isValidEmail('example@example.example.com'))    // Повинно вивести: true
+console.log(isValidEmail('invalid-email'))                  // Повинно вивести: false
 
 /*
  * #2
@@ -22,17 +27,19 @@ function isValidEmail(email) {
  * Функція повертає true, якщо URL валідний, і false в іншому випадку.
  *
  */
-
-/*
-
-*/
-
 function isValidUrl(url) {
-  // code here
+    const urlCheck = /^(http|https):\/\/(www)\.[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\.[a-zA-Z]{2,5}$/;
+
+    return urlCheck.test(url);
 }
 
-// console.log(isValidUrl('https://www.example.com')) // Повинно вивести: true
-// console.log(isValidUrl('invalid-url'))             // Повинно вивести: false
+console.log("Assignment 2 ----------------")
+console.log(isValidUrl('https://www.example.com'))  // Повинно вивести: true
+console.log(isValidUrl('https://www.exam_ple.com')) // Повинно вивести: false
+console.log(isValidUrl('https://www.exam-ple.com')) // Повинно вивести: true
+console.log(isValidUrl('https://www.example_.com')) // Повинно вивести: false
+console.log(isValidUrl('https://www.example-.com')) // Повинно вивести: false
+console.log(isValidUrl('invalid-url'))              // Повинно вивести: false
 
 // Експорт функції для використання та тестування
 export { isValidEmail, isValidUrl }
