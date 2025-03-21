@@ -43,6 +43,8 @@ function getWeatherAPIForCity () {
         return;
     }
 
+    document.getElementById("link").innerHTML = weatherAPI;
+
     return weatherAPI;
 }
 
@@ -62,6 +64,23 @@ async function getWeatherByCity () {
     setWeatherValues(weatherData);
 }
 
+//async function getIcon (iconID) {
+//    const linkIcon = `http://openweathermap.org/img/w/${iconID}.png`;
+//    const iconPicture = await fetch(linkIcon)
+//        .then(response => {
+//            if (!response.ok) {
+//                throw new Error("Failed to fetch icon");
+//            }
+//            return response;
+//        })
+//        .catch(error => console.error("Error:", "There is no such icon"));
+//}
+function setIcon(iconID) {
+    const iconURL = `http://openweathermap.org/img/w/${iconID}.png`;
+    document.getElementById("weatherIcon").src = iconURL;
+   // document.getElementById("weatherIcon").classList.remove("hidden"); // Show icon
+}
+
 function setWeatherValues(weatherData) {
     if (weatherData !== undefined) {
         console.log(weatherData);
@@ -71,6 +90,7 @@ function setWeatherValues(weatherData) {
         document.getElementById("humidity").innerHTML = weatherData.main.temp;
         document.getElementById("speed").innerHTML = weatherData.wind.speed;
         document.getElementById("deg").innerHTML = weatherData.wind.deg;
+        setIcon(weatherData.weather[0].icon);
     } else {
         document.getElementById("temp").classList.add("hidden");
         document.getElementById("pressure").classList.add("hidden");
