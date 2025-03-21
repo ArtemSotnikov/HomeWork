@@ -16,10 +16,27 @@
 // icon - значок, де 10d код іконки (виводимо картинку з таким урлом, як нам повернувся)
 // http://openweathermap.org/img/w/10d.png
 
+// Placeholder for city to be specified
+let city = "";
 
+// Listener on form to get weather "object" for the chosen city.
+document.getElementById("weatherInputForm").addEventListener("submit", event => {
+        console.log("Submitted");
+        event.preventDefault();     //Prevent default behaviour of form, namely reload of the page.
+            getWeatherByCity();
+    });
 
+// Listener on input field to get city name from input.
+document.getElementById("searchCity").addEventListener("input", event => {
+    city = event.target.value;
+    console.log("I am here");
+});
+
+// Put name of the city in the api link.
 function getWeatherAPIForCity () {
-    const city = "DNIPRO1";
+
+    console.log("city:", city);
+    //const city = "DNIPRO1";
     let weatherAPI = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=5d066958a60d315387d9492393935c19`;
 
     if (city === '') {
@@ -30,16 +47,22 @@ function getWeatherAPIForCity () {
     return weatherAPI;
 }
 
-fetch(getWeatherAPIForCity())
-    .then(response => {
-        if (!response.ok) {
-            throw new Error("Failed to fetch city");
-        }
-        const weatherData = response.json();
-        console.log(weatherData);
-        return weatherData;
-    })
-    .catch(error => console.error("Error", error));
+// Load data through api for chosen data.
+async function getWeatherByCity () {
+    console.log("Get weather by city called");
+    const weatherLink = getWeatherAPIForCity();
+    await fetch(weatherLink)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Failed to fetch city");
+            }
+            const weatherData = response.json();
+            console.log(weatherData);
+            return weatherData;
+        })
+        .catch(error => console.error("Error", error));
+}
+
 
 
 // За бажанням:
