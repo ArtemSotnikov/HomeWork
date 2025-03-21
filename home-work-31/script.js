@@ -59,7 +59,7 @@ async function getWeatherByCity () {
             console.log(weatherData);
             return weatherData;
         })
-        .catch(error => console.error("Error", error));
+        .catch(error => console.error("Error:", "There is no such city"));
 }
 
 
