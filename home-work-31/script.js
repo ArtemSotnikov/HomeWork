@@ -50,18 +50,23 @@ function getWeatherAPIForCity () {
 async function getWeatherByCity () {
     console.log("Get weather by city called");
     const weatherLink = getWeatherAPIForCity();
-    await fetch(weatherLink)
+    const weatherData = await fetch(weatherLink)
         .then(response => {
             if (!response.ok) {
                 throw new Error("Failed to fetch city");
             }
-            const weatherData = response.json();
-            console.log(weatherData);
-            return weatherData;
+            return response.json();
         })
         .catch(error => console.error("Error:", "There is no such city"));
+
+    setWeatherValues(weatherData);
 }
 
+function setWeatherValues(weatherData) {
+    console.log(weatherData);
+    document.getElementById("temp").innerHTML = weatherData.main.temp;
+    document.getElementById("pressure").innerHTML = weatherData.main.pressure;
+}
 
 
 // За бажанням:
