@@ -18,6 +18,30 @@
 
 
 
+function getWeatherAPIForCity () {
+    const city = "DNIPRO1";
+    let weatherAPI = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=5d066958a60d315387d9492393935c19`;
+
+    if (city === '') {
+        alert('Please enter a city name.');
+        return;
+    }
+
+    return weatherAPI;
+}
+
+fetch(getWeatherAPIForCity())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Failed to fetch city");
+        }
+        const weatherData = response.json();
+        console.log(weatherData);
+        return weatherData;
+    })
+    .catch(error => console.error("Error", error));
+
+
 // За бажанням:
 // #2 Використовуючи API https://jsonplaceholder.typicode.com/ зробити пошук поста за ід.
 // На сторінку вивести інпут та кнопку Пошук
