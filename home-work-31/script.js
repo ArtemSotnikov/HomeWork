@@ -68,10 +68,16 @@ function setWeatherValues(weatherData) {
         document.getElementById("temp").innerHTML = weatherData.main.temp;
         document.getElementById("pressure").innerHTML = weatherData.main.pressure;
         document.getElementById("description").innerHTML = weatherData.weather[0].description;
+        document.getElementById("humidity").innerHTML = weatherData.main.temp;
+        document.getElementById("speed").innerHTML = weatherData.wind.speed;
+        document.getElementById("deg").innerHTML = weatherData.wind.deg;
     } else {
         document.getElementById("temp").classList.add("hidden");
         document.getElementById("pressure").classList.add("hidden");
         document.getElementById("description").classList.add("hidden");
+        document.getElementById("humidity").classList.add("hidden");
+        document.getElementById("speed").classList.add("hidden");
+        document.getElementById("deg").classList.add("hidden");
     }
 }
 
