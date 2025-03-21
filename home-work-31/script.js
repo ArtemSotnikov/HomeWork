@@ -63,9 +63,16 @@ async function getWeatherByCity () {
 }
 
 function setWeatherValues(weatherData) {
-    console.log(weatherData);
-    document.getElementById("temp").innerHTML = weatherData.main.temp;
-    document.getElementById("pressure").innerHTML = weatherData.main.pressure;
+    if (weatherData !== undefined) {
+        console.log(weatherData);
+        document.getElementById("temp").innerHTML = weatherData.main.temp;
+        document.getElementById("pressure").innerHTML = weatherData.main.pressure;
+        document.getElementById("description").innerHTML = weatherData.weather[0].description;
+    } else {
+        document.getElementById("temp").classList.add("hidden");
+        document.getElementById("pressure").classList.add("hidden");
+        document.getElementById("description").classList.add("hidden");
+    }
 }
 
 
