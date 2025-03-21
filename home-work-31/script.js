@@ -20,7 +20,7 @@
 let city = "";
 
 // Listener on form to get weather "object" for the chosen city.
-document.getElementById("weatherInputForm").addEventListener("submit", event => {
+document.getElementById("weatherButton").addEventListener("click", event => {
         console.log("Submitted");
         event.preventDefault();     //Prevent default behaviour of form, namely reload of the page.
             getWeatherByCity();
@@ -34,9 +34,8 @@ document.getElementById("searchCity").addEventListener("input", event => {
 
 // Put name of the city in the api link.
 function getWeatherAPIForCity () {
-
     console.log("city:", city);
-    //const city = "DNIPRO1";
+
     let weatherAPI = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=5d066958a60d315387d9492393935c19`;
 
     if (city === '') {
