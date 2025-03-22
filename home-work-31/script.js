@@ -64,15 +64,29 @@ async function getWeatherByCity () {
     setWeatherValues(weatherData);
 }
 
+function setValueVisible()   {
+    document.getElementById("temp").classList.remove("hidden");
+    document.getElementById("pressure").classList.remove("hidden");
+    document.getElementById("description").classList.remove("hidden");
+    document.getElementById("humidity").classList.remove("hidden");
+    document.getElementById("speed").classList.remove("hidden");
+    document.getElementById("deg").classList.remove("hidden");
+    document.getElementById("icon").classList.remove("hidden");
+}
+
+function setValueHidden()   {
+    document.getElementById("temp").classList.add("hidden");
+    document.getElementById("pressure").classList.add("hidden");
+    document.getElementById("description").classList.add("hidden");
+    document.getElementById("humidity").classList.add("hidden");
+    document.getElementById("speed").classList.add("hidden");
+    document.getElementById("deg").classList.add("hidden");
+    document.getElementById("icon").classList.add("hidden");
+}
+
 function setWeatherValues(weatherData) {
     if (weatherData !== undefined) {
-        document.getElementById("temp").classList.remove("hidden");
-        document.getElementById("pressure").classList.remove("hidden");
-        document.getElementById("description").classList.remove("hidden");
-        document.getElementById("humidity").classList.remove("hidden");
-        document.getElementById("speed").classList.remove("hidden");
-        document.getElementById("deg").classList.remove("hidden");
-        document.getElementById("icon").classList.remove("hidden");
+        setValueVisible();
         document.getElementById("temp").innerHTML = weatherData.main.temp;
         document.getElementById("pressure").innerHTML = weatherData.main.pressure;
         document.getElementById("description").innerHTML = weatherData.weather[0].description;
@@ -81,13 +95,7 @@ function setWeatherValues(weatherData) {
         document.getElementById("deg").innerHTML = weatherData.wind.deg;
         document.getElementById("icon").src = `http://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`;
     } else {
-        document.getElementById("temp").classList.add("hidden");
-        document.getElementById("pressure").classList.add("hidden");
-        document.getElementById("description").classList.add("hidden");
-        document.getElementById("humidity").classList.add("hidden");
-        document.getElementById("speed").classList.add("hidden");
-        document.getElementById("deg").classList.add("hidden");
-        document.getElementById("icon").classList.add("hidden");
+        setValueHidden();
     }
 }
 
