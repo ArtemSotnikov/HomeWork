@@ -26,11 +26,27 @@ document.getElementById("weatherButton").addEventListener("click", event => {
             getWeatherByCity();
     });
 
-// Listener on input field to get city name from input.
-document.getElementById("searchCity").addEventListener("input", event => {
+// Listener on input field to get city name from input. With debounce of 1 sek to reduce calls on input of city name.
+document.getElementById("searchCity").addEventListener("input", debounce(onCityInput, 1000));
+
+function onCityInput (event) {
     city = event.target.value;
-    console.log("I am here");
-});
+}
+
+// Debounce from lesson 32
+function debounce(callback, wait) {
+    let timer;
+    return function(...args) {
+        if (timer) {
+            clearTimeout(timer);
+        }
+
+        timer = setTimeout(() => {
+            clearTimeout(timer);
+            callback(...args);
+        }, wait);
+    }
+}
 
 // Put name of the city in the api link.
 function getWeatherAPIForCity () {
@@ -42,8 +58,6 @@ function getWeatherAPIForCity () {
         alert('Please enter a city name.');
         return;
     }
-
-    document.getElementById("link").innerHTML = weatherAPI;
 
     return weatherAPI;
 }
@@ -64,6 +78,7 @@ async function getWeatherByCity () {
     setWeatherValues(weatherData);
 }
 
+// Set values from API visible on web page
 function setValueVisible()   {
     document.getElementById("temp").classList.remove("hidden");
     document.getElementById("pressure").classList.remove("hidden");
@@ -74,6 +89,7 @@ function setValueVisible()   {
     document.getElementById("icon").classList.remove("hidden");
 }
 
+// Remove values from the web page
 function setValueHidden()   {
     document.getElementById("temp").classList.add("hidden");
     document.getElementById("pressure").classList.add("hidden");
@@ -94,7 +110,7 @@ function setWeatherValues(weatherData) {
         document.getElementById("speed").innerHTML = weatherData.wind.speed;
         document.getElementById("deg").innerHTML = weatherData.wind.deg;
         document.getElementById("icon").src = `http://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`;
-    } else {
+    } else { // If input has a wrong city
         setValueHidden();
     }
 }
