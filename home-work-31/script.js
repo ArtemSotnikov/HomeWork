@@ -21,7 +21,6 @@ let city = "";
 
 // Listener on form to get weather "object" for the chosen city.
 document.getElementById("weatherButton").addEventListener("click", event => {
-        console.log("Submitted");
         event.preventDefault();     //Prevent default behaviour of form, namely reload of the page.
             getWeatherByCity();
     });
@@ -50,7 +49,6 @@ function debounce(callback, wait) {
 
 // Put name of the city in the api link.
 function getWeatherAPIForCity () {
-    console.log("city:", city);
 
     let weatherAPI = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=5d066958a60d315387d9492393935c19`;
 
@@ -64,7 +62,6 @@ function getWeatherAPIForCity () {
 
 // Load data through api for chosen data.
 async function getWeatherByCity () {
-    console.log("Get weather by city called");
     const weatherLink = getWeatherAPIForCity();
     const weatherData = await fetch(weatherLink)
         .then(response => {
