@@ -64,33 +64,22 @@ async function getWeatherByCity () {
     setWeatherValues(weatherData);
 }
 
-//async function getIcon (iconID) {
-//    const linkIcon = `http://openweathermap.org/img/w/${iconID}.png`;
-//    const iconPicture = await fetch(linkIcon)
-//        .then(response => {
-//            if (!response.ok) {
-//                throw new Error("Failed to fetch icon");
-//            }
-//            return response;
-//        })
-//        .catch(error => console.error("Error:", "There is no such icon"));
-//}
-function setIcon(iconID) {
-    const iconURL = `http://openweathermap.org/img/w/${iconID}.png`;
-    document.getElementById("weatherIcon").src = iconURL;
-   // document.getElementById("weatherIcon").classList.remove("hidden"); // Show icon
-}
-
 function setWeatherValues(weatherData) {
     if (weatherData !== undefined) {
-        console.log(weatherData);
+        document.getElementById("temp").classList.remove("hidden");
+        document.getElementById("pressure").classList.remove("hidden");
+        document.getElementById("description").classList.remove("hidden");
+        document.getElementById("humidity").classList.remove("hidden");
+        document.getElementById("speed").classList.remove("hidden");
+        document.getElementById("deg").classList.remove("hidden");
+        document.getElementById("icon").classList.remove("hidden");
         document.getElementById("temp").innerHTML = weatherData.main.temp;
         document.getElementById("pressure").innerHTML = weatherData.main.pressure;
         document.getElementById("description").innerHTML = weatherData.weather[0].description;
         document.getElementById("humidity").innerHTML = weatherData.main.temp;
         document.getElementById("speed").innerHTML = weatherData.wind.speed;
         document.getElementById("deg").innerHTML = weatherData.wind.deg;
-        setIcon(weatherData.weather[0].icon);
+        document.getElementById("icon").src = `http://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`;
     } else {
         document.getElementById("temp").classList.add("hidden");
         document.getElementById("pressure").classList.add("hidden");
@@ -98,6 +87,7 @@ function setWeatherValues(weatherData) {
         document.getElementById("humidity").classList.add("hidden");
         document.getElementById("speed").classList.add("hidden");
         document.getElementById("deg").classList.add("hidden");
+        document.getElementById("icon").classList.add("hidden");
     }
 }
 
