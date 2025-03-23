@@ -1,4 +1,4 @@
-const API_KEY = 'c7eae938';
+const API_KEY = '7377b7dd';
 const BASE_URL = 'https://www.omdbapi.com/';
 
 const searchTextElement = document.getElementById('searchText');
@@ -74,36 +74,3 @@ function debounce(callback, wait) {
 }
 
 
-
-// const formElement = document.getElementById('movieForm');
-// formElement.addEventListener('submit', (event) => {
-//   event.preventDefault();
-//   console.log('submited', searchTextElement.value);
-// })
-
-
-// Приклад як відправити декілька запросів паралельно (тобто обробити кілька промісів паралельно)
-// const [foundMovie, movieById] = await Promise.all([
-//   findMovie(searchTextElement.value),
-//   getMovieById('tt0330373')
-// ]);
-//
-// console.log('foundMovie', foundMovie);
-// console.log('movieById', movieById);
-
-
-// async function getMovieById(id) {
-//   const getLink = `${BASE_URL}?apikey=${API_KEY}&i=${id}`;
-//
-//   const movieData = await fetch(getLink)
-//     .then(res => res.json())
-//     .then(response => {
-//       console.log('response', response);
-//       if(response.Response === 'False') {
-//         throw Error(response.Error);
-//       }
-//       return response;
-//     });
-//
-//   return movieData;
-// }
