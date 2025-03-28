@@ -1,7 +1,11 @@
-$background: yellow;
+$background: green;
 $main-text-size: 50px;
 
 body {
   background-color: $background;
   font-size: $main-text-size;
+}
+
+* {
+  color: blue;
 }
