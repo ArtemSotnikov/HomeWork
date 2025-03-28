@@ -23,11 +23,11 @@ const plugins = [
   ]
 
 function scssMin() {
-    return src('./src/**/*.scss')
+    return src('./src/**/*.scss', { sourcemaps: true })
         .pipe(sass().on('error', sass.logError))
         .pipe(postcss(plugins))
         .pipe(rename({ suffix: '.min' }))
-        .pipe(dest('./assets/css'))
+        .pipe(dest('./assets/css', { sourcemaps: true }))
         .pipe(browserSync.stream());
 }
 
