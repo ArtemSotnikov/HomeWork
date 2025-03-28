@@ -4,6 +4,7 @@ const browserSync = require('browser-sync').create();
 const cssnano = require('cssnano');
 const rename = require('gulp-rename');
 const postcss = require('gulp-postcss');
+const autoprefixer = require('autoprefixer');
 
 //Leave it here to use it in further projects, if needed.
 //function scss() {
@@ -13,7 +14,13 @@ const postcss = require('gulp-postcss');
 //        .pipe(browserSync.stream());
 //}
 
-const plugins = [cssnano({ preset: 'default' })]
+const plugins = [
+    autoprefixer({
+        overrideBrowserslist: ['last 5 versions'],
+        cascade: true
+    }),
+    cssnano({ preset: 'default' })
+  ]
 
 function scssMin() {
     return src('./src/**/*.scss')
