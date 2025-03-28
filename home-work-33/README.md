@@ -18,7 +18,7 @@ To check the installation and versions write in the command line:
 
 ## Installinf the package with GULP
 
-1. **Clone/download the repository in your working folder**:
+1. **Clone the repository in your working folder**:
 
 In Git Bash write:
 
