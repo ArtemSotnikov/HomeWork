@@ -5,6 +5,7 @@ const cssnano = require('cssnano');
 const rename = require('gulp-rename');
 const postcss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
+const sortMediaQueries = require('postcss-sort-media-queries');
 
 //Leave it here to use it in further projects, if needed.
 //function scss() {
@@ -19,6 +20,7 @@ const plugins = [
         overrideBrowserslist: ['last 5 versions'],
         cascade: true
     }),
+    sortMediaQueries,
     cssnano({ preset: 'default' })
   ]
 
