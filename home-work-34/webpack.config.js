@@ -13,7 +13,9 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
     plugins: [
-        new HTMLWebpackPlugin({ template: './src/index.html' }),
+        new HTMLWebpackPlugin({
+            template: './src/index.html'
+        }),
         new CleanWebpackPlugin()
     ],
     module: {
@@ -24,7 +26,14 @@ module.exports = {
                     'style-loader',
                     'css-loader'
                 ]
+            },
+            {
+                test: /\.(png|jpg|jpeg|svg|gif|webp)$/,
+                type: 'asset/resource',
+                generator: {
+                    filename: 'assets/images/[name].[hash][ext]',
+                }
             }
-        ]
+        ],
     }
 };
