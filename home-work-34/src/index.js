@@ -1,5 +1,5 @@
 import Post from './post'
-import './style.css';
+import './css/style.css';
 import icon_square_big from './assets/images/icon-square-big.png';
 
 const logoDiv = document.querySelector('.logo');
