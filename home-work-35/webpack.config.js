@@ -4,6 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     mode: 'development',
+    target: 'web',
     entry: {
         main: './src/index.js',
         stat: './src/statistics.js'
@@ -11,6 +12,10 @@ module.exports = {
     output: {
         filename: '[name].bundle.[contenthash].js',
         path: path.resolve(__dirname, 'dist')
+    },
+    devServer: {
+        port: 4200,
+        hot: false
     },
     plugins: [
         new HTMLWebpackPlugin({
