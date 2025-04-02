@@ -4,6 +4,11 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const isDev = process.env.NODE_ENV === 'development'
+const isProd = !isDev
+console.log('IS DEV:', isDev)
+console.log('IS PROD:', isProd)
+
 module.exports = {
     mode: 'development',
     target: 'web',
