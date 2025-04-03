@@ -35,6 +35,7 @@ module.exports = {
         port: 4200,
         hot: false
     },
+    devtool: isDev ? 'source-map' : false,
     plugins: [
         new HTMLWebpackPlugin({
             template: './src/index.html'
