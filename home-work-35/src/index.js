@@ -2,6 +2,7 @@ import Post from './post'
 import './css/style.scss';
 import icon_square_big from './assets/images/icon-square-big.png';
 import moment from 'moment';
+import { arr } from './test.ts';
 
 const logoDiv = document.querySelector('.logo');
 const img = document.createElement('img');
@@ -16,3 +17,5 @@ console.log('Current time:', now);
 
 const testBabel = () => console.log('Babel works!');
 testBabel();
+
+console.log("TypeScript also works:", arr);

@@ -16,7 +16,7 @@ module.exports = {
     target: 'web',
     optimization: {
         splitChunks: {
-            chunks: 'all', // Оптимізація загального коду для всіх типів чанків
+            chunks: 'all'
         },
         minimizer: [
             new CssMinimizerWebpackPlugin(),
@@ -64,7 +64,20 @@ module.exports = {
                     }
                 }
             },
-             {
+            {
+                test: /\.ts$/, // Вказуємо, що файл з розширенням .ts повинен бути оброблений
+                exclude: /node_modules/, // Виключаємо директорію node_modules з обробки
+                use: {
+                    loader: 'babel-loader', // Використовуємо babel-loader для компіляції
+                    options: {
+                        presets: [
+                            '@babel/preset-env', // Перетворення ES6+ у сумісний код JavaScript
+                            '@babel/preset-typescript' // Додавання підтримки TypeScript
+                        ]
+                    }
+                }
+            },
+            {
                 test: /\.s[ac]ss$/,
                 use: [
                     {
