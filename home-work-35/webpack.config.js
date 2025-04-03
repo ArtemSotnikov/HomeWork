@@ -4,6 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'development'
 const isProd = !isDev
@@ -14,8 +15,12 @@ module.exports = {
     mode: 'development',
     target: 'web',
     optimization: {
+        splitChunks: {
+            chunks: 'all', // Оптимізація загального коду для всіх типів чанків
+        },
         minimizer: [
-            new CssMinimizerWebpackPlugin()
+            new CssMinimizerWebpackPlugin(),
+            new TerserPlugin()
         ]
     },
     entry: {
