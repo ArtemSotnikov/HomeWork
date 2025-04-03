@@ -1,5 +1,5 @@
 import Post from './post'
-import './css/style.css';
+import './css/style.scss';
 import icon_square_big from './assets/images/icon-square-big.png';
 import moment from 'moment';
 

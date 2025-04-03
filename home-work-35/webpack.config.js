@@ -49,12 +49,15 @@ module.exports = {
     ],
     module: {
         rules: [
-            {
-                test: /\.css$/,
+             {
+                test: /\.s[ac]ss$/,
                 use: [
-                    { loader: MiniCssExtractPlugin.loader },
-                    'css-loader'
-                ]
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                    },
+                    'css-loader',
+                    'sass-loader'
+                ],
             },
             {
                 test: /\.(png|jpg|jpeg|svg|gif|webp)$/,

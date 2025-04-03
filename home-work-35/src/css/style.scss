@@ -1,5 +1,7 @@
+$background: green;
+
 body {
-    background-color: green;
+    background-color: $background;
     font-family: 'Akaya Telivigala', sans-serif;
 }
 
