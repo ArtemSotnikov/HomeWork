@@ -9,8 +9,8 @@ const EslintWebpackPlugin = require('eslint-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'development'
 const isProd = !isDev
-console.log('IS DEV:', isDev)
-console.log('IS PROD:', isProd)
+//console.log('IS DEV:', isDev)
+//console.log('IS PROD:', isProd)
 
 module.exports = {
     mode: 'development',
