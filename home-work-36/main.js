@@ -1,9 +1,4 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.OrderStatus = void 0;
-exports.sumArray = sumArray;
-exports.createUser = createUser;
-exports.getOrderStatus = getOrderStatus;
 console.log('#19. TypeScript homework example file');
 /*
  * #1
@@ -63,7 +58,7 @@ var OrderStatus;
     OrderStatus["Shipped"] = "Shipped";
     OrderStatus["Delivered"] = "Delivered";
     OrderStatus["Cancelled"] = "Cancelled";
-})(OrderStatus || (exports.OrderStatus = OrderStatus = {}));
+})(OrderStatus || (OrderStatus = {}));
 function getOrderStatus(orderStatus) {
     switch (orderStatus) {
         case OrderStatus.Pending:

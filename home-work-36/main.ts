@@ -114,4 +114,4 @@ console.log(getOrderStatus(OrderStatus.Shipped))
 console.log(getOrderStatus(OrderStatus.Delivered))
 console.log(getOrderStatus(OrderStatus.Cancelled))
 
-export { sumArray, createUser, OrderStatus, getOrderStatus }
+
