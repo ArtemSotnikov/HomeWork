@@ -15,13 +15,15 @@ console.log('#19. TypeScript homework example file')
  *
  */
 
-function sumArray() {
-  // code here
+function sumArray(numbers : number[]) : number {
+
+    return numbers.reduce((accumulator : number, number : number) : number => accumulator + number, 0);
+
 }
 
 // Вивід до консолі для демонстрації
-// console.log(sumArray([1, 2, 3, 4])) // Повинно вивести 10
-// console.log(sumArray([])) // Повинно вивести 0
+console.log(sumArray([1, 2, 3, 4])) // Повинно вивести 10
+console.log(sumArray([])) // Повинно вивести 0
 
 /*
  * #2
@@ -39,14 +41,26 @@ function sumArray() {
  *
  */
 
-type User = {}
-
-function createUser() {
-  // code here
+type User = {
+    name: string,
+    age: number,
+    isActive: boolean,
 }
 
-// const newUser = createUser('Анна', 25, true)
-// console.log(newUser)
+function createUser(name: string, age: number, isActive: boolean = true): User {
+
+    return {
+        name: name,
+        age: age,
+        isActive: isActive};
+
+}
+
+const newUser = createUser('Анна', 25, true)
+console.log(newUser)
+
+const updatedUser = createUser('Анна', 35)
+console.log(updatedUser)
 
 /*
  * #3
