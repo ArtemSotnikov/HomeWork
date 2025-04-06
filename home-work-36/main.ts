@@ -84,16 +84,34 @@ console.log(updatedUser)
  *
  */
 
-enum OrderStatus {}
+enum OrderStatus {
+    Pending = 'Pending',
+    Shipped = 'Shipped',
+    Delivered = 'Delivered',
+    Cancelled = 'Cancelled'
+}
 
-function getOrderStatus() {
-  // code here
+function getOrderStatus(orderStatus: OrderStatus) : string {
+
+    switch (orderStatus) {
+        case OrderStatus.Pending:
+            return 'Замовлення очікує на обробку';
+        case OrderStatus.Shipped:
+            return 'Замовлення було відправлено';
+        case OrderStatus.Delivered:
+            return 'Замовлення доставлено';
+        case OrderStatus.Cancelled:
+            return 'Замовлення скасовано';
+        default:
+            throw new Error('Невідомий статус замовлення');
+    }
+
 }
 
 // Приклад виклику функції
-// console.log(getOrderStatus(OrderStatus.Pending))
-// console.log(getOrderStatus(OrderStatus.Shipped))
-// console.log(getOrderStatus(OrderStatus.Delivered))
-// console.log(getOrderStatus(OrderStatus.Cancelled))
+console.log(getOrderStatus(OrderStatus.Pending))
+console.log(getOrderStatus(OrderStatus.Shipped))
+console.log(getOrderStatus(OrderStatus.Delivered))
+console.log(getOrderStatus(OrderStatus.Cancelled))
 
 export { sumArray, createUser, OrderStatus, getOrderStatus }
