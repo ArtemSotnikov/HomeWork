@@ -110,19 +110,27 @@ users.forEach((user: User) => {
 console.log(potentiallyProblematicAccounts);
 
 // #2 Знайти суму всіх балансів користувачів
-const sum = users.reduce((accumulator, currentValue) => accumulator + parseFloat(currentValue.balanceNumeric), 0);
+const sum : number = users.reduce((accumulator : number, currentValue : User) =>
+    accumulator + (currentValue as ExtendedUser).balanceNumeric, 0);
 console.log(sum);
 
 // #3 Знайти користувача з максімальним балансом, вивести його
-const balances = [];
-users.forEach((user) => {
-  balances.push(parseFloat(user.balanceNumeric));
+const balances : number[] = [];
+users.forEach((user : User) : void => {
+  balances.push((user as ExtendedUser).balanceNumeric);
 });
 
 console.log(balances);
 
-const maxBalance = Math.max.apply(Math, balances);
-console.log(maxBalance);
+const maxBalance : number = Math.max.apply(Math, balances);
+console.log("max balance:", maxBalance);
+
+// Find the user who has it
+const richestUser : User | undefined = users.find(
+    (user : User) => (user as ExtendedUser).balanceNumeric === maxBalance
+);
+
+console.log("User with the highest balance", richestUser);
 
 // #4 Вивести користувачів з повторюючимися іменами
 function getUsersWithSameNames(accounts) {
