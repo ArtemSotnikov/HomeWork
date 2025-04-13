@@ -133,10 +133,10 @@ const richestUser : User | undefined = users.find(
 console.log("User with the highest balance", richestUser);
 
 // #4 Вивести користувачів з повторюючимися іменами
-function getUsersWithSameNames(accounts) {
-  const sameNameUsers = [];
+function getUsersWithSameNames(accounts : User[]): User[] {
+  const sameNameUsers: User[] = [];
 
-  for (let account of accounts) {
+  for (const account of accounts) {
     accounts.forEach((user) => {
       if (account.index !== user.index && account.name === user.name) {
         sameNameUsers.push(account);
