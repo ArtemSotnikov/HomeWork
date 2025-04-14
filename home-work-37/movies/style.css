@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
+#movieForm {
+  padding: 50px;
+}
+
+#movieContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.movie {
+  border: 1px solid lightblue;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+
+  img {
+    width: 200px;
+  }
+}
+
+#errorContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: red;
+  font-size: 30px;
+}

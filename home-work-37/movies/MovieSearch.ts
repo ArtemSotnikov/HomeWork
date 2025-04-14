@@ -1,21 +1,41 @@
 import {debounce} from "./utilities.js";
 
+type MovieData = {
+    Title: string;
+    Year: string;
+    Poster?: string;
+};
+
+type MovieApiResponse = {
+    Search: MovieData[];
+    Response: string;
+    Error?: string;
+};
+
 export class MovieSearch {
     //variables
-    API_KEY = "";
-    BASE_URL = "";
+    API_KEY: string = "";
+    BASE_URL: string = "";
+    private id: string = "";
+    private searchTextElement: HTMLInputElement;
+    private movieContainerElement: HTMLElement;
+    private errorContainerElement: HTMLElement;
 
-    constructor(API_KEY, BASE_URL, id) {
+    constructor(API_KEY: string, BASE_URL: string, id: string) {
         this.API_KEY = API_KEY;
         this.BASE_URL = BASE_URL;
         this.id = id;
 
-        this.assignDOMElements();
+        //Subscribe DOM elements
+        this.searchTextElement = document.getElementById('searchText') as HTMLInputElement;
+        this.movieContainerElement = document.getElementById('movieContainer') as HTMLElement;
+        this.errorContainerElement = document.getElementById('errorContainer') as HTMLElement;
+
         //"Enable" search
         this.subscribeDOMElements();
     }
 
-    getHtmlForMovie(movieData) {
+    getHtmlForMovie(movieData: MovieData): string   {
         const imgUrl = movieData.Poster?.startsWith('http') ? movieData.Poster : 'images/no-image.png';
 
         return `
@@ -30,10 +50,10 @@ export class MovieSearch {
   `;
     }
 
-    async findMovie(searchKey) {
+    async findMovie(searchKey: string): Promise<MovieData[]> {
         const searchLink = `${this.BASE_URL}?apikey=${this.API_KEY}&s=${searchKey}`;
 
-        const movieData = await fetch(searchLink)
+        const movieData: MovieApiResponse = await fetch(searchLink)
             .then(res => res.json())
             .then(response => {
 
@@ -46,11 +66,11 @@ export class MovieSearch {
         return movieData?.Search;
     }
 
-    async onTextInput() {
+    async onTextInput():Promise<void> {
         this.movieContainerElement.innerHTML = '';
         this.errorContainerElement.innerHTML = '';
 
-        const searchString = this.searchTextElement.value.trim();
+        const searchString: string = this.searchTextElement.value.trim();
 
         if (!searchString) {
             this.errorContainerElement.innerHTML = 'Search string is empty';
@@ -61,20 +81,14 @@ export class MovieSearch {
             const found = await this.findMovie(this.searchTextElement.value);
             this.movieContainerElement.innerHTML = found.map(movie => this.getHtmlForMovie(movie)).join('');
 
-        } catch (error) {
-            this.errorContainerElement.innerHTML = error.message;
+        } catch (caughtError: unknown) {
+            const error = caughtError as Error;
+            this.errorContainerElement.innerHTML = `<div class="error">${error.message}</div>`;
         }
     }
 
     //Add listeners to chosen DOM elements
-    subscribeDOMElements() {
+    subscribeDOMElements(): void {
         this.searchTextElement.addEventListener('input', debounce(this.onTextInput.bind(this), 500));
-    }
-
-    //Subscribe DOM elements
-    assignDOMElements() {
-        this.searchTextElement = document.getElementById('searchText');
-        this.movieContainerElement = document.getElementById('movieContainer');
-        this.errorContainerElement = document.getElementById('errorContainer');
     }
 }
