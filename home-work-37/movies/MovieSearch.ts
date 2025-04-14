@@ -36,7 +36,7 @@ export class MovieSearch {
     }
 
     getHtmlForMovie(movieData: MovieData): string   {
-        const imgUrl = movieData.Poster?.startsWith('http') ? movieData.Poster : 'images/no-image.png';
+        const imgUrl: string = movieData.Poster?.startsWith('http') ? movieData.Poster : 'images/no-image.png';
 
         return `
     <div class="movie">
