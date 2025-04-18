@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { Button } from './components/Button'
+import viteLogo from '/vite.svg';
+import './App.css';
+import { Button } from './components/Button';
+import { Input } from './components/Input';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+    const [value, setValue] = useState("");
 
   return (
     <>
@@ -27,6 +29,10 @@ function App() {
           <h1>My Button</h1>
           <Button text="Count also" onClick={() => setCount((count) => count + 1)}  />
       </div>
+        <div>
+            <h1>My Input</h1>
+            <Input placeholder="Type your text here" onChange={(e) => setValue(e.target.value)} />
+        </div>
     </>
   )
 }
