@@ -5,10 +5,10 @@ interface ItemProps {
     amount: number;
     unit: string;
     bestBefore?: string;
-    deleteItem: (id: number) => void,
+    removeItem: (id: number) => void,
 }
 
-export default function Item( {id, name, amount, unit, bestBefore}: ItemProps) {
+export default function Item( {id, name, amount, unit, bestBefore, removeItem}: ItemProps) {
     return (
         <>
             <div>ID: {id}</div>
@@ -16,7 +16,7 @@ export default function Item( {id, name, amount, unit, bestBefore}: ItemProps) {
             <div>Amount: {amount}</div>
             <div>Unit: {unit}</div>
             {bestBefore && <div>Best Before: {bestBefore}</div>}
-            <button onClick={() => { deleteItem(id) }}>Delete</button>
+            <button onClick={() => { removeItem(id) }}>Delete</button>
             <hr/>
         </>
     )
