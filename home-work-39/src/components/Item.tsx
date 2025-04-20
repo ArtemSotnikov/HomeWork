@@ -14,6 +14,7 @@ export default function Item( {id, name, amount, unit, bestBefore}: ItemProps) {
             <div>Name: {name}</div>
             <div>Amount: {amount}</div>
             <div>Unit: {unit}</div>
+            {bestBefore && <div>Best Before: {bestBefore}</div>}
         </>
     )
 }
