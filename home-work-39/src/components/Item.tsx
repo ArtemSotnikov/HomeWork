@@ -5,6 +5,7 @@ interface ItemProps {
     amount: number;
     unit: string;
     bestBefore?: string;
+    deleteItem: (id: number) => void,
 }
 
 export default function Item( {id, name, amount, unit, bestBefore}: ItemProps) {
@@ -15,6 +16,8 @@ export default function Item( {id, name, amount, unit, bestBefore}: ItemProps) {
             <div>Amount: {amount}</div>
             <div>Unit: {unit}</div>
             {bestBefore && <div>Best Before: {bestBefore}</div>}
+            <button onClick={() => { deleteItem(id) }}>Delete</button>
+            <hr/>
         </>
     )
 }
