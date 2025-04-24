@@ -1,18 +1,18 @@
 import { useRef } from "react";
 import * as React from "react";
 
-export default function UncontrolledCheckbox() {
+export default function UncontrolledCheckbox() : Element {
     const inputRef = useRef<HTMLInputElement>(null);
     const checkRef = useRef<HTMLInputElement>(null);
 
-    const handleClick = (event : React.MouseEvent<HTMLInputElement>) => {
-        const inputValue = inputRef.current?.value.trim();
-        const toBeChecked = (event.target as HTMLInputElement).checked;
+    const handleClick = (event : React.MouseEvent<HTMLInputElement>) : void => {
+        const inputValue : string | undefined = inputRef.current?.value.trim();
+        const toBeChecked : boolean = (event.target as HTMLInputElement).checked;
 
         if (toBeChecked) {
             if (!inputValue || inputValue === "Please type your message here") {
                 alert("Please check your input before submission");
-                event.preventDefault(); // prevent checkbox from being checked
+                event.preventDefault();
                 return;
             }
 
