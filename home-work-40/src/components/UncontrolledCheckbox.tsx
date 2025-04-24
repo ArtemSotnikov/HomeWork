@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import * as React from "react";
 
-export default function UncontrolledCheckbox() : Element {
+export default function UncontrolledCheckbox(){
     const inputRef = useRef<HTMLInputElement>(null);
     const checkRef = useRef<HTMLInputElement>(null);
 
