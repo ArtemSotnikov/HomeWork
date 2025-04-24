@@ -1,10 +1,11 @@
 import { useRef } from "react";
+import * as React from "react";
 
 export default function UncontrolledCheckbox() {
     const inputRef = useRef<HTMLInputElement>(null);
     const checkRef = useRef<HTMLInputElement>(null);
 
-    const handleCheck = () => {
+    const handleClick = (event : React.MouseEvent<HTMLInputElement>) => {
         const inputValue = inputRef.current?.value.trim();
         const isChecked = checkRef.current?.checked;
 
@@ -14,16 +15,18 @@ export default function UncontrolledCheckbox() {
 
         if (!inputValue || inputValue === "Please type your message here") {
             alert("Please check your input before submission");
+
+            event.preventDefault();
         }
     }
 
     return (
         <>
             <div>
-                <label htmlFor="uncontrolledCheckbox">Check text if not empty:</label>
+                <label htmlFor="uncontrolledCheckbox">Check and submit text if not empty:</label>
                 <input type="checkbox"
                        ref={checkRef}
-                       onChange={handleCheck}/>
+                       onClick={handleClick}/>
                 <br/>
                 <input
                     type="text"
