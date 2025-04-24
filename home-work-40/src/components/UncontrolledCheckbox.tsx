@@ -7,11 +7,6 @@ export default function UncontrolledCheckbox() {
 
     const handleClick = (event : React.MouseEvent<HTMLInputElement>) => {
         const inputValue = inputRef.current?.value.trim();
-        const isChecked = checkRef.current?.checked;
-
-        if (!isChecked) {
-            return;
-        }
 
         if (!inputValue || inputValue === "Please type your message here") {
             alert("Please check your input before submission");
@@ -32,7 +27,7 @@ export default function UncontrolledCheckbox() {
                     type="text"
                     name="message"
                     ref={inputRef}
-                    placeholder="Please type your massage here"/>
+                    placeholder="Please type your message here"/>
             </div>
         </>
     )
