@@ -7,18 +7,22 @@ export default function UncontrolledCheckbox() {
 
     const handleClick = (event : React.MouseEvent<HTMLInputElement>) => {
         const inputValue = inputRef.current?.value.trim();
-        const isChecked = checkRef.current?.checked;
+        const toBeChecked = (event.target as HTMLInputElement).checked;
 
-        if (!inputValue || inputValue === "Please type your message here") {
-            alert("Please check your input before submission");
+        if (toBeChecked) {
+            if (!inputValue || inputValue === "Please type your message here") {
+                alert("Please check your input before submission");
+                event.preventDefault(); // prevent checkbox from being checked
+                return;
+            }
 
-            event.preventDefault();
-
-            return;
-        }
-
-        if (isChecked && inputRef.current) {
-            inputRef.current.disabled = true;
+            if (inputRef.current) {
+                inputRef.current.disabled = true;
+            }
+        } else {
+            if (inputRef.current) {
+                inputRef.current.disabled = false;
+            }
         }
     }
 
