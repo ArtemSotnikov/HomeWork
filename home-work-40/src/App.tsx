@@ -1,6 +1,7 @@
 
 import './App.css'
 import ControlledSelect from "./components/ControlledSelect.tsx";
+import UncontrolledCheckbox from "./components/UncontrolledCheckbox.tsx";
 
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
   return (
     <>
         <ControlledSelect/>
+        <UncontrolledCheckbox/>
     </>
   )
 }
