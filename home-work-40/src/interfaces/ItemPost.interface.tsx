@@ -1,5 +1,5 @@
 export interface ItemPost {
-    idUser: number;
+    userId: number;
     id: number;
     title: string;
     body: string;
