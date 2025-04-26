@@ -2,6 +2,7 @@
 import './App.css'
 import ControlledSelect from "./components/ControlledSelect.tsx";
 import UncontrolledCheckbox from "./components/UncontrolledCheckbox.tsx";
+import EffectDemoFetchPost from "./components/EffectDemoFetchPost.tsx";
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
     <>
         <ControlledSelect/>
         <UncontrolledCheckbox/>
+        <EffectDemoFetchPost/>
     </>
   )
 }
