@@ -10,7 +10,9 @@ function App() {
   return (
     <>
         <ControlledSelect/>
+        <hr/>
         <UncontrolledCheckbox/>
+        <hr/>
         <EffectDemoFetchPost/>
     </>
   )
