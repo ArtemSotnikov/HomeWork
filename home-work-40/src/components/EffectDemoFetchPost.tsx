@@ -4,8 +4,11 @@ import Post from "./Post.tsx";
 
 export default function EffectDemoFetchPost() {
     const [posts, setPosts] = useState<ItemPost[]>([]);
+    const [loading, setLoading] = useState(false);
 
     const fetchPosts = async () => {
+        setLoading(true);
+
         try {
             await new Promise(resolve => {
                 setTimeout(resolve, 3000);
@@ -18,6 +21,8 @@ export default function EffectDemoFetchPost() {
             setPosts(data);
         } catch (error) {
             console.error('Error fetching posts', error);
+        } finally {
+            setLoading(false);
         }
     }
 
@@ -28,7 +33,8 @@ export default function EffectDemoFetchPost() {
     return(
         <>
             <label htmlFor="effectDemoFetchPosts">Posts:</label>
-            {
+            <div>
+                {
                 posts.map((post: ItemPost) =>
                     <Post
                         key={post.id}
@@ -38,6 +44,8 @@ export default function EffectDemoFetchPost() {
                         body={post.body}/>
                 )
             }
+            </div>
+            {loading && <p className="loading">Loading...</p>}
         </>
     )
 }
