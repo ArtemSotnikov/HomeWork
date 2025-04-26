@@ -4,7 +4,8 @@ import Post from "./Post.tsx";
 
 export default function EffectDemoFetchPost() {
     const [posts, setPosts] = useState<ItemPost[]>([]);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState<boolean>(false);
+    const [error, setError] = useState<string>("");
 
     const fetchPosts = async () => {
         setLoading(true);
@@ -20,7 +21,8 @@ export default function EffectDemoFetchPost() {
             const data: ItemPost[] = await response.json();
             setPosts(data);
         } catch (error) {
-            console.error('Error fetching posts', error);
+            const errorMessage = (error as Error).message;
+            setError(errorMessage);
         } finally {
             setLoading(false);
         }
@@ -46,6 +48,7 @@ export default function EffectDemoFetchPost() {
             }
             </div>
             {loading && <p className="loading">Loading...</p>}
+            {error && <p className="error"><b>{error}</b></p>}
         </>
     )
 }
