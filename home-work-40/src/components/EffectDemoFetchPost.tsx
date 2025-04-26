@@ -40,10 +40,8 @@ export default function EffectDemoFetchPost() {
                 posts.map((post: ItemPost) =>
                     <Post
                         key={post.id}
-                        userId={post.userId}
-                        id={post.id}
-                        title={post.title}
-                        body={post.body}/>
+                        {...post}
+                    />
                 )
             }
             </div>
