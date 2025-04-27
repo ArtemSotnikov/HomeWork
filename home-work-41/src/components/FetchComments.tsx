@@ -5,19 +5,25 @@ import Comment from "../components/Comment";
 
 function FetchComments() {
     const [comments, setComments] = useState<ItemComment[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string>("");
 
     useEffect(() => {
-        // Make GET request to fetch data
         axios
-            .get(`https://jsonplaceholder.typicode.com/comments`)
+            .get(`https://jsonplaceholder.typicode.com/comments1`)
             .then((response : AxiosResponse) => {
                 setComments(response.data);
-
+                setLoading(false);
             })
             .catch((err) => {
-                console.log(err);
+                setError(err.message);
+                setLoading(false);
             });
     }, []);
+
+    // Render first load and Error, before starting with list of comments. In case this list is heavy.
+    if (loading) return <div>Comment are being loaded...</div>;
+    if (error) return <div>Error: {error}</div>;
 
     return (
         <>
