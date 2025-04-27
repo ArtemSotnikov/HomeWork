@@ -1,9 +1,12 @@
 import './App.css'
+import FetchComments from "./components/FetchComments.tsx";
+
 
 function App() {
 
   return (
     <>
+      <FetchComments></FetchComments>
     </>
   )
 }
