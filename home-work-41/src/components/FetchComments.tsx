@@ -10,7 +10,7 @@ function FetchComments() {
 
     useEffect(() => {
         axios
-            .get(`https://jsonplaceholder.typicode.com/comments1`)
+            .get(`https://jsonplaceholder.typicode.com/comments`)
             .then((response : AxiosResponse) => {
                 setComments(response.data);
                 setLoading(false);
