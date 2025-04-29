@@ -2,3 +2,12 @@
     font-weight: bold;
     color: #883535;
 }
+
+li {
+    list-style: none;
+}
+
+ul {
+    display: flex;
+    gap: 10px;
+}
