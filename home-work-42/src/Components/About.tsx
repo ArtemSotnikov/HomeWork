@@ -1,5 +1,6 @@
 import HeaderMenu from "./HeaderMenu.tsx";
 import AboutMenu from "./AboutMenu.tsx";
+import {Outlet} from "react-router";
 
 
 function About() {
@@ -9,7 +10,10 @@ function About() {
         <>
             <HeaderMenu/>
             <AboutMenu/>
+
             <div>About us</div>
+
+            <Outlet/>
         </>
     );
 }
