@@ -1,17 +1,16 @@
 import HeaderMenu from "./HeaderMenu.tsx";
 import AboutMenu from "./AboutMenu.tsx";
 
-
-function About() {
-    document.title = "about";
+function Team() {
+    document.title = "team";
 
     return (
         <>
             <HeaderMenu/>
             <AboutMenu/>
-            <div>About us</div>
+            <div>Meet our team</div>
         </>
     );
 }
 
-export default About;
+export default Team;

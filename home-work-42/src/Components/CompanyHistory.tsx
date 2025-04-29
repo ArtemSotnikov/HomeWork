@@ -2,16 +2,16 @@ import HeaderMenu from "./HeaderMenu.tsx";
 import AboutMenu from "./AboutMenu.tsx";
 
 
-function About() {
-    document.title = "about";
+function CompanyHistory() {
+    document.title = "history";
 
     return (
         <>
             <HeaderMenu/>
             <AboutMenu/>
-            <div>About us</div>
+            <div>Our history</div>
         </>
     );
 }
 
-export default About;
+export default CompanyHistory;
