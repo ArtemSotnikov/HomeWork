@@ -2,6 +2,7 @@ import HeaderMenu from "./HeaderMenu.tsx";
 
 
 function Home() {
+    document.title = "home";
 
     return (
         <>
