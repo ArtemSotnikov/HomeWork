@@ -1,8 +1,13 @@
+import HeaderMenu from "./HeaderMenu.tsx";
 
 
 function Contact() {
     return (
-        <div>Contact us</div>
+        <>
+            <HeaderMenu/>
+            <div>Contact us</div>
+        </>
+
     );
 }
 

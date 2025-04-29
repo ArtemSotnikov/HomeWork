@@ -1,9 +1,13 @@
+import HeaderMenu from "./HeaderMenu.tsx";
 
 
 function About() {
 
     return (
-        <div>About us</div>
+        <>
+            <HeaderMenu/>
+            <div>About us</div>
+        </>
     );
 }
 
