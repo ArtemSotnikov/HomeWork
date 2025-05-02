@@ -1,10 +1,10 @@
-import { useState } from "react";
+import {useContext} from "react";
 import { ItemData } from "../interfaces/ItemData.interface.ts";
-import { itemsData } from "../lists/itemsData.ts";
 import Item from "./Item";
+import {ShoppingListContext} from "../contexts/ShoppingListContext.ts";
 
 export default function ShoppingList() {
-const [items, setItems] = useState<ItemData[]>(itemsData);
+    const { items, setItems } = useContext(ShoppingListContext);
 
     function handleRemoveItem(id: number) {
         console.log(`Remove ${id} from shopping list`);
