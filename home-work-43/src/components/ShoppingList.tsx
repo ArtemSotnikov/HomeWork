@@ -4,12 +4,7 @@ import Item from "./Item";
 import {ShoppingListContext} from "../contexts/ShoppingListContext.ts";
 
 export default function ShoppingList() {
-    const { items, setItems } = useContext(ShoppingListContext);
-
-    function handleRemoveItem(id: number) {
-        console.log(`Remove ${id} from shopping list`);
-        setItems(items.filter(item => item.id !== id));
-    }
+    const { items, handleRemoveItem} = useContext(ShoppingListContext);
 
     return (
         <>
