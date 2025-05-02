@@ -5,11 +5,9 @@ import ShoppingListContextProvider from "./components/ShoppingListContextProvide
 function App() {
 
   return (
-    <>
-        <ShoppingListContextProvider>
-            <ShoppingList />
-        </ShoppingListContextProvider>
-    </>
+      <ShoppingListContextProvider>
+          <ShoppingList />
+      </ShoppingListContextProvider>
   )
 }
 
