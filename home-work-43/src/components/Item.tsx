@@ -1,10 +1,6 @@
+import {ItemData} from "../interfaces/ItemData.interface.ts";
 
-interface ItemProps {
-    id: number;
-    name: string;
-    amount: number;
-    unit: string;
-    bestBefore?: string;
+export interface ItemProps extends ItemData {
     removeItem: (id: number) => void,
 }
 

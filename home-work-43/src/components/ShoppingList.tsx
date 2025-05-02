@@ -4,7 +4,7 @@ import { itemsData } from "../lists/itemsData.ts";
 import Item from "./Item";
 
 export default function ShoppingList() {
-const [items, setItems] = useState(itemsData);
+const [items, setItems] = useState<ItemData[]>(itemsData);
 
     function handleRemoveItem(id: number) {
         console.log(`Remove ${id} from shopping list`);
@@ -15,7 +15,7 @@ const [items, setItems] = useState(itemsData);
         <>
             {
                 items.map((item: ItemData) =>
-                    <Item key={item.id} removeItem={handleRemoveItem} id={item.id} name={item.name} amount={item.amount} unit={item.unit} bestBefore={item.bestBefore} />
+                    <Item key={item.id} removeItem={handleRemoveItem} {...item} />
                         )
             }
         </>
