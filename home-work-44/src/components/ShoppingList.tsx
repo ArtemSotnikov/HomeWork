@@ -1,10 +1,17 @@
-import {useContext} from "react";
 import { ItemData } from "../interfaces/ItemData.interface.ts";
 import Item from "./Item";
-import {ShoppingListContext} from "../contexts/ShoppingListContext.ts";
+import {useDispatch, useSelector} from "react-redux";
+import {ShoppingListState} from "../redux/types.ts";
+import {removeItem} from "../redux/actions.ts";
 
 export default function ShoppingList() {
-    const { items, handleRemoveItem} = useContext(ShoppingListContext);
+    const items = useSelector((state: { shoppingList: ShoppingListState }) => state.shoppingList.items);
+    const dispatch = useDispatch();
+
+    const handleRemoveItem = (id: number) => {
+        // @ts-expect-error To remove TS error for dispatch type.
+        dispatch(removeItem(id));
+    };
 
     return (
         <>
