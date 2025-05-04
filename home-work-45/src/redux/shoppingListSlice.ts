@@ -1,22 +1,22 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {ItemData} from "../interfaces/ItemData.interface.ts";
+import {itemsData} from "../lists/itemsData.ts";
 
 interface ShoppingListState {
     items: ItemData[]
 }
 
 const initialState : ShoppingListState = {
-    items: []
+    items: itemsData
 }
 
 const shoppingListSlice = createSlice({
     name: "shoppingList",
     initialState,
     reducers : {
-        removeItem: (state : ShoppingListState) => {
-            state.items.filter(item => item.id !== action.payload)
+        removeItem: (state,  action: PayloadAction<number>) => {
+            state.items = state.items.filter(item => item.id !== action.payload);
         }
-
     }
 })
 
