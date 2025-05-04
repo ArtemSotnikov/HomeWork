@@ -1,13 +1,14 @@
 import './App.css'
 import ShoppingList from "./components/ShoppingList.tsx";
-import ShoppingListContextProvider from "./components/ShoppingListContextProvider.tsx";
+import {Provider} from "react-redux";
+import {store} from "./redux/store.ts";
 
 function App() {
 
   return (
-      <ShoppingListContextProvider>
+      <Provider store={store}>
           <ShoppingList />
-      </ShoppingListContextProvider>
+      </Provider>
   )
 }
 
