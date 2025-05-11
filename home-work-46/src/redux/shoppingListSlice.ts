@@ -46,7 +46,16 @@ const shoppingListSlice = createSlice({
                 getItemsFromServer.fulfilled,
                 (state, action: PayloadAction<ItemData[]>) => {
                     state.loading = false;
-                    state.items = [...state.items, ...action.payload]
+
+                    const currentIds = state.items.map(item => item.id);
+                    let nextId = currentIds.length ? Math.max(...currentIds) + 1 : 1;
+
+                    const newItems = action.payload.map(item => ({
+                        ...item,
+                        id: nextId++
+                    }));
+
+                    state.items = [...state.items, ...newItems];
                 })
     }
 })
