@@ -26,6 +26,16 @@ export const getItemsFromServer = createAsyncThunk(
     }
 );
 
+function getItemsWithNewIDs(state: ShoppingListState, action: PayloadAction<ItemData[]>): ItemData[] {
+    const currentIds = state.items.map(item => item.id);
+    let nextId = currentIds.length ? Math.max(...currentIds) + 1 : 1;
+
+    return action.payload.map(item => ({
+        ...item,
+        id: nextId++
+    }));
+}
+
 const shoppingListSlice = createSlice({
     name: "shoppingList",
     initialState,
@@ -47,13 +57,7 @@ const shoppingListSlice = createSlice({
                 (state, action: PayloadAction<ItemData[]>) => {
                     state.loading = false;
 
-                    const currentIds = state.items.map(item => item.id);
-                    let nextId = currentIds.length ? Math.max(...currentIds) + 1 : 1;
-
-                    const newItems = action.payload.map(item => ({
-                        ...item,
-                        id: nextId++
-                    }));
+                    const newItems = getItemsWithNewIDs(state, action);
 
                     state.items = [...state.items, ...newItems];
                 })
