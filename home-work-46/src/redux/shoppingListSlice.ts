@@ -46,8 +46,7 @@ const shoppingListSlice = createSlice({
                 getItemsFromServer.fulfilled,
                 (state, action: PayloadAction<ItemData[]>) => {
                     state.loading = false;
-                    state.items = action.payload;
-                  //  state.currentId = state.users[0]?.id || 0;
+                    state.items = [...state.items, ...action.payload]
                 })
     }
 })
