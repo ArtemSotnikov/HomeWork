@@ -20,11 +20,11 @@ app.get('/articles', (req, res) => {
 app.get('/articles/:id', function (req, res)  {
     const id = parseInt(req.params.id);
     const article = articles.find(article => article.id === id);
-    
+
     if (!article) {
         res.status(404).send('No article found with id ' + id);
     } else {
-        const data = { title_page: "Article " + article.id, title_article: article.title, content: article.text };
+        const data = { title_page: "Article " + article.id, title_article: article.title, content: article.text, author: article.author };
         res.render('page', data);
     }
 })
