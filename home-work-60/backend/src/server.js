@@ -1,10 +1,15 @@
 import express from 'express';
+import {articles} from "../data/articles.js";
 
 const PORT = process.env.PORT || 4000;
 
 const app = express();
 
 app.set('view engine', 'ejs');
+
+app.get('/articles', (req, res) => {
+    res.json(articles);
+});
 
 app.get('/', function (req, res) {
     const data = { title_page: 'Main', title_article: 'Test!', content: 'Article content' };
