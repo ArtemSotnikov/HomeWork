@@ -7,8 +7,12 @@ const app = express();
 
 app.set('view engine', 'ejs');
 
-app.get('/', function (req, res) {
-   res.send('<a href="/articles">Go to Articles</a>');
+app.get('/', (req, res) => {
+    res.render('main', {
+        title_page: 'home',
+        title: 'Home Page',
+        text: 'Go to Articles'
+    });
 })
 
 app.get('/articles', (req, res) => {
