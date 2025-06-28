@@ -17,8 +17,17 @@ app.set('view engine', 'ejs');
 
 app.use(cookieParser());
 
+app.get('/set-cookie/:theme', (req, res) => {
+    const theme = req.params.theme;
+    if (!['light', 'dark'].includes(theme)) {
+        return res.status(400).send('Invalid theme');
+    }
+    res.cookie('theme', theme, { maxAge: 86400, httpOnly: true });
+    res.send(`Theme is set to ${theme}`);
+});
+
 app.get('/', (req, res) => {
-    const theme = 'dark';
+    const theme = req.cookies.theme || 'light';
     res.render('main', {
         title_page: 'home',
         title: 'Home Page',
@@ -28,7 +37,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/articles', (req, res) => {
-    const theme = 'light';
+    const theme = req.cookies.theme || 'light';
     res.render('articles', {
         title_page: 'articles',
         title: 'Articles',
@@ -40,7 +49,7 @@ app.get('/articles', (req, res) => {
 app.get('/articles/:id', function (req, res)  {
     const id = parseInt(req.params.id);
     const article = articles.find(article => article.id === id);
-    const theme = 'light';
+    const theme = req.cookies.theme || 'light';
 
     if (!article) {
         res.status(404).send('No article found with id ' + id);
