@@ -18,29 +18,34 @@ app.set('view engine', 'ejs');
 app.use(cookieParser());
 
 app.get('/', (req, res) => {
+    const theme = 'dark';
     res.render('main', {
         title_page: 'home',
         title: 'Home Page',
-        text: 'Go to Articles'
+        text: 'Go to Articles',
+        theme
     });
 })
 
 app.get('/articles', (req, res) => {
+    const theme = 'light';
     res.render('articles', {
         title_page: 'articles',
         title: 'Articles',
-        articles
+        articles,
+        theme
     });
 })
 
 app.get('/articles/:id', function (req, res)  {
     const id = parseInt(req.params.id);
     const article = articles.find(article => article.id === id);
+    const theme = 'light';
 
     if (!article) {
         res.status(404).send('No article found with id ' + id);
     } else {
-        const data = { title_page: "Article " + article.id, title_article: article.title, content: article.text, author: article.author };
+        const data = { title_page: "Article " + article.id, title_article: article.title, content: article.text, author: article.author, theme };
         res.render('page', data);
     }
 })

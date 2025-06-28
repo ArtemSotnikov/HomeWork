@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html data-theme="<%= theme %>">
 <head>
     <link rel="icon" href="/icons/favicon_articles.png">
     <title><%= title_page %></title>
+    <link rel="stylesheet" href="/styles/styles.css">
 </head>
-<body style="background-color: #515874; color: white;">
+<body>
 <h1><%= title %></h1>
 <ul>
     <% articles.forEach(article => { %>
-        <li><a href="/articles/<%= article.id %>" style="color: white;"><%= article.title %></a></li>
+        <li><a href="/articles/<%= article.id %>"><%= article.title %></a></li>
     <% }) %>
 </ul>
 </body>
