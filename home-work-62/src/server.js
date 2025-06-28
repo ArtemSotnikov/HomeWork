@@ -2,6 +2,7 @@ import express from 'express';
 import {articles} from "../data/articles.js";
 import * as path from "node:path";
 import { fileURLToPath } from 'node:url';
+import cookieParser from "cookie-parser";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -13,6 +14,8 @@ const app = express();
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.set('view engine', 'ejs');
+
+app.use(cookieParser());
 
 app.get('/', (req, res) => {
     res.render('main', {
