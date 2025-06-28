@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html data-theme="<%= theme %>">
+<head>
+    <link rel="icon" href="/icons/favicon_articles.png">
+    <title><%= title_page %></title>
+    <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+<h1>Login</h1>
+<% if (error) { %>
+    <p style="color: red;"><%= error %></p>
+<% } %>
+<form method="POST" action="/login">
+    <div>
+        <label>Username:</label>
+        <input type="text" name="username" required />
+    </div>
+    <br>
+    <div>
+        <label>Password:</label>
+        <input type="password" name="password" required />
+    </div>
+    <br>
+    <button type="submit">Login</button>
+</form>
+</body>
+</html>

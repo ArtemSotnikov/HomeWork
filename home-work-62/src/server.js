@@ -3,6 +3,8 @@ import {articles} from "../data/articles.js";
 import * as path from "node:path";
 import { fileURLToPath } from 'node:url';
 import cookieParser from "cookie-parser";
+import session from "express-session";
+import {users} from "../data/users.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -11,11 +13,29 @@ const PORT = process.env.PORT || 4000;
 
 const app = express();
 
+app.use(cookieParser());
+
 app.use(express.static(path.join(__dirname, '../public')));
+
+app.use(express.urlencoded({ extended: true }));
 
 app.set('view engine', 'ejs');
 
-app.use(cookieParser());
+app.use(session({
+    secret: 'your-secret-key',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }
+}));
+
+// Middleware to check if user is logged in
+function authMiddleware(req, res, next) {
+    if (req.session.user) {
+        next();
+    } else {
+        res.redirect('/login');
+    }
+}
 
 app.get('/set-cookie/:theme', (req, res) => {
     const theme = req.params.theme;
@@ -26,7 +46,23 @@ app.get('/set-cookie/:theme', (req, res) => {
     res.send(`Theme is set to ${theme}`);
 });
 
-app.get('/', (req, res) => {
+app.get('/login', (req, res) => {
+    const theme = req.cookies.theme || 'light';
+    res.render('login', { error: null,  theme, title_page: 'Login' });
+});
+
+app.post('/login', (req, res) => {
+    const { username, password } = req.body;
+    const user = users.find(u => u.username === username && u.password === password);
+    if (user) {
+        req.session.user = user;
+        res.redirect('/');
+    } else {
+        res.render('login', { error: 'Invalid username or password',  theme, title_page: 'Login' });
+    }
+});
+
+app.get('/', authMiddleware, (req, res) => {
     const theme = req.cookies.theme || 'light';
     res.render('main', {
         title_page: 'home',
@@ -36,7 +72,7 @@ app.get('/', (req, res) => {
     });
 })
 
-app.get('/articles', (req, res) => {
+app.get('/articles', authMiddleware,  (req, res) => {
     const theme = req.cookies.theme || 'light';
     res.render('articles', {
         title_page: 'articles',
@@ -46,7 +82,7 @@ app.get('/articles', (req, res) => {
     });
 })
 
-app.get('/articles/:id', function (req, res)  {
+app.get('/articles/:id', authMiddleware,  function (req, res)  {
     const id = parseInt(req.params.id);
     const article = articles.find(article => article.id === id);
     const theme = req.cookies.theme || 'light';
@@ -58,6 +94,8 @@ app.get('/articles/:id', function (req, res)  {
         res.render('page', data);
     }
 })
+
+
 
 app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);
