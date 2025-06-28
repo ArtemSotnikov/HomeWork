@@ -4,7 +4,7 @@ This project implements a basic server using Node.js with Express and EJS. The s
 
 ## Project Structure
 
-HomeWork/home-work-60/backend  
+HomeWork/home-work-62  
 ├── data/  
 │   └── articles.js  
 ├── src/  
