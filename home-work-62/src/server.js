@@ -28,7 +28,7 @@ app.use(session({
     cookie: { secure: false }
 }));
 
-// Middleware to check if user is logged in
+// Check if user is logged in
 function authMiddleware(req, res, next) {
     if (req.session.user) {
         next();
@@ -54,6 +54,7 @@ app.get('/login', (req, res) => {
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
     const user = users.find(u => u.username === username && u.password === password);
+    const theme = req.cookies.theme || 'light';
     if (user) {
         req.session.user = user;
         res.redirect('/');
@@ -94,8 +95,6 @@ app.get('/articles/:id', authMiddleware,  function (req, res)  {
         res.render('page', data);
     }
 })
-
-
 
 app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);
