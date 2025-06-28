@@ -12,10 +12,12 @@ app.get('/', function (req, res) {
 })
 
 app.get('/articles', (req, res) => {
-    res.send(articles.map(article => {
-        return `<li><a href="/articles/${article.id}">${article.title}</a></li>`;
-    }).join(''));
-});
+    res.render('articles', {
+        title_page: 'articles',
+        title: 'Articles',
+        articles
+    });
+})
 
 app.get('/articles/:id', function (req, res)  {
     const id = parseInt(req.params.id);
