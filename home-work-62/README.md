@@ -81,6 +81,6 @@ Articles are stored in data/articles.js as an array of objects.
 Users are stored in data/users.js as an array of objects.
 
 
-## EJS Template
+## EJS Templates
 
-The views/page.ejs file is used for rendering individual article pages via EJS.
+The views/ files are used for rendering individual pages via EJS.
