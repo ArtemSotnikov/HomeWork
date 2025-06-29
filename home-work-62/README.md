@@ -76,6 +76,11 @@ Route	method description:
 Articles are stored in data/articles.js as an array of objects.
 
 
+## User Data
+
+Users are stored in data/users.js as an array of objects.
+
+
 ## EJS Template
 
 The views/page.ejs file is used for rendering individual article pages via EJS.
