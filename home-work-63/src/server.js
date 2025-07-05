@@ -2,13 +2,13 @@ import express from "express";
 import session from "express-session";
 import passport from "passport";
 import {users} from "../data/users.js";
-import * as path from "node:path";
-import { fileURLToPath } from 'node:url';
+//import * as path from "node:path";
+//import { fileURLToPath } from 'node:url';
 import passportLocal from "passport-local";
 const LocalStrategy = passportLocal.Strategy;
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+//const __filename = fileURLToPath(import.meta.url);
+//const __dirname = path.dirname(__filename);
 
 const PORT = process.env.PORT || 4000;
 
@@ -59,7 +59,7 @@ app.get('/login', (req, res) => {
 });
 
 app.post('/login',
-    passport.authenticate('local', { failureRedirect: '/login' }),
+    passport.authenticate('local', { failureRedirect: '/login?error=1' }),
     function(req, res) {
         res.redirect('/');
     });
