@@ -32,6 +32,13 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+function checkAuthentication(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect('/login');
+}
+
 passport.use(new LocalStrategy(
     { usernameField: 'email', passwordField: 'password' },
     function(email, password, done) {
@@ -71,6 +78,10 @@ app.post('/login',
 
 app.get('/', (req, res) => {
     res.send('Main page');
+});
+
+app.get('/protected', checkAuthentication, (req, res) => {
+    res.send(`Hello ${req.user.username}, welcome to the protected page!`);
 });
 
 app.get('/logout', (req, res, next) => {
