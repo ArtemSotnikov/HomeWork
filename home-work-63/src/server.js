@@ -22,6 +22,11 @@ app.use(session({
     secret: 'secret-key',
     resave: false,
     saveUninitialized: false,
+    cookie: {
+        httpOnly: true,
+        secure: false,
+        maxAge: 86400
+    }
 }));
 
 app.use(passport.initialize());
