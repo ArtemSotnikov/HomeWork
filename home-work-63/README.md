@@ -1,35 +1,26 @@
-# Simple Server with Articles on Express and EJS
+# Simple Server on Express with Passport authentication
 
-This project implements a basic server using Node.js with Express and EJS. The server provides REST-style routes for working with a collection of articles.
+This project is a Node.js web application that demonstrates **user authentication** using **Passport.js** with the **Local Strategy** (email and password). It also has **session management** using `express-session`, and restricts access to a protected route.
 
 Main features:
 
-- Rendering pages using EJS templates
-- Managing cookies to store the user's theme preference
-- Basic user authentication using `express-session`
-- Protected routes requiring login
-- Serving static files (including favicon and css styles)
+- User login with email and password (`/login`) 
+- Authentication using Passport.js
+- Session management with `express-session`
+- Protected route (`/protected`) for authenticated users
+- Logout (`/logout`)
+- Error on failed login attempt
+- Rendering login page using EJS templates
 
 ## Project Structure
 ```
-HomeWork/home-work-62  
+HomeWork/home-work-63  
 ├── data/    
-│    ├── articles.js    
-│    └── users.js   
-├── public/    
-│    ├── icons/  
-│    │    ├── favicon_article.png   
-│    │    ├── favicon_articles.png    
-│    │    └── favicon_main.png  
-│    └── styles/  
-│         └── styles.css   
+│    ├── users.js     
 ├── src/    
 │    └── server.js    
-├── views/  
-│    ├── articles.ejs  
-│    ├── login.ejs  
-│    ├── main.ejs   
-│    └── page.ejs     
+├── views/   
+│    ├── login.ejs     
 ├── .gitignore     
 ├── package.json     
 ├── package-lock.json     
@@ -57,23 +48,15 @@ Command	description:
 ## Routes
 Route	method description:
 
-/login	 ----> GET login page with username and passwort, If incorrect credentials are submitted, shows an error message.
+/login	 ----> GET login page with user email and passwort, If incorrect credentials are submitted, shows an error message
 
-/login	 ----> POST check user credentials (from data/users.js), if succesfull redirect to Home page, if unsuccesfull reload login page with error.
+/login	 ----> POST handles login with email and password using Passport.js
 
-/	 ----> GET Home page with a link to the articles list.
+/	 ----> GET home page, which has no restrictions
 
-/set-cookie/:theme  ----> GET page with themes and set one theme (light or dark). Returns message with confirmation.
+/protected  ----> GET protected page, accessible only for loged in users
 
-/articles ----> GET	HTML page showing a list of all articles. Each article links to its detail page.
-
-/articles/:id ----> GET	Displays a specific article by ID using EJS. If not found, returns 404.
-
-
-
-## Article Data
-
-Articles are stored in data/articles.js as an array of objects.
+/logout ----> GET	logs the user out
 
 
 ## User Data
@@ -81,6 +64,6 @@ Articles are stored in data/articles.js as an array of objects.
 Users are stored in data/users.js as an array of objects.
 
 
-## EJS Templates
+## EJS Template
 
-The views/ files are used for rendering individual pages via EJS.
+The views/login is used for rendering login page via EJS.
