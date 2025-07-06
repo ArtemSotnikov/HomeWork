@@ -3,11 +3,36 @@ import session from "express-session";
 import passport from "passport";
 import {users} from "../data/users.js";
 import passportLocal from "passport-local";
+import { MongoClient } from "mongodb";
+
 const LocalStrategy = passportLocal.Strategy;
 
 const PORT = process.env.PORT || 4000;
 
 const app = express();
+
+const uri = "mongodb+srv://artemsotnikov:xF9kcYtccIz4z9NF@cluster0.x6zyhdw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+const dbName ='sample_mflix';
+
+async function connect(){
+    try {
+        await client.connect();
+        console.log('Successfully connect to MongoDB Atlas');
+
+        const db = client.db(dbName);
+
+        const collections = await db.listCollections().toArray();
+        console.log("Collection list:");
+        collections.forEach((collection) => console.log(collection.name));
+    } catch (err) {
+        console.error('Fail to connect to MongoDB Atlas', err);
+    }
+}
+
+connect();
 
 app.use(express.urlencoded({ extended: true }));
 
