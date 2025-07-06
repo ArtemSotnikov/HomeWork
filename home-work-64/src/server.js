@@ -4,6 +4,9 @@ import passport from "passport";
 import {users} from "../data/users.js";
 import passportLocal from "passport-local";
 import { MongoClient } from "mongodb";
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const LocalStrategy = passportLocal.Strategy;
 
@@ -11,7 +14,7 @@ const PORT = process.env.PORT || 4000;
 
 const app = express();
 
-const uri = "mongodb+srv://artemsotnikov:xF9kcYtccIz4z9NF@cluster0.x6zyhdw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const uri = process.env.MONGO_CONNECTION;
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -39,7 +42,7 @@ app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 
 app.use(session({
-    secret: 'secret-key',
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: {
