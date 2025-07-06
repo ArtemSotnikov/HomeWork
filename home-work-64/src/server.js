@@ -35,6 +35,12 @@ async function connect(){
     }
 }
 
+async function getUsersFromMDB() {
+    const db = client.db(dbName);
+
+    return await db.collection('users').find().limit(10).toArray();
+}
+
 connect();
 
 app.use(express.urlencoded({ extended: true }));
@@ -101,6 +107,12 @@ app.post('/login',
 
 app.get('/', (req, res) => {
     res.send('Main page');
+});
+
+app.get('/users', async (req, res) => {
+        const users = await getUsersFromMDB();
+
+        res.render('usersMDB', { users, title_page: 'Users' });
 });
 
 app.get('/protected', checkAuthentication, (req, res) => {
