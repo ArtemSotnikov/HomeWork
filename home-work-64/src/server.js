@@ -20,28 +20,13 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 
 const dbName ='sample_mflix';
 
-async function connect(){
-    try {
-        await client.connect();
-        console.log('Successfully connect to MongoDB Atlas');
-
-        const db = client.db(dbName);
-
-        const collections = await db.listCollections().toArray();
-        console.log("Collection list:");
-        collections.forEach((collection) => console.log(collection.name));
-    } catch (err) {
-        console.error('Fail to connect to MongoDB Atlas', err);
-    }
-}
-
 async function getUsersFromMDB() {
     const db = client.db(dbName);
 
     return await db.collection('users').find().limit(10).toArray();
 }
 
-connect();
+//connect();
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -126,6 +111,25 @@ app.get('/logout', (req, res, next) => {
     });
 });
 
-app.listen(PORT, () => {
-    console.log(`Server started on port ${PORT}`);
-})
+async function connectAndStartServer() {
+    try {
+        await client.connect();
+        console.log('Successfully connect to MongoDB Atlas');
+
+        const db = client.db(dbName);
+
+        const collections = await db.listCollections().toArray();
+        console.log("Collection list:");
+        collections.forEach((collection) => console.log(collection.name));
+
+        app.listen(PORT, () => {
+            console.log(`Server started on port ${PORT}`);
+        })
+    } catch (err) {
+        console.error("Failed to connect to MongoDB", err);
+    }
+}
+
+connectAndStartServer();
+
+
