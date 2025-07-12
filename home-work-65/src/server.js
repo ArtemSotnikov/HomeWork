@@ -199,12 +199,12 @@ app.post('/replace_user', async (req, res) => {
     try {
         const users = await getCollectionUsersFromMDB();
 
-        const result = await users.replaceOne({name}, { name_new, email, password });
-        console.log(`Updated ${result.modifiedCount} users(s)`);
+        const result = await users.replaceOne({name}, { name: name_new, email, password });
+        console.log(`Replaced ${result.modifiedCount} users(s)`);
 
-        res.render('updateUser');
+        res.render('replaceUser');
     } catch (error) {
-        console.error('Error updating user:', error);
+        console.error('Error replacing user:', error);
     }
 })
 
