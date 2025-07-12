@@ -208,6 +208,25 @@ app.post('/replace_user', async (req, res) => {
     }
 })
 
+app.get('/delete_user', async (req, res) => {
+    res.render('deleteUser');
+})
+
+app.post('/delete_user', async (req, res) => {
+    const name = req.body;
+
+    try {
+        const users = await getCollectionUsersFromMDB();
+
+        const result = await users.deleteOne(  name );
+        console.log(`Delete ${result.deletedCount} users(s)`);
+
+        res.render('deleteUser');
+    } catch (error) {
+        console.error('Error deleting user:', error);
+    }
+})
+
 
 app.get('/protected', checkAuthentication, (req, res) => {
     res.send(`Hello ${req.user.username}, welcome to the protected page!`);
