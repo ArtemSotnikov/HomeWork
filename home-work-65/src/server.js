@@ -105,9 +105,7 @@ app.get('/users', async (req, res) => {
 });
 
 app.get('/add_user', async (req, res) => {
-    const users = await getUsersFromMDB();
-
-    res.render('addUser', { users });
+    res.render('addUser');
 })
 
 app.post('/add_user', async (req, res) => {
@@ -119,10 +117,37 @@ app.post('/add_user', async (req, res) => {
         const result = await users.insertOne({name, email});
         console.log(`New user add to DB with ID: ${result.insertedId}`);
 
-        res.render('addUser', { users });
+        res.render('addUser');
     } catch (error) {
         console.error('Error inserting user:', error);
     }
+})
+
+app.post('/add_users', async (req, res) => {
+    const { name, email } = req.body;
+
+    try {
+        const users = await getCollectionUsersFromMDB();
+
+        const names = Array.isArray(name) ? name : [name];
+        const emails = Array.isArray(email) ? email : [email];
+
+        const usersToAdd = names.map((n, i) => ({
+            name: n,
+            email: emails[i]
+        }));
+
+        const result = await users.insertMany(usersToAdd);
+        console.log(`New users add to DB: ${result.insertedIds}`);
+
+        res.render('addThreeUsers', { users });
+    } catch (error) {
+        console.error('Error inserting users:', error);
+    }
+})
+
+app.get('/add_users', async (req, res) => {
+    res.render('addThreeUsers');
 })
 
 app.get('/protected', checkAuthentication, (req, res) => {
