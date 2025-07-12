@@ -26,7 +26,11 @@ async function getUsersFromMDB() {
     return await db.collection('users').find().limit(10).toArray();
 }
 
-//connect();
+async function getCollectionUsersFromMDB() {
+    const db = client.db(dbName);
+
+    return await db.collection("users");
+}
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -99,6 +103,27 @@ app.get('/users', async (req, res) => {
 
         res.render('usersMDB', { users, title_page: 'Users' });
 });
+
+app.get('/add_user', async (req, res) => {
+    const users = await getUsersFromMDB();
+
+    res.render('addUser', { users });
+})
+
+app.post('/add_user', async (req, res) => {
+    const { name, email } = req.body;
+
+    try {
+        const users = await getCollectionUsersFromMDB();
+
+        const result = await users.insertOne({name, email});
+        console.log(`New user add to DB with ID: ${result.insertedId}`);
+
+        res.render('addUser', { users });
+    } catch (error) {
+        console.error('Error inserting user:', error);
+    }
+})
 
 app.get('/protected', checkAuthentication, (req, res) => {
     res.send(`Hello ${req.user.username}, welcome to the protected page!`);
