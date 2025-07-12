@@ -144,7 +144,7 @@ app.post('/add_users', async (req, res) => {
         const result = await users.insertMany(usersToAdd);
         console.log(`New users add to DB: ${result.insertedIds}`);
 
-        res.render('addThreeUsers', { users });
+        res.render('addThreeUsers');
     } catch (error) {
         console.error('Error inserting users:', error);
     }
@@ -188,6 +188,26 @@ app.post('/update_many_users', async (req, res) => {
         console.error("Error updating many users:", error);
     }
 });
+
+app.get('/replace_user', async (req, res) => {
+    res.render('replaceUser');
+})
+
+app.post('/replace_user', async (req, res) => {
+    const { name, name_new, email, password } = req.body;
+
+    try {
+        const users = await getCollectionUsersFromMDB();
+
+        const result = await users.replaceOne({name}, { name_new, email, password });
+        console.log(`Updated ${result.modifiedCount} users(s)`);
+
+        res.render('updateUser');
+    } catch (error) {
+        console.error('Error updating user:', error);
+    }
+})
+
 
 app.get('/protected', checkAuthentication, (req, res) => {
     res.send(`Hello ${req.user.username}, welcome to the protected page!`);
