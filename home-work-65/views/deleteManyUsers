@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Delete Many Users</title>
+</head>
+<body>
+<h1>Delete Users with Name Starting with "f"</h1>
+
+<form method="POST" action="/delete_many_users">
+    <button type="submit">Delete Users</button>
+</form>
+</body>
+</html>
