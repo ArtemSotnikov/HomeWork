@@ -158,6 +158,21 @@ app.get('/update_users', async (req, res) => {
     res.render('updateThreeUsers');
 })
 
+app.post('/update_user', async (req, res) => {
+    const { name, email } = req.body;
+
+    try {
+        const users = await getCollectionUsersFromMDB();
+
+        const result = await users.updateOne({ name },{ $set: { email } });
+        console.log(`Updated ${result.modifiedCount} document(s)`);
+
+        res.render('updateUser');
+    } catch (error) {
+        console.error('Error updating user:', error);
+    }
+})
+
 app.get('/protected', checkAuthentication, (req, res) => {
     res.send(`Hello ${req.user.username}, welcome to the protected page!`);
 });
