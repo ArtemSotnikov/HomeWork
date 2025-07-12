@@ -154,8 +154,8 @@ app.get('/update_user', async (req, res) => {
     res.render('updateUser');
 })
 
-app.get('/update_users', async (req, res) => {
-    res.render('updateThreeUsers');
+app.get('/update_many_users', async (req, res) => {
+    res.render('updateManyUsers');
 })
 
 app.post('/update_user', async (req, res) => {
@@ -165,13 +165,29 @@ app.post('/update_user', async (req, res) => {
         const users = await getCollectionUsersFromMDB();
 
         const result = await users.updateOne({ name },{ $set: { email } });
-        console.log(`Updated ${result.modifiedCount} document(s)`);
+        console.log(`Updated ${result.modifiedCount} users(s)`);
 
         res.render('updateUser');
     } catch (error) {
         console.error('Error updating user:', error);
     }
 })
+
+app.post('/update_many_users', async (req, res) => {
+    const { email } = req.body;
+
+    try {
+        const users = await getCollectionUsersFromMDB();
+
+        const result = await users.updateMany({ name: /^f/i }, { $set: { email } });
+
+        console.log(`Updated ${result.modifiedCount} users(s).`);
+
+        res.send(`<p>Updated ${result.modifiedCount} user(s) with new email.</p><a href="/users">Back to Users</a>`);
+    } catch (error) {
+        console.error("Error updating many users:", error);
+    }
+});
 
 app.get('/protected', checkAuthentication, (req, res) => {
     res.send(`Hello ${req.user.username}, welcome to the protected page!`);
