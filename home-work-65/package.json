@@ -1,0 +1,25 @@
+{
+  "name": "home-work-65",
+  "version": "1.0.0",
+  "description": "This project is a Node.js web application that demonstrates connection to **MongoDB Atlas**. The project includes **Passport.js** with the **Local Strategy** (email and password) from local user file . It also has **session management** using `express-session`, and restricts access to a protected route.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.2.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "mongodb": "^6.17.0",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
