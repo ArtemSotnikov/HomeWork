@@ -227,6 +227,23 @@ app.post('/delete_user', async (req, res) => {
     }
 })
 
+app.post('/delete_many_users', async (req, res) => {
+    try {
+        const users = await getCollectionUsersFromMDB();
+
+        const result = await users.deleteMany({ name: /^f/i });
+
+        console.log(`Deleted ${result.deletedCount} users(s).`);
+
+        res.send(`<p>Deleted ${result.deletedCount} user(s)</p><a href="/users">Back to Users</a>`);
+    } catch (error) {
+        console.error("Error deleting many users:", error);
+    }
+});
+
+app.get('/delete_many_users', async (req, res) => {
+    res.render('deleteManyUsers');
+})
 
 app.get('/protected', checkAuthentication, (req, res) => {
     res.send(`Hello ${req.user.username}, welcome to the protected page!`);
