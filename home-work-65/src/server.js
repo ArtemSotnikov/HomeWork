@@ -108,6 +108,10 @@ app.get('/add_user', async (req, res) => {
     res.render('addUser');
 })
 
+app.get('/add_users', async (req, res) => {
+    res.render('addThreeUsers');
+})
+
 app.post('/add_user', async (req, res) => {
     const { name, email } = req.body;
 
@@ -146,8 +150,12 @@ app.post('/add_users', async (req, res) => {
     }
 })
 
-app.get('/add_users', async (req, res) => {
-    res.render('addThreeUsers');
+app.get('/update_user', async (req, res) => {
+    res.render('updateUser');
+})
+
+app.get('/update_users', async (req, res) => {
+    res.render('updateThreeUsers');
 })
 
 app.get('/protected', checkAuthentication, (req, res) => {
