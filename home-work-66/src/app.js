@@ -15,7 +15,7 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 const dbName ='sample_mflix';
 
 async function getCollectionMoviesFromMDB() {
-    return await client.db(dbName).collection("movies");
+    return client.db(dbName).collection("movies");
 }
 
 async function connectAndStartServer() {
@@ -45,13 +45,19 @@ app.get('/', (req, res) => {
 
 app.get('/movies', async (req, res) => {
     try {
-        const movies = await getCollectionMoviesFromMDB();
+        const moviesCollection = await getCollectionMoviesFromMDB();
 
-        const { title } = req.body;
+        const { title } = req.query;
 
+        const query = {};
 
+        if (title) {
+            query.title = { $regex: title };
+        }
 
-    //    res.render('movies');
+        const moviesList = await moviesCollection.find(query).limit(20).toArray();
+
+        res.render('movies', { movies: moviesList, query: req.query } );
     } catch (error) {
         console.error("Error occurred by fetching movies:", error);
     }
