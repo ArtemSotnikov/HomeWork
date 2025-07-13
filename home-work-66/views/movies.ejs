@@ -20,6 +20,10 @@
     <input type="text" name="genre" value="<%= query.genre || '' %>">
     <br><br>
 
+    <label>Cast includes:</label>
+    <input type="text" name="castMember" value="<%= query.castMember || '' %>">
+    <br><br>
+
     <button type="submit">Filter</button>
 </form>
 
@@ -34,6 +38,7 @@
                 <strong><%= movie.title %></strong>
                 <% if (movie.year) { %> (<%= movie.year %>) <% } %><br>
                 Genre(s): <%= movie.genres ? movie.genres.join(', ') : 'N/A' %><br>
+                Cast: <%= movie.cast ? movie.cast.join(', ') : 'N/A' %><br>
                 <em><%= movie.fullplot ? movie.fullplot.slice(0, 200) + '...' : '' %></em>
             </li>
             <hr>
