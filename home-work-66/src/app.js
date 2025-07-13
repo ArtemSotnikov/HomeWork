@@ -43,7 +43,7 @@ app.get('/movies', async (req, res) => {
     try {
         const moviesCollection = await getCollectionMoviesFromMDB();
 
-        const { title, year, genre, castMember, imdbRating } = req.query;
+        const { title, year, genre, castMember, imdbRating, page = 1 } = req.query;
 
         const query = {};
 
@@ -67,9 +67,15 @@ app.get('/movies', async (req, res) => {
             query["imdb.rating"] = { $gt: parseFloat(imdbRating) };
         }
 
-        const moviesList = await moviesCollection.find(query).limit(20).toArray();
+        const limit = 10;
+        const currentPage = parseInt(page);
 
-        res.render('movies', { movies: moviesList, query: req.query } );
+        const moviesList = await moviesCollection.find(query).
+            skip((currentPage - 1) * limit).limit(limit).toArray();
+
+        const hasNextPage = moviesList.length === limit;
+
+        res.render('movies', { movies: moviesList, query: req.query, currentPage, hasNextPage  } );
     } catch (error) {
         console.error("Error occurred by fetching movies:", error);
     }
