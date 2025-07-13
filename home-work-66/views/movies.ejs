@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Filtered Movies</title>
+</head>
+<body>
+<h1>Filtered Movies</h1>
+
+<form method="GET" action="/movies">
+  <label>Genre:</label>
+  <input type="text" name="genre" value="<%= query.genre || '' %>">
+  <br><br>
+  <label>Cast:</label>
+  <input type="text" name="cast" value="<%= query.cast || '' %>">
+  <br><br>
+  <label>Title contains:</label>
+  <input type="text" name="title" value="<%= query.title || '' %>">
+  <br><br>
+  <label>Description contains:</label>
+  <input type="text" name="text" value="<%= query.text || '' %>">
+  <br><br>
+  <label>Page:</label>
+  <input type="number" name="page" min="1" value="<%= query.page || 1 %>">
+  <br><br>
+  <label>Limit:</label>
+  <input type="number" name="limit" min="1" value="<%= query.limit || 10 %>">
+  <br><br>
+  <button type="submit">Filter</button>
+</form>
+
+<hr>
+
+<% if (movies.length === 0) { %>
+<p>No movies found.</p>
+<% } else { %>
+<ul>
+  <% movies.forEach(movie => { %>
+  <li>
+    <strong><%= movie.title %></strong>
+    <% if (movie.year) { %> (<%= movie.year %>) <% } %><br>
+    Genre(s): <%= movie.genres ? movie.genres.join(', ') : 'N/A' %><br>
+    Cast: <%= movie.cast ? movie.cast.join(', ') : 'N/A' %><br>
+    <em><%= movie.fullplot ? movie.fullplot.slice(0, 200) + '...' : '' %></em>
+  </li>
+  <hr>
+  <% }) %>
+</ul>
+<% } %>
+</body>
+</html>

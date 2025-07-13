@@ -8,6 +8,8 @@ const PORT = process.env.PORT || 4000;
 
 const app = express();
 
+app.set('view engine', 'ejs');
+
 const uri = process.env.MONGO_CONNECTION;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 const dbName ='sample_mflix';
@@ -40,3 +42,4 @@ connectAndStartServer();
 app.get('/', (req, res) => {
     res.send('Main page');
 });
+
