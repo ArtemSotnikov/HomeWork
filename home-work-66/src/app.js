@@ -39,10 +39,6 @@ async function connectAndStartServer() {
 
 connectAndStartServer();
 
-app.get('/', (req, res) => {
-    res.send('Main page');
-});
-
 app.get('/movies', async (req, res) => {
     try {
         const moviesCollection = await getCollectionMoviesFromMDB();
