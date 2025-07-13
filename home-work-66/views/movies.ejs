@@ -16,6 +16,10 @@
     <input type="number" name="year" value="<%= query.year || '' %>">
     <br><br>
 
+    <label>Genre:</label>
+    <input type="text" name="genre" value="<%= query.genre || '' %>">
+    <br><br>
+
     <button type="submit">Filter</button>
 </form>
 
@@ -29,6 +33,7 @@
             <li>
                 <strong><%= movie.title %></strong>
                 <% if (movie.year) { %> (<%= movie.year %>) <% } %><br>
+                Genre(s): <%= movie.genres ? movie.genres.join(', ') : 'N/A' %><br>
                 <em><%= movie.fullplot ? movie.fullplot.slice(0, 200) + '...' : '' %></em>
             </li>
             <hr>
