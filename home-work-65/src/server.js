@@ -245,6 +245,18 @@ app.get('/delete_many_users', async (req, res) => {
     res.render('deleteManyUsers');
 })
 
+app.get('/users_projection', async (req, res) => {
+    try {
+        const collection = await getCollectionUsersFromMDB();
+
+        const users = await collection.find({}, {projection: {_id: 0, name: 1, email: 1}}).limit(10).toArray();
+
+        res.render('usersProjection', { users });
+    } catch (error) {
+        console.error("Error in projection:", error);
+    }
+});
+
 app.get('/protected', checkAuthentication, (req, res) => {
     res.send(`Hello ${req.user.username}, welcome to the protected page!`);
 });
