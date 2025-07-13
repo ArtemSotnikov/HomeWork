@@ -43,3 +43,18 @@ app.get('/', (req, res) => {
     res.send('Main page');
 });
 
+app.get('/movies', async (req, res) => {
+    try {
+        const movies = await getCollectionMoviesFromMDB();
+
+        const { title } = req.body;
+
+
+
+    //    res.render('movies');
+    } catch (error) {
+        console.error("Error occurred by fetching movies:", error);
+    }
+
+
+})
