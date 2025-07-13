@@ -43,7 +43,7 @@ app.get('/movies', async (req, res) => {
     try {
         const moviesCollection = await getCollectionMoviesFromMDB();
 
-        const { title, year, genre, castMember } = req.query;
+        const { title, year, genre, castMember, imdbRating } = req.query;
 
         const query = {};
 
@@ -61,6 +61,10 @@ app.get('/movies', async (req, res) => {
 
         if (castMember) {
             query.cast = { $regex: castMember, $options: 'i' };
+        }
+
+        if (imdbRating) {
+            query["imdb.rating"] = { $gt: parseFloat(imdbRating) };
         }
 
         const moviesList = await moviesCollection.find(query).limit(20).toArray();

@@ -24,6 +24,10 @@
     <input type="text" name="castMember" value="<%= query.castMember || '' %>">
     <br><br>
 
+    <label>IMDb Rating greater than:</label>
+    <input type="number" name="imdbRating" step="0.1" value="<%= query.imdbRating || '' %>">
+    <br><br>
+
     <button type="submit">Filter</button>
 </form>
 
@@ -39,6 +43,9 @@
                 <% if (movie.year) { %> (<%= movie.year %>) <% } %><br>
                 Genre(s): <%= movie.genres ? movie.genres.join(', ') : 'N/A' %><br>
                 Cast: <%= movie.cast ? movie.cast.join(', ') : 'N/A' %><br>
+                <% if (movie.imdb && movie.imdb.rating) { %>
+                    IMDb Rating: <%= movie.imdb.rating %><br>
+                <% } %>
                 <em><%= movie.fullplot ? movie.fullplot.slice(0, 200) + '...' : '' %></em>
             </li>
             <hr>
