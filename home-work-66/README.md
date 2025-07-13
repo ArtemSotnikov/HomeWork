@@ -1,4 +1,4 @@
-# Simple Server on Express with connection to MongodDB and CRUD functionality with Passport authentication (from local file)
+# Simple Server on Express with connection to MongodDB with search functionality in movies collection
 
 A simple Express.js web app that connects to MongoDB Atlas and allows users to filter movies from the sample_mflix database using different search criteria:
 
