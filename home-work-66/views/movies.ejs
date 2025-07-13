@@ -1,34 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Filtered Movies</title>
+    <meta charset="UTF-8">
+    <title>Filtered Movies</title>
 </head>
 <body>
 <h1>Filtered Movies</h1>
 
 <form method="GET" action="/movies">
-  <label>Title contains:</label>
-  <input type="text" name="title" value="<%= query.title || '' %>">
-  <br><br>
-  <button type="submit">Filter</button>
+    <label>Title contains:</label>
+    <input type="text" name="title" value="<%= query.title || '' %>">
+    <br><br>
+
+    <label>Year:</label>
+    <input type="number" name="year" value="<%= query.year || '' %>">
+    <br><br>
+
+    <button type="submit">Filter</button>
 </form>
 
 <hr>
 
 <% if (movies.length === 0) { %>
-  <p>No movies found.</p>
+    <p>No movies found.</p>
 <% } else { %>
-  <ul>
-    <% movies.forEach(movie => { %>
-      <li>
-        <strong><%= movie.title %></strong>
-        <% if (movie.year) { %> (<%= movie.year %>) <% } %><br>
-        <em><%= movie.fullplot ? movie.fullplot.slice(0, 200) + '...' : '' %></em>
-      </li>
-      <hr>
-    <% }) %>
-  </ul>
+    <ul>
+        <% movies.forEach(movie => { %>
+            <li>
+                <strong><%= movie.title %></strong>
+                <% if (movie.year) { %> (<%= movie.year %>) <% } %><br>
+                <em><%= movie.fullplot ? movie.fullplot.slice(0, 200) + '...' : '' %></em>
+            </li>
+            <hr>
+        <% }) %>
+    </ul>
 <% } %>
 </body>
 </html>

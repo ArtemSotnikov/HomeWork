@@ -43,12 +43,16 @@ app.get('/movies', async (req, res) => {
     try {
         const moviesCollection = await getCollectionMoviesFromMDB();
 
-        const { title } = req.query;
+        const { title, year } = req.query;
 
         const query = {};
 
         if (title) {
             query.title = { $regex: title };
+        }
+
+        if (year) {
+            query.year = { $regex: year };
         }
 
         const moviesList = await moviesCollection.find(query).limit(20).toArray();
