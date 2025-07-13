@@ -72,29 +72,33 @@ Route	method description:
 
 /login	 ----> POST handles login with email and password using Passport.js
 
-/add_user	 ----> GET login page with user email and passwort, if incorrect credentials are submitted, shows an error message
+/add_user	 ----> GET add new user page
 
-/add_user	 ----> POST handles login with email and password using Passport.js
+/add_user	 ----> POST handles insertion of new user with name and email
 
-/add_users	 ----> GET login page with user email and passwort, if incorrect credentials are submitted, shows an error message
+/add_users	 ----> GET add new 3 users page
 
-/add_user	 ----> POST handles login with email and password using Passport.js
+/add_user	 ----> POST handles insertion of 3 new users with names and emails
 
-/update_user	 ----> GET login page with user email and passwort, if incorrect credentials are submitted, shows an error message
+/update_user	 ----> GET update one user email  page
 
-/update_users	 ----> POST handles login with email and password using Passport.js
+/update_user	 ----> POST handles update of email of one user chosen by name 
 
-/replace_user	 ----> GET login page with user email and passwort, if incorrect credentials are submitted, shows an error message
+/update_many_users	 ----> GET update emails for users with name starting with "f" page
 
-/replace_user	 ----> POST handles login with email and password using Passport.js
+/update_many_users	 ----> POST handles update of email of all users with name starting with "f" 
 
-/delete_user	 ----> GET login page with user email and passwort, if incorrect credentials are submitted, shows an error message
+/replace_user	 ----> GET replace one page
 
-/delete_user	 ----> POST handles login with email and password using Passport.js
+/replace_user	 ----> POST handles replace of one user chosen by name with new user with fields: name, email, passwor 
 
-/delete_users	 ----> GET login page with user email and passwort, if incorrect credentials are submitted, shows an error message
+/delete_user	 ----> GET delete one user page
 
-/delete_users	 ----> POST handles login with email and password using Passport.js
+/delete_user	 ----> POST handles delete of one user chosen by name 
+
+/delete_users	 ----> GET delete users with name starting with "f" page
+
+/delete_users	 ----> POST handles delete of all users with name starting with "f" 
 
 /login	 ----> GET login page with user email and passwort, if incorrect credentials are submitted, shows an error message
 
