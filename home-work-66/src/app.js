@@ -48,7 +48,7 @@ app.get('/movies', async (req, res) => {
         const query = {};
 
         if (title) {
-            query.title = { $regex: title };
+            query.title = { $regex: title, $options: 'i' };
         }
 
         if (year) {
