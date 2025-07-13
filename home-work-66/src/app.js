@@ -52,7 +52,7 @@ app.get('/movies', async (req, res) => {
         }
 
         if (year) {
-            query.year = { $regex: year };
+            query.year = parseInt(year);
         }
 
         const moviesList = await moviesCollection.find(query).limit(20).toArray();
