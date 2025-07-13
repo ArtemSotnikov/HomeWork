@@ -1,10 +1,11 @@
-# Simple Server on Express with connection to MongodDB with Passport authentication (from local file)
+# Simple Server on Express with connection to MongodDB and CRUD functionality with Passport authentication (from local file)
 
-This project is a Node.js web application that demonstrates connection to **MongoDB Atlas**. The project includes **Passport.js** with the **Local Strategy** (email and password) from local user file . It also has **session management** using `express-session`, and restricts access to a protected route.
+This is a Node.js/Express server application with  CRUD (Create, Read, Update, Delete) functionality using MongoDB Atlas as the database. The application features user session authentication, user management routes, and server-side rendering with EJS templates.
 
 Main features:
 
 - Connection and fetching users data from MongoDB Atlas
+- Add, update, replace, and delete single or multiple users
 - User login with email and password (`/login`) 
 - Authentication using Passport.js
 - Session management with `express-session`
@@ -21,8 +22,16 @@ HomeWork/home-work-64
 ├── src/    
 │    └── server.js    
 ├── views/   
+│    ├── addThreeUsers.ejs
+│    ├── addUser.ejs
+│    ├── deleteManyUsers.ejs
+│    ├── deleteUser.ejs
 │    ├── login.ejs
-│    └── usersMDB.js      
+│    ├── replaceUser.ejs
+│    ├── updateManyUsers.ejs
+│    ├── updateUser.ejs
+│    ├── usersMDB.ejs
+│    └── usersProjection.ejs      
 ├── .gitignore     
 ├── package.json     
 ├── package-lock.json     
@@ -63,6 +72,34 @@ Route	method description:
 
 /login	 ----> POST handles login with email and password using Passport.js
 
+/add_user	 ----> GET login page with user email and passwort, if incorrect credentials are submitted, shows an error message
+
+/add_user	 ----> POST handles login with email and password using Passport.js
+
+/add_users	 ----> GET login page with user email and passwort, if incorrect credentials are submitted, shows an error message
+
+/add_user	 ----> POST handles login with email and password using Passport.js
+
+/update_user	 ----> GET login page with user email and passwort, if incorrect credentials are submitted, shows an error message
+
+/update_users	 ----> POST handles login with email and password using Passport.js
+
+/replace_user	 ----> GET login page with user email and passwort, if incorrect credentials are submitted, shows an error message
+
+/replace_user	 ----> POST handles login with email and password using Passport.js
+
+/delete_user	 ----> GET login page with user email and passwort, if incorrect credentials are submitted, shows an error message
+
+/delete_user	 ----> POST handles login with email and password using Passport.js
+
+/delete_users	 ----> GET login page with user email and passwort, if incorrect credentials are submitted, shows an error message
+
+/delete_users	 ----> POST handles login with email and password using Passport.js
+
+/login	 ----> GET login page with user email and passwort, if incorrect credentials are submitted, shows an error message
+
+/login	 ----> POST handles login with email and password using Passport.js
+
 /	 ----> GET home page, which has no restrictions
 
 /protected  ----> GET protected page, accessible only for loged in users
@@ -77,4 +114,4 @@ Local users with access to the server are stored in data/users.js as an array of
 
 ## EJS Template
 
-The views/login is used for rendering login and users pages via EJS.
+The views are used for rendering pages via EJS.
