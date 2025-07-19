@@ -1,21 +1,17 @@
-# Simple Server on Express with connection to MongodDB with search functionality in movies collection
+# Express App with MongoDB and MongoDB-Express UI in Docker
 
-A simple Express.js web app that connects to MongoDB Atlas and allows users to filter movies from the sample_mflix database using different search criteria:
-
-- Title
-- Year
-- Genre
-- Cast member
-- IMDb rating (greater than a given value)
+This project is a simple **Express.js application** that connects to a **MongoDB database** and **MongoDB-Express UI**, all running in Docker containers. The application is configured using Dockerfile and Docker Compose, and it includes support for live-reloading with **nodemon** during development.
 
 ## Project Structure
 ```
 HomeWork/home-work-64    
 ├── src/    
 │    └── app.js    
-├── views/   
-│    └── movies.ejs      
-├── .gitignore     
+├── docker-compose.yml
+├── Dockerfile
+├── .env    
+├── .gitignore
+├── nodemon.json    
 ├── package.json     
 ├── package-lock.json     
 └── README.md     
@@ -23,33 +19,39 @@ HomeWork/home-work-64
 
 ## Getting Started
 
-Install dependencies:
+1. Clone the Repository
 
-`npm install`
+`git clone HomeWork`  
+`cd home-work-67`
 
-Create **.env** file in the root of the project with the following structure:
-```
-PORT=4000
-MONGO_CONNECTION=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/?retryWrites=true&w=majority
-```
+2. Run the Project with Docker Compose
 
-Start the server:
+`docker-compose up --build`
 
-`npm start`
+This will:
 
-Open the app in your browser:
+    Build and start your Express app
 
-`http://localhost:4000`
+    Spin up a MongoDB container
 
-Command	description:
+    Start a mongo-express web UI at http://localhost:8081 (login: admin / password)
 
-`npm start`	starts the server using nodemon for auto-reload
+    Serve your app at http://localhost:3000
 
-## Routes
-Route	method description:
+##  Live Reloading During Development
+The project uses `nodemon` to watch for file changes.
 
-/movies	 ----> GET search page for movies, with pagination 10 movies per page.
+To enable live reload:
 
-## EJS Template
+1. Make changes in your local `src/app.js` file
 
-The view "movies" to render the search page via EJS.
+2. Your Docker container will automatically reload and apply changes
+
+## Useful Commands
+Rebuild the containers:
+
+`docker-compose up --build`
+
+Stop and remove containers:
+
+`docker-compose down`
