@@ -12,7 +12,7 @@ const app = express();
 
 
 app.get('/', (req, res) => {
-    res.send('Main page Test');
+    res.send('Main page');
 });
 
 async function connectAndStartServer() {
