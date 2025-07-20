@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import session from "express-session";
 import passport from "passport";
 import {users} from "../data/users.js";
+import User from './models/User.js'
 
 
 dotenv.config();
@@ -14,8 +15,6 @@ const LocalStrategy = passportLocal.Strategy;
 const PORT = process.env.PORT || 4000;
 const app = express();
 const URI = process.env.MONGO_CONNECTION;
-
-const dbName ='sample_mflix';
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -92,6 +91,17 @@ app.get('/protected', checkAuthentication, (req, res) => {
 
 app.get('/', (req, res) => {
     res.send('Main page');
+});
+
+async function getUsersFromMDB() {
+    return await User.find().limit(10);
+}
+
+app.get('/users', async (req, res) => {
+    const users = await getUsersFromMDB();
+    console.log(users);
+
+    res.render('usersMDB', { users, title_page: 'Users' });
 });
 
 async function connectAndStartServer() {
