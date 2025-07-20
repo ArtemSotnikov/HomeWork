@@ -2,17 +2,41 @@
 
     1. Створіть нову базу даних studentDB.
 
+        use studentDB
+
     2. У цій базі створіть колекцію assignments.
+
+        Automatically created when add students in the next point.
 
     3. Додайте до колекції assignments п'ять документів, кожен з яких містить поля: name (ім'я студента), subject (предмет), score (бал).
 
+        db.assignments.insertMany([
+            {name: "Frodo", subject: "Math", score: 60},
+            {name: "Sam", subject: "History", score: 90},
+            {name: "Aragorn", subject: "Math", score: 91},
+            {name: "Golum", subject: "Science", score: 35},
+            {name: "Gendalf", subject: "History", score: 100}
+        ])
+
     4. Виконайте запит, щоб знайти всі документи, де score більше 80.
+
+        db.assignments.find({score: {$gt: 80}})
 
     5. Оновіть один з документів, збільшивши score на 5 балів для студента, який має менше 85 балів.
 
+        db.assignments.updateOne({score:{$lt: 85}}, {$inc: {score: 5}})
+
     6. Видаліть документ для студента, який має найнижчий бал.
 
+        //First sort all students from the lowes score.
+        db.assignments.find().sort({score: 1})
+
+        //Delete user with the lowest score.
+        db.assignments.deleteOne({score: 35})
+
     7. Використайте команду find() з проекцією, щоб вивести тільки ім'я та бал студента.
+
+        db.assignments.find({}, {_id: 0, name: 1, score: 1})
 
 Завдання 2 (не обов'язкове): Агрегаційні операції
 
@@ -20,7 +44,15 @@
 
     1. Використовуючи колекцію assignments з першого завдання, напишіть агрегаційний запит, який групує документи за предметом та обчислює середній бал за кожним предметом.
 
+        db.assignments.aggregate([{$group: {_id: "$subject", avgScore: { $avg: "$score" }}}])
+
     2. Додайте до агрегації етап, що фільтрує результати для виведення тільки тих предметів, де середній бал вище 75.
+
+        //Greater than 80 (since the lowest ist average score is 78)
+        db.assignments.aggregate([
+            {$group: {_id: "$subject", avgScore: { $avg: "$score" }}},
+            {$match: {avgScore: {$gt: 80}}}
+        ])
 
 Завдання 3 (не обов'язкове): Робота з індексами
 
@@ -31,4 +63,3 @@
     2. Виконайте запит пошуку, який використовує цей індекс, для вибірки документів, де ім'я студента починається на літеру 'A'.
 
     3. Аналізуйте час виконання запиту до та після створення індексу, використовуючи explain() для демонстрації ефективності індексу.
-    
