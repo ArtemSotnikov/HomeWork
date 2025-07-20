@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title_page %></title>
+</head>
+<body>
+<h1>Login</h1>
+<% if (error) { %>
+    <p style="color: red;"><%= error %></p>
+<% } %>
+<form method="POST" action="/login">
+    <div>
+        <label>Email:</label>
+        <input type="email" name="email" required />
+    </div>
+    <br>
+    <div>
+        <label>Password:</label>
+        <input type="password" name="password" required />
+    </div>
+    <br>
+    <button type="submit">Login</button>
+</form>
+</body>
+</html>
