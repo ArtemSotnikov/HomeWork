@@ -1,6 +1,6 @@
 # Simple Server on Express with connection to MongodDB via mongoose with Passport authentication (from local file)
 
-This project is a Node.js web application that demonstrates connection to **MongoDB Atlas** via **mongoose** schema. The project includes **Passport.js** with the **Local Strategy** (email and password) from local user file . It also has **session management** using `express-session`, and restricts access to a protected route.
+This project is a Node.js web application that demonstrates connection to **MongoDB Atlas** via **mongoose** schema. The project includes **Passport.js** with the **Local Strategy** (email and password) from user MongoDB Atlas via mongoose . It also has **session management** using `express-session`, and restricts access to a protected route.
 
 Main features:
 
@@ -15,9 +15,7 @@ Main features:
 
 ## Project Structure
 ```
-HomeWork/home-work-64  
-├── data/    
-│    ├── users.js    
+HomeWork/home-work-64     
 ├── src/
 │    ├── models/    
 │    │     └── User.js     
@@ -65,7 +63,7 @@ Route	method description:
 
 /login	 ----> POST handles login with email and password using Passport.js
 
-/	 ----> GET home page, which has no restrictions
+/	 ----> GET fetch users with "a" in their names
 
 /protected  ----> GET protected page, accessible only for loged in users
 
@@ -73,12 +71,7 @@ Route	method description:
 
 ## User mongoose schema
 
-Define structure of documents in "users" collection in src/models/User.
-
-## Local User Data
-
-Local users with access to the server are stored in data/users.js as an array of objects.
-
+Define structure of documents in "users" collection in src/models/User and static method to find users.
 
 ## EJS Template
 
