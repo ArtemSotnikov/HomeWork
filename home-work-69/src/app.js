@@ -4,7 +4,6 @@ import express from "express";
 import mongoose from 'mongoose';
 import session from "express-session";
 import passport from "passport";
-import {users} from "../data/users.js";
 import User from './models/User.js'
 
 
@@ -36,28 +35,31 @@ app.use(passport.session());
 
 passport.use(new LocalStrategy(
     { usernameField: 'email', passwordField: 'password' },
-    function(email, password, done) {
-        const user = users.find(u => u.email === email);
-        if (!user) {
-            return done(null, false);
-        }
+    async function (email, password, done) {
+        try {
+            const user = await User.findOne({ email });
+            if (!user) return done(null, false);
 
-        if (user.password !== password) {
-            return done(null, false);
-        }
+            if (user.password !== password) return done(null, false);
 
-        return done(null, user);
+            return done(null, user);
+        } catch (err) {
+            return done(err);
+        }
     }
 ));
 
-passport.serializeUser(function(user, done) {
-    done(null, user.id);
+passport.serializeUser((user, done) => {
+    done(null, user._id);
 });
 
-passport.deserializeUser(function(id, done) {
-    const user = users.find(u => u.id === id);
-
-    done(null, user);
+passport.deserializeUser(async (id, done) => {
+    try {
+        const user = await User.findById(id);
+        done(null, user);
+    } catch (err) {
+        done(err);
+    }
 });
 
 function checkAuthentication(req, res, next) {
