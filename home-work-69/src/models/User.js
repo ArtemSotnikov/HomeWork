@@ -21,5 +21,9 @@ const userSchema = mongoose.Schema({
     timestamps: true
 });
 
+userSchema.statics.findByName = function (namePart) {
+    return this.find({ name: new RegExp(namePart, 'i') }); // Case-insensitive
+};
+
 export default mongoose.model('User', userSchema);
 

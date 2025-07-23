@@ -91,8 +91,13 @@ app.get('/protected', checkAuthentication, (req, res) => {
     res.send(`Hello ${req.user.username}, welcome to the protected page!`);
 });
 
-app.get('/', (req, res) => {
-    res.send('Main page');
+app.get('/', async (req, res) => {
+    try {
+        const usersNamedA = await User.findByName('a');
+        res.render('usersMDB', { users: usersNamedA, title_page: 'Users with "a"' });
+    } catch (err) {
+        console.error(err);
+    }
 });
 
 async function getUsersFromMDB() {
